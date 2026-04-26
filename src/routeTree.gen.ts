@@ -9,38 +9,173 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MentorsIndexRouteImport } from './routes/mentors.index'
+import { Route as CoursesIndexRouteImport } from './routes/courses.index'
+import { Route as CommunityIndexRouteImport } from './routes/community.index'
+import { Route as MentorsMentorIdRouteImport } from './routes/mentors.$mentorId'
+import { Route as CoursesCourseIdRouteImport } from './routes/courses.$courseId'
+import { Route as CommunityDiscussionsRouteImport } from './routes/community.discussions'
+import { Route as CommunityEventsEventIdRouteImport } from './routes/community.events.$eventId'
 
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MentorsIndexRoute = MentorsIndexRouteImport.update({
+  id: '/mentors/',
+  path: '/mentors/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesIndexRoute = CoursesIndexRouteImport.update({
+  id: '/courses/',
+  path: '/courses/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityIndexRoute = CommunityIndexRouteImport.update({
+  id: '/community/',
+  path: '/community/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorsMentorIdRoute = MentorsMentorIdRouteImport.update({
+  id: '/mentors/$mentorId',
+  path: '/mentors/$mentorId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesCourseIdRoute = CoursesCourseIdRouteImport.update({
+  id: '/courses/$courseId',
+  path: '/courses/$courseId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityDiscussionsRoute = CommunityDiscussionsRouteImport.update({
+  id: '/community/discussions',
+  path: '/community/discussions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityEventsEventIdRoute = CommunityEventsEventIdRouteImport.update({
+  id: '/community/events/$eventId',
+  path: '/community/events/$eventId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/community/discussions': typeof CommunityDiscussionsRoute
+  '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/mentors/$mentorId': typeof MentorsMentorIdRoute
+  '/community/': typeof CommunityIndexRoute
+  '/courses/': typeof CoursesIndexRoute
+  '/mentors/': typeof MentorsIndexRoute
+  '/community/events/$eventId': typeof CommunityEventsEventIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/community/discussions': typeof CommunityDiscussionsRoute
+  '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/mentors/$mentorId': typeof MentorsMentorIdRoute
+  '/community': typeof CommunityIndexRoute
+  '/courses': typeof CoursesIndexRoute
+  '/mentors': typeof MentorsIndexRoute
+  '/community/events/$eventId': typeof CommunityEventsEventIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/community/discussions': typeof CommunityDiscussionsRoute
+  '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/mentors/$mentorId': typeof MentorsMentorIdRoute
+  '/community/': typeof CommunityIndexRoute
+  '/courses/': typeof CoursesIndexRoute
+  '/mentors/': typeof MentorsIndexRoute
+  '/community/events/$eventId': typeof CommunityEventsEventIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/register'
+    | '/community/discussions'
+    | '/courses/$courseId'
+    | '/mentors/$mentorId'
+    | '/community/'
+    | '/courses/'
+    | '/mentors/'
+    | '/community/events/$eventId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/login'
+    | '/register'
+    | '/community/discussions'
+    | '/courses/$courseId'
+    | '/mentors/$mentorId'
+    | '/community'
+    | '/courses'
+    | '/mentors'
+    | '/community/events/$eventId'
+  id:
+    | '__root__'
+    | '/'
+    | '/login'
+    | '/register'
+    | '/community/discussions'
+    | '/courses/$courseId'
+    | '/mentors/$mentorId'
+    | '/community/'
+    | '/courses/'
+    | '/mentors/'
+    | '/community/events/$eventId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LoginRoute: typeof LoginRoute
+  RegisterRoute: typeof RegisterRoute
+  CommunityDiscussionsRoute: typeof CommunityDiscussionsRoute
+  CoursesCourseIdRoute: typeof CoursesCourseIdRoute
+  MentorsMentorIdRoute: typeof MentorsMentorIdRoute
+  CommunityIndexRoute: typeof CommunityIndexRoute
+  CoursesIndexRoute: typeof CoursesIndexRoute
+  MentorsIndexRoute: typeof MentorsIndexRoute
+  CommunityEventsEventIdRoute: typeof CommunityEventsEventIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +183,69 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mentors/': {
+      id: '/mentors/'
+      path: '/mentors'
+      fullPath: '/mentors/'
+      preLoaderRoute: typeof MentorsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses/': {
+      id: '/courses/'
+      path: '/courses'
+      fullPath: '/courses/'
+      preLoaderRoute: typeof CoursesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community/': {
+      id: '/community/'
+      path: '/community'
+      fullPath: '/community/'
+      preLoaderRoute: typeof CommunityIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentors/$mentorId': {
+      id: '/mentors/$mentorId'
+      path: '/mentors/$mentorId'
+      fullPath: '/mentors/$mentorId'
+      preLoaderRoute: typeof MentorsMentorIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses/$courseId': {
+      id: '/courses/$courseId'
+      path: '/courses/$courseId'
+      fullPath: '/courses/$courseId'
+      preLoaderRoute: typeof CoursesCourseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community/discussions': {
+      id: '/community/discussions'
+      path: '/community/discussions'
+      fullPath: '/community/discussions'
+      preLoaderRoute: typeof CommunityDiscussionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community/events/$eventId': {
+      id: '/community/events/$eventId'
+      path: '/community/events/$eventId'
+      fullPath: '/community/events/$eventId'
+      preLoaderRoute: typeof CommunityEventsEventIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LoginRoute: LoginRoute,
+  RegisterRoute: RegisterRoute,
+  CommunityDiscussionsRoute: CommunityDiscussionsRoute,
+  CoursesCourseIdRoute: CoursesCourseIdRoute,
+  MentorsMentorIdRoute: MentorsMentorIdRoute,
+  CommunityIndexRoute: CommunityIndexRoute,
+  CoursesIndexRoute: CoursesIndexRoute,
+  MentorsIndexRoute: MentorsIndexRoute,
+  CommunityEventsEventIdRoute: CommunityEventsEventIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
