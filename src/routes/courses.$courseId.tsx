@@ -3,6 +3,8 @@ import { SiteLayout } from "@/components/SiteLayout";
 import { courses, mentors } from "@/data/mock";
 import { ArrowLeft, Star, Users, Clock, BookOpen, CheckCircle2, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cart } from "@/lib/cart-store";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/courses/$courseId")({
   loader: ({ params }) => {
@@ -123,10 +125,25 @@ function CourseDetail() {
           <aside className="lg:col-span-1">
             <div className="sticky top-24 rounded-xl border border-border bg-cream p-6">
               <p className="font-serif text-4xl font-bold text-navy">₱{course.price}</p>
-              <Button className="mt-5 w-full bg-gold hover:bg-gold/90 text-gold-foreground" size="lg">
+              <Button
+                className="mt-5 w-full bg-gold hover:bg-gold/90 text-gold-foreground"
+                size="lg"
+                onClick={() => {
+                  cart.add(course);
+                  toast.success("Added to cart — proceed to checkout");
+                }}
+              >
                 Enroll Now
               </Button>
-              <Button variant="outline" className="mt-3 w-full" size="lg">
+              <Button
+                variant="outline"
+                className="mt-3 w-full"
+                size="lg"
+                onClick={() => {
+                  cart.add(course);
+                  toast.success(`${course.title} added to cart`);
+                }}
+              >
                 Add to Cart
               </Button>
               <ul className="mt-6 space-y-3 text-sm text-muted-foreground border-t border-border pt-5">
