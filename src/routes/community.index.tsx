@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/SiteLayout";
 import { Button } from "@/components/ui/button";
 import { events } from "@/data/mock";
 import { MessageCircle, Calendar, Users, Sparkles, ArrowRight } from "lucide-react";
+import { AuthGuard } from "@/components/AuthGuard";
 
 export const Route = createFileRoute("/community/")({
   head: () => ({
@@ -32,6 +33,7 @@ const features = [
 
 function Community() {
   return (
+    <AuthGuard>
     <SiteLayout>
       <section className="bg-cream py-16">
         <div className="mx-auto max-w-3xl px-4 text-center">
@@ -106,5 +108,6 @@ function Community() {
         </div>
       </section>
     </SiteLayout>
+    </AuthGuard>
   );
 }

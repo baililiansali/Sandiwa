@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/SiteLayout";
 import { events } from "@/data/mock";
 import { ArrowLeft, Clock, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AuthGuard } from "@/components/AuthGuard";
 
 export const Route = createFileRoute("/community/events/$eventId")({
   loader: ({ params }) => {
@@ -37,6 +38,7 @@ function EventDetail() {
   const { event } = Route.useLoaderData();
 
   return (
+    <AuthGuard>
     <SiteLayout>
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10">
         <Link to="/community" className="inline-flex items-center gap-2 text-sm text-gold hover:underline">
@@ -54,5 +56,6 @@ function EventDetail() {
         <Button size="lg" className="mt-8 bg-gold hover:bg-gold/90 text-gold-foreground">Register for Event</Button>
       </div>
     </SiteLayout>
+    </AuthGuard>
   );
 }

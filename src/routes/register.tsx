@@ -3,6 +3,7 @@ import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Mail, Lock, Eye, EyeOff, Check } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/register")({
   head: () => ({
@@ -18,12 +19,48 @@ function Register() {
   const [step, setStep] = useState(1);
   const [showPwd, setShowPwd] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
-  const [data, setData] = useState({ email: "", password: "", confirm: "", firstName: "", lastName: "", role: "learner", interests: [] as string[] });
+  const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState({ 
+    email: "", 
+    password: "", 
+    confirm: "", 
+    firstName: "", 
+    lastName: "", 
+    role: "learner", 
+    interests: [] as string[] 
+  });
   const navigate = useNavigate();
 
   const interests = ["Filipino Language", "History", "Arts & Crafts", "Music & Dance", "Cuisine", "Heritage"];
   const toggleInterest = (i: string) =>
     setData((d) => ({ ...d, interests: d.interests.includes(i) ? d.interests.filter((x) => x !== i) : [...d.interests, i] }));
+
+  const handleCreateAccount = async () => {
+    if (data.password !== data.confirm) {
+      toast.error("Passwords do not match");
+      return;
+    }
+    if (data.password.length < 6) {
+      toast.error("Password must be at least 6 characters");
+      return;
+    }
+    
+    setIsLoading(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      // Store user info
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userEmail", data.email);
+      localStorage.setItem("userName", `${data.firstName} ${data.lastName}`);
+      localStorage.setItem("userInitials", `${data.firstName.charAt(0)}${data.lastName.charAt(0)}`);
+      localStorage.setItem("userRole", data.role);
+      
+      toast.success("Account created successfully! Redirecting to dashboard...");
+      setIsLoading(false);
+      navigate({ to: "/profile" });
+    }, 1000);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -35,7 +72,7 @@ function Register() {
       </div>
 
       <div className="mx-auto max-w-md px-4 py-6">
-        <div className="flex justify-center"><Logo /></div>
+        {/* <div className="flex justify-center"><Logo /></div> */}
 
         <div className="mt-8 flex items-center justify-center gap-2">
           {[1, 2, 3].map((n, i) => (
@@ -138,8 +175,14 @@ function Register() {
             </div>
             <div className="mt-8 flex gap-3">
               <Button type="button" variant="outline" size="lg" className="flex-1" onClick={() => setStep(2)}>Back</Button>
-              <Button type="button" size="lg" className="flex-1 bg-gold hover:bg-gold/90 text-gold-foreground" onClick={() => navigate({ to: "/" })}>
-                Create Account
+              <Button 
+                type="button" 
+                size="lg" 
+                className="flex-1 bg-gold hover:bg-gold/90 text-gold-foreground" 
+                onClick={handleCreateAccount}
+                disabled={isLoading}
+              >
+                {isLoading ? "Creating account..." : "Create Account"}
               </Button>
             </div>
           </>

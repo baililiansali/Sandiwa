@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/SiteLayout";
 import { discussions } from "@/data/mock";
 import { Search, Filter, MessageSquare, ThumbsUp } from "lucide-react";
 import { useState } from "react";
+import { AuthGuard } from "@/components/AuthGuard";
 
 export const Route = createFileRoute("/community/discussions")({
   head: () => ({
@@ -26,6 +27,7 @@ function DiscussionsPage() {
   );
 
   return (
+    <AuthGuard>
     <SiteLayout>
       <section className="bg-cream py-16">
         <div className="mx-auto max-w-3xl px-4 text-center">
@@ -72,5 +74,6 @@ function DiscussionsPage() {
         </div>
       </section>
     </SiteLayout>
+    </AuthGuard>
   );
 }

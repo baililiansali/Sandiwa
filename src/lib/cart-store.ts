@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { useSyncExternalStore } from "react";
 import type { Course } from "@/data/mock";
 

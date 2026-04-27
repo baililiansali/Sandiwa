@@ -28,16 +28,27 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <SiteLayout>
-      <Hero />
+      <div id="hero">
+        <Hero />
+      </div>
       <Stats />
-      <FeaturedCourses />
-      <FeaturedMentors />
-      <Translator />
-      <CallToAction />
+      <div id="featured-courses">
+        <FeaturedCourses />
+      </div>
+      <div id="featured-mentors">
+        <FeaturedMentors />
+      </div>
+      <div id="translator">
+        <Translator />
+      </div>
+      <div id="community">
+        <CallToAction />
+      </div>
     </SiteLayout>
   );
 }
 
+// Rest of your components remain the same...
 function Hero() {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-10">

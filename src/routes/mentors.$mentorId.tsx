@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/SiteLayout";
 import { mentors, courses } from "@/data/mock";
 import { ArrowLeft, Star, Users, BookOpen, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AuthGuard } from "@/components/AuthGuard";
 
 export const Route = createFileRoute("/mentors/$mentorId")({
   loader: ({ params }) => {
@@ -40,6 +41,7 @@ function MentorDetail() {
   const mentorCourses = courses.filter((c) => c.mentorId === mentor.id);
 
   return (
+    <AuthGuard>
     <SiteLayout>
       <section className="bg-cream">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
@@ -103,5 +105,6 @@ function MentorDetail() {
         )}
       </section>
     </SiteLayout>
+    </AuthGuard>
   );
 }
