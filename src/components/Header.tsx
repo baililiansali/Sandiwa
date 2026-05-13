@@ -8,7 +8,6 @@ const navLinks = [
   { key: "hero", label: "Home" },
   { key: "featured-courses", label: "Courses" },
   { key: "featured-mentors", label: "Mentors" },
-  { key: "translator", label: "Translator" },
   { key: "community", label: "Community" },
 ];
 

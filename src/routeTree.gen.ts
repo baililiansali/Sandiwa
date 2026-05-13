@@ -10,36 +10,123 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as RegisterRouteImport } from './routes/register'
-import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as MentorApplicationSuccessRouteImport } from './routes/mentor-application-success'
 import { Route as LoginRouteImport } from './routes/login'
-import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as ApplyMentorRouteImport } from './routes/apply-mentor'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as MentorsIndexRouteImport } from './routes/mentors.index'
-import { Route as CoursesIndexRouteImport } from './routes/courses.index'
-import { Route as CommunityIndexRouteImport } from './routes/community.index'
-import { Route as MentorsMentorIdRouteImport } from './routes/mentors.$mentorId'
-import { Route as CoursesCourseIdRouteImport } from './routes/courses.$courseId'
-import { Route as CommunityDiscussionsRouteImport } from './routes/community.discussions'
-import { Route as CommunityEventsEventIdRouteImport } from './routes/community.events.$eventId'
+import { Route as MentorDashboardRouteImport } from './routes/mentor/dashboard'
+import { Route as MentorLayoutRouteImport } from './routes/mentor/_layout'
+import { Route as MentorLearnerPaymentSuccessRouteImport } from './routes/mentor-learner/payment-success'
+import { Route as MentorLearnerDashboardRouteImport } from './routes/mentor-learner/dashboard'
+import { Route as MentorLearnerCheckoutRouteImport } from './routes/mentor-learner/checkout'
+import { Route as MentorLearnerLayoutRouteImport } from './routes/mentor-learner/_layout'
+import { Route as LearnerPaymentSuccessRouteImport } from './routes/learner/payment-success'
+import { Route as LearnerDashboardRouteImport } from './routes/learner/dashboard'
+import { Route as LearnerCheckoutRouteImport } from './routes/learner/checkout'
+import { Route as LearnerLayoutRouteImport } from './routes/learner/_layout'
+import { Route as AdminDashboardRouteImport } from './routes/admin/dashboard'
+import { Route as AdminLayoutRouteImport } from './routes/admin/_layout'
+import { Route as MentorStudentsIndexRouteImport } from './routes/mentor/students/index'
+import { Route as MentorSettingsIndexRouteImport } from './routes/mentor/settings/index'
+import { Route as MentorReviewsIndexRouteImport } from './routes/mentor/reviews/index'
+import { Route as MentorProfileIndexRouteImport } from './routes/mentor/profile/index'
+import { Route as MentorNotificationsIndexRouteImport } from './routes/mentor/notifications/index'
+import { Route as MentorEncyclopediaIndexRouteImport } from './routes/mentor/encyclopedia/index'
+import { Route as MentorEarningsIndexRouteImport } from './routes/mentor/earnings/index'
+import { Route as MentorCoursesIndexRouteImport } from './routes/mentor/courses/index'
+import { Route as MentorCommunityIndexRouteImport } from './routes/mentor/community/index'
+import { Route as MentorAnalyticsIndexRouteImport } from './routes/mentor/analytics/index'
+import { Route as MentorLearnerSettingsIndexRouteImport } from './routes/mentor-learner/settings/index'
+import { Route as MentorLearnerSavedIndexRouteImport } from './routes/mentor-learner/saved/index'
+import { Route as MentorLearnerProfileIndexRouteImport } from './routes/mentor-learner/profile/index'
+import { Route as MentorLearnerNotificationsIndexRouteImport } from './routes/mentor-learner/notifications/index'
+import { Route as MentorLearnerEncyclopediaIndexRouteImport } from './routes/mentor-learner/encyclopedia/index'
+import { Route as MentorLearnerCommunityIndexRouteImport } from './routes/mentor-learner/community/index'
+import { Route as MentorLearnerCertificatesIndexRouteImport } from './routes/mentor-learner/certificates/index'
+import { Route as LearnerSettingsIndexRouteImport } from './routes/learner/settings/index'
+import { Route as LearnerSavedIndexRouteImport } from './routes/learner/saved/index'
+import { Route as LearnerProfileIndexRouteImport } from './routes/learner/profile/index'
+import { Route as LearnerNotificationsIndexRouteImport } from './routes/learner/notifications/index'
+import { Route as LearnerEncyclopediaIndexRouteImport } from './routes/learner/encyclopedia/index'
+import { Route as LearnerCommunityIndexRouteImport } from './routes/learner/community/index'
+import { Route as LearnerCertificatesIndexRouteImport } from './routes/learner/certificates/index'
+import { Route as AdminUsersIndexRouteImport } from './routes/admin/users/index'
+import { Route as AdminSettingsIndexRouteImport } from './routes/admin/settings/index'
+import { Route as AdminReviewsIndexRouteImport } from './routes/admin/reviews/index'
+import { Route as AdminProfileIndexRouteImport } from './routes/admin/profile/index'
+import { Route as AdminPaymentsIndexRouteImport } from './routes/admin/payments/index'
+import { Route as AdminMentorsIndexRouteImport } from './routes/admin/mentors/index'
+import { Route as AdminCoursesIndexRouteImport } from './routes/admin/courses/index'
+import { Route as MentorStudentsStudentIdRouteImport } from './routes/mentor/students/$studentId'
+import { Route as MentorProfileEditRouteImport } from './routes/mentor/profile/edit'
+import { Route as MentorEncyclopediaCreateRouteImport } from './routes/mentor/encyclopedia/create'
+import { Route as MentorEncyclopediaArticleIdRouteImport } from './routes/mentor/encyclopedia/$articleId'
+import { Route as MentorEarningsWithdrawalsRouteImport } from './routes/mentor/earnings/withdrawals'
+import { Route as MentorCoursesCreateRouteImport } from './routes/mentor/courses/create'
+import { Route as MentorAnalyticsEngagementRouteImport } from './routes/mentor/analytics/engagement'
+import { Route as MentorAnalyticsCoursesRouteImport } from './routes/mentor/analytics/courses'
+import { Route as MentorAnalyticsCompletionRouteImport } from './routes/mentor/analytics/completion'
+import { Route as MentorLearnerProfileEditRouteImport } from './routes/mentor-learner/profile/edit'
+import { Route as MentorLearnerLearnCourseIdRouteImport } from './routes/mentor-learner/learn/$courseId'
+import { Route as MentorLearnerEncyclopediaArticleIdRouteImport } from './routes/mentor-learner/encyclopedia/$articleId'
+import { Route as LearnerProfileEditRouteImport } from './routes/learner/profile/edit'
+import { Route as LearnerLearnCourseIdRouteImport } from './routes/learner/learn/$courseId'
+import { Route as LearnerEncyclopediaArticleIdRouteImport } from './routes/learner/encyclopedia/$articleId'
+import { Route as AdminPaymentsFailedRouteImport } from './routes/admin/payments/failed'
+import { Route as MentorCommunityEventsIndexRouteImport } from './routes/mentor/community/events/index'
+import { Route as MentorCommunityDiscussionsIndexRouteImport } from './routes/mentor/community/discussions/index'
+import { Route as MentorLearnerMentorsMentorsIndexRouteImport } from './routes/mentor-learner/mentors/mentors.index'
+import { Route as MentorLearnerCoursesCoursesIndexRouteImport } from './routes/mentor-learner/courses/courses.index'
+import { Route as MentorLearnerCommunityEventsIndexRouteImport } from './routes/mentor-learner/community/events/index'
+import { Route as MentorLearnerCommunityDiscussionsIndexRouteImport } from './routes/mentor-learner/community/discussions/index'
+import { Route as LearnerMentorsMentorsIndexRouteImport } from './routes/learner/mentors/mentors.index'
+import { Route as LearnerCoursesCoursesIndexRouteImport } from './routes/learner/courses/courses.index'
+import { Route as LearnerCommunityEventsIndexRouteImport } from './routes/learner/community/events/index'
+import { Route as LearnerCommunityDiscussionsIndexRouteImport } from './routes/learner/community/discussions/index'
+import { Route as MentorEncyclopediaArticleIdEditRouteImport } from './routes/mentor/encyclopedia/$articleId/edit'
+import { Route as MentorCoursesManageCertificatesRouteImport } from './routes/mentor/courses/manage/certificates'
+import { Route as MentorCoursesManageCourseIdRouteImport } from './routes/mentor/courses/manage.$courseId'
+import { Route as MentorCoursesEditCourseIdRouteImport } from './routes/mentor/courses/edit.$courseId'
+import { Route as MentorCommunityEventsCreateRouteImport } from './routes/mentor/community/events/create'
+import { Route as MentorCommunityEventsEventIdRouteImport } from './routes/mentor/community/events/$eventId'
+import { Route as MentorCommunityDiscussionsNewRouteImport } from './routes/mentor/community/discussions/new'
+import { Route as MentorCommunityDiscussionsDiscussionIdRouteImport } from './routes/mentor/community/discussions/$discussionId'
+import { Route as MentorLearnerMentorsMentorsMentorIdRouteImport } from './routes/mentor-learner/mentors/mentors.$mentorId'
+import { Route as MentorLearnerCoursesCoursesCourseIdRouteImport } from './routes/mentor-learner/courses/courses.$courseId'
+import { Route as MentorLearnerCommunityEventsCreateRouteImport } from './routes/mentor-learner/community/events/create'
+import { Route as MentorLearnerCommunityEventsEventIdRouteImport } from './routes/mentor-learner/community/events/$eventId'
+import { Route as MentorLearnerCommunityDiscussionsNewRouteImport } from './routes/mentor-learner/community/discussions/new'
+import { Route as MentorLearnerCommunityDiscussionsDiscussionIdRouteImport } from './routes/mentor-learner/community/discussions/$discussionId'
+import { Route as LearnerMentorsMentorsMentorIdRouteImport } from './routes/learner/mentors/mentors.$mentorId'
+import { Route as LearnerCoursesCoursesCourseIdRouteImport } from './routes/learner/courses/courses.$courseId'
+import { Route as LearnerCommunityEventsCreateRouteImport } from './routes/learner/community/events/create'
+import { Route as LearnerCommunityEventsEventIdRouteImport } from './routes/learner/community/events/$eventId'
+import { Route as LearnerCommunityDiscussionsNewRouteImport } from './routes/learner/community/discussions/new'
+import { Route as LearnerCommunityDiscussionsDiscussionIdRouteImport } from './routes/learner/community/discussions/$discussionId'
+import { Route as MentorCoursesManageReviewsCourseIdRouteImport } from './routes/mentor/courses/manage/reviews.$courseId'
+import { Route as MentorCommunityEventsEventIdEditRouteImport } from './routes/mentor/community/events/$eventId.edit'
+import { Route as MentorLearnerCommunityEventsEventIdEditRouteImport } from './routes/mentor-learner/community/events/$eventId.edit'
+import { Route as LearnerCommunityEventsEventIdEditRouteImport } from './routes/learner/community/events/$eventId.edit'
 
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
   path: '/register',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProfileRoute = ProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const MentorApplicationSuccessRoute =
+  MentorApplicationSuccessRouteImport.update({
+    id: '/mentor-application-success',
+    path: '/mentor-application-success',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
+const ApplyMentorRoute = ApplyMentorRouteImport.update({
+  id: '/apply-mentor',
+  path: '/apply-mentor',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -47,143 +134,1225 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MentorsIndexRoute = MentorsIndexRouteImport.update({
-  id: '/mentors/',
-  path: '/mentors/',
+const MentorDashboardRoute = MentorDashboardRouteImport.update({
+  id: '/mentor/dashboard',
+  path: '/mentor/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CoursesIndexRoute = CoursesIndexRouteImport.update({
-  id: '/courses/',
-  path: '/courses/',
+const MentorLayoutRoute = MentorLayoutRouteImport.update({
+  id: '/mentor/_layout',
+  path: '/mentor',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CommunityIndexRoute = CommunityIndexRouteImport.update({
-  id: '/community/',
-  path: '/community/',
+const MentorLearnerPaymentSuccessRoute =
+  MentorLearnerPaymentSuccessRouteImport.update({
+    id: '/mentor-learner/payment-success',
+    path: '/mentor-learner/payment-success',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerDashboardRoute = MentorLearnerDashboardRouteImport.update({
+  id: '/mentor-learner/dashboard',
+  path: '/mentor-learner/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MentorsMentorIdRoute = MentorsMentorIdRouteImport.update({
-  id: '/mentors/$mentorId',
-  path: '/mentors/$mentorId',
+const MentorLearnerCheckoutRoute = MentorLearnerCheckoutRouteImport.update({
+  id: '/mentor-learner/checkout',
+  path: '/mentor-learner/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CoursesCourseIdRoute = CoursesCourseIdRouteImport.update({
-  id: '/courses/$courseId',
-  path: '/courses/$courseId',
+const MentorLearnerLayoutRoute = MentorLearnerLayoutRouteImport.update({
+  id: '/mentor-learner/_layout',
+  path: '/mentor-learner',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CommunityDiscussionsRoute = CommunityDiscussionsRouteImport.update({
-  id: '/community/discussions',
-  path: '/community/discussions',
+const LearnerPaymentSuccessRoute = LearnerPaymentSuccessRouteImport.update({
+  id: '/learner/payment-success',
+  path: '/learner/payment-success',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CommunityEventsEventIdRoute = CommunityEventsEventIdRouteImport.update({
-  id: '/community/events/$eventId',
-  path: '/community/events/$eventId',
+const LearnerDashboardRoute = LearnerDashboardRouteImport.update({
+  id: '/learner/dashboard',
+  path: '/learner/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LearnerCheckoutRoute = LearnerCheckoutRouteImport.update({
+  id: '/learner/checkout',
+  path: '/learner/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnerLayoutRoute = LearnerLayoutRouteImport.update({
+  id: '/learner/_layout',
+  path: '/learner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminDashboardRoute = AdminDashboardRouteImport.update({
+  id: '/admin/dashboard',
+  path: '/admin/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLayoutRoute = AdminLayoutRouteImport.update({
+  id: '/admin/_layout',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorStudentsIndexRoute = MentorStudentsIndexRouteImport.update({
+  id: '/mentor/students/',
+  path: '/mentor/students/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorSettingsIndexRoute = MentorSettingsIndexRouteImport.update({
+  id: '/mentor/settings/',
+  path: '/mentor/settings/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorReviewsIndexRoute = MentorReviewsIndexRouteImport.update({
+  id: '/mentor/reviews/',
+  path: '/mentor/reviews/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorProfileIndexRoute = MentorProfileIndexRouteImport.update({
+  id: '/mentor/profile/',
+  path: '/mentor/profile/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorNotificationsIndexRoute =
+  MentorNotificationsIndexRouteImport.update({
+    id: '/mentor/notifications/',
+    path: '/mentor/notifications/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorEncyclopediaIndexRoute = MentorEncyclopediaIndexRouteImport.update({
+  id: '/mentor/encyclopedia/',
+  path: '/mentor/encyclopedia/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorEarningsIndexRoute = MentorEarningsIndexRouteImport.update({
+  id: '/mentor/earnings/',
+  path: '/mentor/earnings/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorCoursesIndexRoute = MentorCoursesIndexRouteImport.update({
+  id: '/mentor/courses/',
+  path: '/mentor/courses/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorCommunityIndexRoute = MentorCommunityIndexRouteImport.update({
+  id: '/mentor/community/',
+  path: '/mentor/community/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorAnalyticsIndexRoute = MentorAnalyticsIndexRouteImport.update({
+  id: '/mentor/analytics/',
+  path: '/mentor/analytics/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorLearnerSettingsIndexRoute =
+  MentorLearnerSettingsIndexRouteImport.update({
+    id: '/mentor-learner/settings/',
+    path: '/mentor-learner/settings/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerSavedIndexRoute = MentorLearnerSavedIndexRouteImport.update({
+  id: '/mentor-learner/saved/',
+  path: '/mentor-learner/saved/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorLearnerProfileIndexRoute =
+  MentorLearnerProfileIndexRouteImport.update({
+    id: '/mentor-learner/profile/',
+    path: '/mentor-learner/profile/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerNotificationsIndexRoute =
+  MentorLearnerNotificationsIndexRouteImport.update({
+    id: '/mentor-learner/notifications/',
+    path: '/mentor-learner/notifications/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerEncyclopediaIndexRoute =
+  MentorLearnerEncyclopediaIndexRouteImport.update({
+    id: '/mentor-learner/encyclopedia/',
+    path: '/mentor-learner/encyclopedia/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerCommunityIndexRoute =
+  MentorLearnerCommunityIndexRouteImport.update({
+    id: '/mentor-learner/community/',
+    path: '/mentor-learner/community/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerCertificatesIndexRoute =
+  MentorLearnerCertificatesIndexRouteImport.update({
+    id: '/mentor-learner/certificates/',
+    path: '/mentor-learner/certificates/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnerSettingsIndexRoute = LearnerSettingsIndexRouteImport.update({
+  id: '/learner/settings/',
+  path: '/learner/settings/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnerSavedIndexRoute = LearnerSavedIndexRouteImport.update({
+  id: '/learner/saved/',
+  path: '/learner/saved/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnerProfileIndexRoute = LearnerProfileIndexRouteImport.update({
+  id: '/learner/profile/',
+  path: '/learner/profile/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnerNotificationsIndexRoute =
+  LearnerNotificationsIndexRouteImport.update({
+    id: '/learner/notifications/',
+    path: '/learner/notifications/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnerEncyclopediaIndexRoute =
+  LearnerEncyclopediaIndexRouteImport.update({
+    id: '/learner/encyclopedia/',
+    path: '/learner/encyclopedia/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnerCommunityIndexRoute = LearnerCommunityIndexRouteImport.update({
+  id: '/learner/community/',
+  path: '/learner/community/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnerCertificatesIndexRoute =
+  LearnerCertificatesIndexRouteImport.update({
+    id: '/learner/certificates/',
+    path: '/learner/certificates/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminUsersIndexRoute = AdminUsersIndexRouteImport.update({
+  id: '/admin/users/',
+  path: '/admin/users/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSettingsIndexRoute = AdminSettingsIndexRouteImport.update({
+  id: '/admin/settings/',
+  path: '/admin/settings/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminReviewsIndexRoute = AdminReviewsIndexRouteImport.update({
+  id: '/admin/reviews/',
+  path: '/admin/reviews/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminProfileIndexRoute = AdminProfileIndexRouteImport.update({
+  id: '/admin/profile/',
+  path: '/admin/profile/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPaymentsIndexRoute = AdminPaymentsIndexRouteImport.update({
+  id: '/admin/payments/',
+  path: '/admin/payments/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminMentorsIndexRoute = AdminMentorsIndexRouteImport.update({
+  id: '/admin/mentors/',
+  path: '/admin/mentors/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminCoursesIndexRoute = AdminCoursesIndexRouteImport.update({
+  id: '/admin/courses/',
+  path: '/admin/courses/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorStudentsStudentIdRoute = MentorStudentsStudentIdRouteImport.update({
+  id: '/mentor/students/$studentId',
+  path: '/mentor/students/$studentId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorProfileEditRoute = MentorProfileEditRouteImport.update({
+  id: '/mentor/profile/edit',
+  path: '/mentor/profile/edit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorEncyclopediaCreateRoute =
+  MentorEncyclopediaCreateRouteImport.update({
+    id: '/mentor/encyclopedia/create',
+    path: '/mentor/encyclopedia/create',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorEncyclopediaArticleIdRoute =
+  MentorEncyclopediaArticleIdRouteImport.update({
+    id: '/mentor/encyclopedia/$articleId',
+    path: '/mentor/encyclopedia/$articleId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorEarningsWithdrawalsRoute =
+  MentorEarningsWithdrawalsRouteImport.update({
+    id: '/mentor/earnings/withdrawals',
+    path: '/mentor/earnings/withdrawals',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorCoursesCreateRoute = MentorCoursesCreateRouteImport.update({
+  id: '/mentor/courses/create',
+  path: '/mentor/courses/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorAnalyticsEngagementRoute =
+  MentorAnalyticsEngagementRouteImport.update({
+    id: '/mentor/analytics/engagement',
+    path: '/mentor/analytics/engagement',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorAnalyticsCoursesRoute = MentorAnalyticsCoursesRouteImport.update({
+  id: '/mentor/analytics/courses',
+  path: '/mentor/analytics/courses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorAnalyticsCompletionRoute =
+  MentorAnalyticsCompletionRouteImport.update({
+    id: '/mentor/analytics/completion',
+    path: '/mentor/analytics/completion',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerProfileEditRoute =
+  MentorLearnerProfileEditRouteImport.update({
+    id: '/mentor-learner/profile/edit',
+    path: '/mentor-learner/profile/edit',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerLearnCourseIdRoute =
+  MentorLearnerLearnCourseIdRouteImport.update({
+    id: '/mentor-learner/learn/$courseId',
+    path: '/mentor-learner/learn/$courseId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerEncyclopediaArticleIdRoute =
+  MentorLearnerEncyclopediaArticleIdRouteImport.update({
+    id: '/mentor-learner/encyclopedia/$articleId',
+    path: '/mentor-learner/encyclopedia/$articleId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnerProfileEditRoute = LearnerProfileEditRouteImport.update({
+  id: '/learner/profile/edit',
+  path: '/learner/profile/edit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnerLearnCourseIdRoute = LearnerLearnCourseIdRouteImport.update({
+  id: '/learner/learn/$courseId',
+  path: '/learner/learn/$courseId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnerEncyclopediaArticleIdRoute =
+  LearnerEncyclopediaArticleIdRouteImport.update({
+    id: '/learner/encyclopedia/$articleId',
+    path: '/learner/encyclopedia/$articleId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminPaymentsFailedRoute = AdminPaymentsFailedRouteImport.update({
+  id: '/admin/payments/failed',
+  path: '/admin/payments/failed',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorCommunityEventsIndexRoute =
+  MentorCommunityEventsIndexRouteImport.update({
+    id: '/mentor/community/events/',
+    path: '/mentor/community/events/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorCommunityDiscussionsIndexRoute =
+  MentorCommunityDiscussionsIndexRouteImport.update({
+    id: '/mentor/community/discussions/',
+    path: '/mentor/community/discussions/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerMentorsMentorsIndexRoute =
+  MentorLearnerMentorsMentorsIndexRouteImport.update({
+    id: '/mentor-learner/mentors/mentors/',
+    path: '/mentor-learner/mentors/mentors/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerCoursesCoursesIndexRoute =
+  MentorLearnerCoursesCoursesIndexRouteImport.update({
+    id: '/mentor-learner/courses/courses/',
+    path: '/mentor-learner/courses/courses/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerCommunityEventsIndexRoute =
+  MentorLearnerCommunityEventsIndexRouteImport.update({
+    id: '/mentor-learner/community/events/',
+    path: '/mentor-learner/community/events/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerCommunityDiscussionsIndexRoute =
+  MentorLearnerCommunityDiscussionsIndexRouteImport.update({
+    id: '/mentor-learner/community/discussions/',
+    path: '/mentor-learner/community/discussions/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnerMentorsMentorsIndexRoute =
+  LearnerMentorsMentorsIndexRouteImport.update({
+    id: '/learner/mentors/mentors/',
+    path: '/learner/mentors/mentors/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnerCoursesCoursesIndexRoute =
+  LearnerCoursesCoursesIndexRouteImport.update({
+    id: '/learner/courses/courses/',
+    path: '/learner/courses/courses/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnerCommunityEventsIndexRoute =
+  LearnerCommunityEventsIndexRouteImport.update({
+    id: '/learner/community/events/',
+    path: '/learner/community/events/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnerCommunityDiscussionsIndexRoute =
+  LearnerCommunityDiscussionsIndexRouteImport.update({
+    id: '/learner/community/discussions/',
+    path: '/learner/community/discussions/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorEncyclopediaArticleIdEditRoute =
+  MentorEncyclopediaArticleIdEditRouteImport.update({
+    id: '/edit',
+    path: '/edit',
+    getParentRoute: () => MentorEncyclopediaArticleIdRoute,
+  } as any)
+const MentorCoursesManageCertificatesRoute =
+  MentorCoursesManageCertificatesRouteImport.update({
+    id: '/mentor/courses/manage/certificates',
+    path: '/mentor/courses/manage/certificates',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorCoursesManageCourseIdRoute =
+  MentorCoursesManageCourseIdRouteImport.update({
+    id: '/mentor/courses/manage/$courseId',
+    path: '/mentor/courses/manage/$courseId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorCoursesEditCourseIdRoute =
+  MentorCoursesEditCourseIdRouteImport.update({
+    id: '/mentor/courses/edit/$courseId',
+    path: '/mentor/courses/edit/$courseId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorCommunityEventsCreateRoute =
+  MentorCommunityEventsCreateRouteImport.update({
+    id: '/mentor/community/events/create',
+    path: '/mentor/community/events/create',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorCommunityEventsEventIdRoute =
+  MentorCommunityEventsEventIdRouteImport.update({
+    id: '/mentor/community/events/$eventId',
+    path: '/mentor/community/events/$eventId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorCommunityDiscussionsNewRoute =
+  MentorCommunityDiscussionsNewRouteImport.update({
+    id: '/mentor/community/discussions/new',
+    path: '/mentor/community/discussions/new',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorCommunityDiscussionsDiscussionIdRoute =
+  MentorCommunityDiscussionsDiscussionIdRouteImport.update({
+    id: '/mentor/community/discussions/$discussionId',
+    path: '/mentor/community/discussions/$discussionId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerMentorsMentorsMentorIdRoute =
+  MentorLearnerMentorsMentorsMentorIdRouteImport.update({
+    id: '/mentor-learner/mentors/mentors/$mentorId',
+    path: '/mentor-learner/mentors/mentors/$mentorId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerCoursesCoursesCourseIdRoute =
+  MentorLearnerCoursesCoursesCourseIdRouteImport.update({
+    id: '/mentor-learner/courses/courses/$courseId',
+    path: '/mentor-learner/courses/courses/$courseId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerCommunityEventsCreateRoute =
+  MentorLearnerCommunityEventsCreateRouteImport.update({
+    id: '/mentor-learner/community/events/create',
+    path: '/mentor-learner/community/events/create',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerCommunityEventsEventIdRoute =
+  MentorLearnerCommunityEventsEventIdRouteImport.update({
+    id: '/mentor-learner/community/events/$eventId',
+    path: '/mentor-learner/community/events/$eventId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerCommunityDiscussionsNewRoute =
+  MentorLearnerCommunityDiscussionsNewRouteImport.update({
+    id: '/mentor-learner/community/discussions/new',
+    path: '/mentor-learner/community/discussions/new',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorLearnerCommunityDiscussionsDiscussionIdRoute =
+  MentorLearnerCommunityDiscussionsDiscussionIdRouteImport.update({
+    id: '/mentor-learner/community/discussions/$discussionId',
+    path: '/mentor-learner/community/discussions/$discussionId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnerMentorsMentorsMentorIdRoute =
+  LearnerMentorsMentorsMentorIdRouteImport.update({
+    id: '/learner/mentors/mentors/$mentorId',
+    path: '/learner/mentors/mentors/$mentorId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnerCoursesCoursesCourseIdRoute =
+  LearnerCoursesCoursesCourseIdRouteImport.update({
+    id: '/learner/courses/courses/$courseId',
+    path: '/learner/courses/courses/$courseId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnerCommunityEventsCreateRoute =
+  LearnerCommunityEventsCreateRouteImport.update({
+    id: '/learner/community/events/create',
+    path: '/learner/community/events/create',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnerCommunityEventsEventIdRoute =
+  LearnerCommunityEventsEventIdRouteImport.update({
+    id: '/learner/community/events/$eventId',
+    path: '/learner/community/events/$eventId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnerCommunityDiscussionsNewRoute =
+  LearnerCommunityDiscussionsNewRouteImport.update({
+    id: '/learner/community/discussions/new',
+    path: '/learner/community/discussions/new',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LearnerCommunityDiscussionsDiscussionIdRoute =
+  LearnerCommunityDiscussionsDiscussionIdRouteImport.update({
+    id: '/learner/community/discussions/$discussionId',
+    path: '/learner/community/discussions/$discussionId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorCoursesManageReviewsCourseIdRoute =
+  MentorCoursesManageReviewsCourseIdRouteImport.update({
+    id: '/mentor/courses/manage/reviews/$courseId',
+    path: '/mentor/courses/manage/reviews/$courseId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MentorCommunityEventsEventIdEditRoute =
+  MentorCommunityEventsEventIdEditRouteImport.update({
+    id: '/edit',
+    path: '/edit',
+    getParentRoute: () => MentorCommunityEventsEventIdRoute,
+  } as any)
+const MentorLearnerCommunityEventsEventIdEditRoute =
+  MentorLearnerCommunityEventsEventIdEditRouteImport.update({
+    id: '/edit',
+    path: '/edit',
+    getParentRoute: () => MentorLearnerCommunityEventsEventIdRoute,
+  } as any)
+const LearnerCommunityEventsEventIdEditRoute =
+  LearnerCommunityEventsEventIdEditRouteImport.update({
+    id: '/edit',
+    path: '/edit',
+    getParentRoute: () => LearnerCommunityEventsEventIdRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/dashboard': typeof DashboardRoute
+  '/apply-mentor': typeof ApplyMentorRoute
   '/login': typeof LoginRoute
-  '/profile': typeof ProfileRoute
+  '/mentor-application-success': typeof MentorApplicationSuccessRoute
   '/register': typeof RegisterRoute
-  '/community/discussions': typeof CommunityDiscussionsRoute
-  '/courses/$courseId': typeof CoursesCourseIdRoute
-  '/mentors/$mentorId': typeof MentorsMentorIdRoute
-  '/community/': typeof CommunityIndexRoute
-  '/courses/': typeof CoursesIndexRoute
-  '/mentors/': typeof MentorsIndexRoute
-  '/community/events/$eventId': typeof CommunityEventsEventIdRoute
+  '/admin': typeof AdminLayoutRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/learner': typeof LearnerLayoutRoute
+  '/learner/checkout': typeof LearnerCheckoutRoute
+  '/learner/dashboard': typeof LearnerDashboardRoute
+  '/learner/payment-success': typeof LearnerPaymentSuccessRoute
+  '/mentor-learner': typeof MentorLearnerLayoutRoute
+  '/mentor-learner/checkout': typeof MentorLearnerCheckoutRoute
+  '/mentor-learner/dashboard': typeof MentorLearnerDashboardRoute
+  '/mentor-learner/payment-success': typeof MentorLearnerPaymentSuccessRoute
+  '/mentor': typeof MentorLayoutRoute
+  '/mentor/dashboard': typeof MentorDashboardRoute
+  '/admin/payments/failed': typeof AdminPaymentsFailedRoute
+  '/learner/encyclopedia/$articleId': typeof LearnerEncyclopediaArticleIdRoute
+  '/learner/learn/$courseId': typeof LearnerLearnCourseIdRoute
+  '/learner/profile/edit': typeof LearnerProfileEditRoute
+  '/mentor-learner/encyclopedia/$articleId': typeof MentorLearnerEncyclopediaArticleIdRoute
+  '/mentor-learner/learn/$courseId': typeof MentorLearnerLearnCourseIdRoute
+  '/mentor-learner/profile/edit': typeof MentorLearnerProfileEditRoute
+  '/mentor/analytics/completion': typeof MentorAnalyticsCompletionRoute
+  '/mentor/analytics/courses': typeof MentorAnalyticsCoursesRoute
+  '/mentor/analytics/engagement': typeof MentorAnalyticsEngagementRoute
+  '/mentor/courses/create': typeof MentorCoursesCreateRoute
+  '/mentor/earnings/withdrawals': typeof MentorEarningsWithdrawalsRoute
+  '/mentor/encyclopedia/$articleId': typeof MentorEncyclopediaArticleIdRouteWithChildren
+  '/mentor/encyclopedia/create': typeof MentorEncyclopediaCreateRoute
+  '/mentor/profile/edit': typeof MentorProfileEditRoute
+  '/mentor/students/$studentId': typeof MentorStudentsStudentIdRoute
+  '/admin/courses/': typeof AdminCoursesIndexRoute
+  '/admin/mentors/': typeof AdminMentorsIndexRoute
+  '/admin/payments/': typeof AdminPaymentsIndexRoute
+  '/admin/profile/': typeof AdminProfileIndexRoute
+  '/admin/reviews/': typeof AdminReviewsIndexRoute
+  '/admin/settings/': typeof AdminSettingsIndexRoute
+  '/admin/users/': typeof AdminUsersIndexRoute
+  '/learner/certificates/': typeof LearnerCertificatesIndexRoute
+  '/learner/community/': typeof LearnerCommunityIndexRoute
+  '/learner/encyclopedia/': typeof LearnerEncyclopediaIndexRoute
+  '/learner/notifications/': typeof LearnerNotificationsIndexRoute
+  '/learner/profile/': typeof LearnerProfileIndexRoute
+  '/learner/saved/': typeof LearnerSavedIndexRoute
+  '/learner/settings/': typeof LearnerSettingsIndexRoute
+  '/mentor-learner/certificates/': typeof MentorLearnerCertificatesIndexRoute
+  '/mentor-learner/community/': typeof MentorLearnerCommunityIndexRoute
+  '/mentor-learner/encyclopedia/': typeof MentorLearnerEncyclopediaIndexRoute
+  '/mentor-learner/notifications/': typeof MentorLearnerNotificationsIndexRoute
+  '/mentor-learner/profile/': typeof MentorLearnerProfileIndexRoute
+  '/mentor-learner/saved/': typeof MentorLearnerSavedIndexRoute
+  '/mentor-learner/settings/': typeof MentorLearnerSettingsIndexRoute
+  '/mentor/analytics/': typeof MentorAnalyticsIndexRoute
+  '/mentor/community/': typeof MentorCommunityIndexRoute
+  '/mentor/courses/': typeof MentorCoursesIndexRoute
+  '/mentor/earnings/': typeof MentorEarningsIndexRoute
+  '/mentor/encyclopedia/': typeof MentorEncyclopediaIndexRoute
+  '/mentor/notifications/': typeof MentorNotificationsIndexRoute
+  '/mentor/profile/': typeof MentorProfileIndexRoute
+  '/mentor/reviews/': typeof MentorReviewsIndexRoute
+  '/mentor/settings/': typeof MentorSettingsIndexRoute
+  '/mentor/students/': typeof MentorStudentsIndexRoute
+  '/learner/community/discussions/$discussionId': typeof LearnerCommunityDiscussionsDiscussionIdRoute
+  '/learner/community/discussions/new': typeof LearnerCommunityDiscussionsNewRoute
+  '/learner/community/events/$eventId': typeof LearnerCommunityEventsEventIdRouteWithChildren
+  '/learner/community/events/create': typeof LearnerCommunityEventsCreateRoute
+  '/learner/courses/courses/$courseId': typeof LearnerCoursesCoursesCourseIdRoute
+  '/learner/mentors/mentors/$mentorId': typeof LearnerMentorsMentorsMentorIdRoute
+  '/mentor-learner/community/discussions/$discussionId': typeof MentorLearnerCommunityDiscussionsDiscussionIdRoute
+  '/mentor-learner/community/discussions/new': typeof MentorLearnerCommunityDiscussionsNewRoute
+  '/mentor-learner/community/events/$eventId': typeof MentorLearnerCommunityEventsEventIdRouteWithChildren
+  '/mentor-learner/community/events/create': typeof MentorLearnerCommunityEventsCreateRoute
+  '/mentor-learner/courses/courses/$courseId': typeof MentorLearnerCoursesCoursesCourseIdRoute
+  '/mentor-learner/mentors/mentors/$mentorId': typeof MentorLearnerMentorsMentorsMentorIdRoute
+  '/mentor/community/discussions/$discussionId': typeof MentorCommunityDiscussionsDiscussionIdRoute
+  '/mentor/community/discussions/new': typeof MentorCommunityDiscussionsNewRoute
+  '/mentor/community/events/$eventId': typeof MentorCommunityEventsEventIdRouteWithChildren
+  '/mentor/community/events/create': typeof MentorCommunityEventsCreateRoute
+  '/mentor/courses/edit/$courseId': typeof MentorCoursesEditCourseIdRoute
+  '/mentor/courses/manage/$courseId': typeof MentorCoursesManageCourseIdRoute
+  '/mentor/courses/manage/certificates': typeof MentorCoursesManageCertificatesRoute
+  '/mentor/encyclopedia/$articleId/edit': typeof MentorEncyclopediaArticleIdEditRoute
+  '/learner/community/discussions/': typeof LearnerCommunityDiscussionsIndexRoute
+  '/learner/community/events/': typeof LearnerCommunityEventsIndexRoute
+  '/learner/courses/courses/': typeof LearnerCoursesCoursesIndexRoute
+  '/learner/mentors/mentors/': typeof LearnerMentorsMentorsIndexRoute
+  '/mentor-learner/community/discussions/': typeof MentorLearnerCommunityDiscussionsIndexRoute
+  '/mentor-learner/community/events/': typeof MentorLearnerCommunityEventsIndexRoute
+  '/mentor-learner/courses/courses/': typeof MentorLearnerCoursesCoursesIndexRoute
+  '/mentor-learner/mentors/mentors/': typeof MentorLearnerMentorsMentorsIndexRoute
+  '/mentor/community/discussions/': typeof MentorCommunityDiscussionsIndexRoute
+  '/mentor/community/events/': typeof MentorCommunityEventsIndexRoute
+  '/learner/community/events/$eventId/edit': typeof LearnerCommunityEventsEventIdEditRoute
+  '/mentor-learner/community/events/$eventId/edit': typeof MentorLearnerCommunityEventsEventIdEditRoute
+  '/mentor/community/events/$eventId/edit': typeof MentorCommunityEventsEventIdEditRoute
+  '/mentor/courses/manage/reviews/$courseId': typeof MentorCoursesManageReviewsCourseIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/dashboard': typeof DashboardRoute
+  '/apply-mentor': typeof ApplyMentorRoute
   '/login': typeof LoginRoute
-  '/profile': typeof ProfileRoute
+  '/mentor-application-success': typeof MentorApplicationSuccessRoute
   '/register': typeof RegisterRoute
-  '/community/discussions': typeof CommunityDiscussionsRoute
-  '/courses/$courseId': typeof CoursesCourseIdRoute
-  '/mentors/$mentorId': typeof MentorsMentorIdRoute
-  '/community': typeof CommunityIndexRoute
-  '/courses': typeof CoursesIndexRoute
-  '/mentors': typeof MentorsIndexRoute
-  '/community/events/$eventId': typeof CommunityEventsEventIdRoute
+  '/admin': typeof AdminLayoutRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/learner': typeof LearnerLayoutRoute
+  '/learner/checkout': typeof LearnerCheckoutRoute
+  '/learner/dashboard': typeof LearnerDashboardRoute
+  '/learner/payment-success': typeof LearnerPaymentSuccessRoute
+  '/mentor-learner': typeof MentorLearnerLayoutRoute
+  '/mentor-learner/checkout': typeof MentorLearnerCheckoutRoute
+  '/mentor-learner/dashboard': typeof MentorLearnerDashboardRoute
+  '/mentor-learner/payment-success': typeof MentorLearnerPaymentSuccessRoute
+  '/mentor': typeof MentorLayoutRoute
+  '/mentor/dashboard': typeof MentorDashboardRoute
+  '/admin/payments/failed': typeof AdminPaymentsFailedRoute
+  '/learner/encyclopedia/$articleId': typeof LearnerEncyclopediaArticleIdRoute
+  '/learner/learn/$courseId': typeof LearnerLearnCourseIdRoute
+  '/learner/profile/edit': typeof LearnerProfileEditRoute
+  '/mentor-learner/encyclopedia/$articleId': typeof MentorLearnerEncyclopediaArticleIdRoute
+  '/mentor-learner/learn/$courseId': typeof MentorLearnerLearnCourseIdRoute
+  '/mentor-learner/profile/edit': typeof MentorLearnerProfileEditRoute
+  '/mentor/analytics/completion': typeof MentorAnalyticsCompletionRoute
+  '/mentor/analytics/courses': typeof MentorAnalyticsCoursesRoute
+  '/mentor/analytics/engagement': typeof MentorAnalyticsEngagementRoute
+  '/mentor/courses/create': typeof MentorCoursesCreateRoute
+  '/mentor/earnings/withdrawals': typeof MentorEarningsWithdrawalsRoute
+  '/mentor/encyclopedia/$articleId': typeof MentorEncyclopediaArticleIdRouteWithChildren
+  '/mentor/encyclopedia/create': typeof MentorEncyclopediaCreateRoute
+  '/mentor/profile/edit': typeof MentorProfileEditRoute
+  '/mentor/students/$studentId': typeof MentorStudentsStudentIdRoute
+  '/admin/courses': typeof AdminCoursesIndexRoute
+  '/admin/mentors': typeof AdminMentorsIndexRoute
+  '/admin/payments': typeof AdminPaymentsIndexRoute
+  '/admin/profile': typeof AdminProfileIndexRoute
+  '/admin/reviews': typeof AdminReviewsIndexRoute
+  '/admin/settings': typeof AdminSettingsIndexRoute
+  '/admin/users': typeof AdminUsersIndexRoute
+  '/learner/certificates': typeof LearnerCertificatesIndexRoute
+  '/learner/community': typeof LearnerCommunityIndexRoute
+  '/learner/encyclopedia': typeof LearnerEncyclopediaIndexRoute
+  '/learner/notifications': typeof LearnerNotificationsIndexRoute
+  '/learner/profile': typeof LearnerProfileIndexRoute
+  '/learner/saved': typeof LearnerSavedIndexRoute
+  '/learner/settings': typeof LearnerSettingsIndexRoute
+  '/mentor-learner/certificates': typeof MentorLearnerCertificatesIndexRoute
+  '/mentor-learner/community': typeof MentorLearnerCommunityIndexRoute
+  '/mentor-learner/encyclopedia': typeof MentorLearnerEncyclopediaIndexRoute
+  '/mentor-learner/notifications': typeof MentorLearnerNotificationsIndexRoute
+  '/mentor-learner/profile': typeof MentorLearnerProfileIndexRoute
+  '/mentor-learner/saved': typeof MentorLearnerSavedIndexRoute
+  '/mentor-learner/settings': typeof MentorLearnerSettingsIndexRoute
+  '/mentor/analytics': typeof MentorAnalyticsIndexRoute
+  '/mentor/community': typeof MentorCommunityIndexRoute
+  '/mentor/courses': typeof MentorCoursesIndexRoute
+  '/mentor/earnings': typeof MentorEarningsIndexRoute
+  '/mentor/encyclopedia': typeof MentorEncyclopediaIndexRoute
+  '/mentor/notifications': typeof MentorNotificationsIndexRoute
+  '/mentor/profile': typeof MentorProfileIndexRoute
+  '/mentor/reviews': typeof MentorReviewsIndexRoute
+  '/mentor/settings': typeof MentorSettingsIndexRoute
+  '/mentor/students': typeof MentorStudentsIndexRoute
+  '/learner/community/discussions/$discussionId': typeof LearnerCommunityDiscussionsDiscussionIdRoute
+  '/learner/community/discussions/new': typeof LearnerCommunityDiscussionsNewRoute
+  '/learner/community/events/$eventId': typeof LearnerCommunityEventsEventIdRouteWithChildren
+  '/learner/community/events/create': typeof LearnerCommunityEventsCreateRoute
+  '/learner/courses/courses/$courseId': typeof LearnerCoursesCoursesCourseIdRoute
+  '/learner/mentors/mentors/$mentorId': typeof LearnerMentorsMentorsMentorIdRoute
+  '/mentor-learner/community/discussions/$discussionId': typeof MentorLearnerCommunityDiscussionsDiscussionIdRoute
+  '/mentor-learner/community/discussions/new': typeof MentorLearnerCommunityDiscussionsNewRoute
+  '/mentor-learner/community/events/$eventId': typeof MentorLearnerCommunityEventsEventIdRouteWithChildren
+  '/mentor-learner/community/events/create': typeof MentorLearnerCommunityEventsCreateRoute
+  '/mentor-learner/courses/courses/$courseId': typeof MentorLearnerCoursesCoursesCourseIdRoute
+  '/mentor-learner/mentors/mentors/$mentorId': typeof MentorLearnerMentorsMentorsMentorIdRoute
+  '/mentor/community/discussions/$discussionId': typeof MentorCommunityDiscussionsDiscussionIdRoute
+  '/mentor/community/discussions/new': typeof MentorCommunityDiscussionsNewRoute
+  '/mentor/community/events/$eventId': typeof MentorCommunityEventsEventIdRouteWithChildren
+  '/mentor/community/events/create': typeof MentorCommunityEventsCreateRoute
+  '/mentor/courses/edit/$courseId': typeof MentorCoursesEditCourseIdRoute
+  '/mentor/courses/manage/$courseId': typeof MentorCoursesManageCourseIdRoute
+  '/mentor/courses/manage/certificates': typeof MentorCoursesManageCertificatesRoute
+  '/mentor/encyclopedia/$articleId/edit': typeof MentorEncyclopediaArticleIdEditRoute
+  '/learner/community/discussions': typeof LearnerCommunityDiscussionsIndexRoute
+  '/learner/community/events': typeof LearnerCommunityEventsIndexRoute
+  '/learner/courses/courses': typeof LearnerCoursesCoursesIndexRoute
+  '/learner/mentors/mentors': typeof LearnerMentorsMentorsIndexRoute
+  '/mentor-learner/community/discussions': typeof MentorLearnerCommunityDiscussionsIndexRoute
+  '/mentor-learner/community/events': typeof MentorLearnerCommunityEventsIndexRoute
+  '/mentor-learner/courses/courses': typeof MentorLearnerCoursesCoursesIndexRoute
+  '/mentor-learner/mentors/mentors': typeof MentorLearnerMentorsMentorsIndexRoute
+  '/mentor/community/discussions': typeof MentorCommunityDiscussionsIndexRoute
+  '/mentor/community/events': typeof MentorCommunityEventsIndexRoute
+  '/learner/community/events/$eventId/edit': typeof LearnerCommunityEventsEventIdEditRoute
+  '/mentor-learner/community/events/$eventId/edit': typeof MentorLearnerCommunityEventsEventIdEditRoute
+  '/mentor/community/events/$eventId/edit': typeof MentorCommunityEventsEventIdEditRoute
+  '/mentor/courses/manage/reviews/$courseId': typeof MentorCoursesManageReviewsCourseIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/dashboard': typeof DashboardRoute
+  '/apply-mentor': typeof ApplyMentorRoute
   '/login': typeof LoginRoute
-  '/profile': typeof ProfileRoute
+  '/mentor-application-success': typeof MentorApplicationSuccessRoute
   '/register': typeof RegisterRoute
-  '/community/discussions': typeof CommunityDiscussionsRoute
-  '/courses/$courseId': typeof CoursesCourseIdRoute
-  '/mentors/$mentorId': typeof MentorsMentorIdRoute
-  '/community/': typeof CommunityIndexRoute
-  '/courses/': typeof CoursesIndexRoute
-  '/mentors/': typeof MentorsIndexRoute
-  '/community/events/$eventId': typeof CommunityEventsEventIdRoute
+  '/admin/_layout': typeof AdminLayoutRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/learner/_layout': typeof LearnerLayoutRoute
+  '/learner/checkout': typeof LearnerCheckoutRoute
+  '/learner/dashboard': typeof LearnerDashboardRoute
+  '/learner/payment-success': typeof LearnerPaymentSuccessRoute
+  '/mentor-learner/_layout': typeof MentorLearnerLayoutRoute
+  '/mentor-learner/checkout': typeof MentorLearnerCheckoutRoute
+  '/mentor-learner/dashboard': typeof MentorLearnerDashboardRoute
+  '/mentor-learner/payment-success': typeof MentorLearnerPaymentSuccessRoute
+  '/mentor/_layout': typeof MentorLayoutRoute
+  '/mentor/dashboard': typeof MentorDashboardRoute
+  '/admin/payments/failed': typeof AdminPaymentsFailedRoute
+  '/learner/encyclopedia/$articleId': typeof LearnerEncyclopediaArticleIdRoute
+  '/learner/learn/$courseId': typeof LearnerLearnCourseIdRoute
+  '/learner/profile/edit': typeof LearnerProfileEditRoute
+  '/mentor-learner/encyclopedia/$articleId': typeof MentorLearnerEncyclopediaArticleIdRoute
+  '/mentor-learner/learn/$courseId': typeof MentorLearnerLearnCourseIdRoute
+  '/mentor-learner/profile/edit': typeof MentorLearnerProfileEditRoute
+  '/mentor/analytics/completion': typeof MentorAnalyticsCompletionRoute
+  '/mentor/analytics/courses': typeof MentorAnalyticsCoursesRoute
+  '/mentor/analytics/engagement': typeof MentorAnalyticsEngagementRoute
+  '/mentor/courses/create': typeof MentorCoursesCreateRoute
+  '/mentor/earnings/withdrawals': typeof MentorEarningsWithdrawalsRoute
+  '/mentor/encyclopedia/$articleId': typeof MentorEncyclopediaArticleIdRouteWithChildren
+  '/mentor/encyclopedia/create': typeof MentorEncyclopediaCreateRoute
+  '/mentor/profile/edit': typeof MentorProfileEditRoute
+  '/mentor/students/$studentId': typeof MentorStudentsStudentIdRoute
+  '/admin/courses/': typeof AdminCoursesIndexRoute
+  '/admin/mentors/': typeof AdminMentorsIndexRoute
+  '/admin/payments/': typeof AdminPaymentsIndexRoute
+  '/admin/profile/': typeof AdminProfileIndexRoute
+  '/admin/reviews/': typeof AdminReviewsIndexRoute
+  '/admin/settings/': typeof AdminSettingsIndexRoute
+  '/admin/users/': typeof AdminUsersIndexRoute
+  '/learner/certificates/': typeof LearnerCertificatesIndexRoute
+  '/learner/community/': typeof LearnerCommunityIndexRoute
+  '/learner/encyclopedia/': typeof LearnerEncyclopediaIndexRoute
+  '/learner/notifications/': typeof LearnerNotificationsIndexRoute
+  '/learner/profile/': typeof LearnerProfileIndexRoute
+  '/learner/saved/': typeof LearnerSavedIndexRoute
+  '/learner/settings/': typeof LearnerSettingsIndexRoute
+  '/mentor-learner/certificates/': typeof MentorLearnerCertificatesIndexRoute
+  '/mentor-learner/community/': typeof MentorLearnerCommunityIndexRoute
+  '/mentor-learner/encyclopedia/': typeof MentorLearnerEncyclopediaIndexRoute
+  '/mentor-learner/notifications/': typeof MentorLearnerNotificationsIndexRoute
+  '/mentor-learner/profile/': typeof MentorLearnerProfileIndexRoute
+  '/mentor-learner/saved/': typeof MentorLearnerSavedIndexRoute
+  '/mentor-learner/settings/': typeof MentorLearnerSettingsIndexRoute
+  '/mentor/analytics/': typeof MentorAnalyticsIndexRoute
+  '/mentor/community/': typeof MentorCommunityIndexRoute
+  '/mentor/courses/': typeof MentorCoursesIndexRoute
+  '/mentor/earnings/': typeof MentorEarningsIndexRoute
+  '/mentor/encyclopedia/': typeof MentorEncyclopediaIndexRoute
+  '/mentor/notifications/': typeof MentorNotificationsIndexRoute
+  '/mentor/profile/': typeof MentorProfileIndexRoute
+  '/mentor/reviews/': typeof MentorReviewsIndexRoute
+  '/mentor/settings/': typeof MentorSettingsIndexRoute
+  '/mentor/students/': typeof MentorStudentsIndexRoute
+  '/learner/community/discussions/$discussionId': typeof LearnerCommunityDiscussionsDiscussionIdRoute
+  '/learner/community/discussions/new': typeof LearnerCommunityDiscussionsNewRoute
+  '/learner/community/events/$eventId': typeof LearnerCommunityEventsEventIdRouteWithChildren
+  '/learner/community/events/create': typeof LearnerCommunityEventsCreateRoute
+  '/learner/courses/courses/$courseId': typeof LearnerCoursesCoursesCourseIdRoute
+  '/learner/mentors/mentors/$mentorId': typeof LearnerMentorsMentorsMentorIdRoute
+  '/mentor-learner/community/discussions/$discussionId': typeof MentorLearnerCommunityDiscussionsDiscussionIdRoute
+  '/mentor-learner/community/discussions/new': typeof MentorLearnerCommunityDiscussionsNewRoute
+  '/mentor-learner/community/events/$eventId': typeof MentorLearnerCommunityEventsEventIdRouteWithChildren
+  '/mentor-learner/community/events/create': typeof MentorLearnerCommunityEventsCreateRoute
+  '/mentor-learner/courses/courses/$courseId': typeof MentorLearnerCoursesCoursesCourseIdRoute
+  '/mentor-learner/mentors/mentors/$mentorId': typeof MentorLearnerMentorsMentorsMentorIdRoute
+  '/mentor/community/discussions/$discussionId': typeof MentorCommunityDiscussionsDiscussionIdRoute
+  '/mentor/community/discussions/new': typeof MentorCommunityDiscussionsNewRoute
+  '/mentor/community/events/$eventId': typeof MentorCommunityEventsEventIdRouteWithChildren
+  '/mentor/community/events/create': typeof MentorCommunityEventsCreateRoute
+  '/mentor/courses/edit/$courseId': typeof MentorCoursesEditCourseIdRoute
+  '/mentor/courses/manage/$courseId': typeof MentorCoursesManageCourseIdRoute
+  '/mentor/courses/manage/certificates': typeof MentorCoursesManageCertificatesRoute
+  '/mentor/encyclopedia/$articleId/edit': typeof MentorEncyclopediaArticleIdEditRoute
+  '/learner/community/discussions/': typeof LearnerCommunityDiscussionsIndexRoute
+  '/learner/community/events/': typeof LearnerCommunityEventsIndexRoute
+  '/learner/courses/courses/': typeof LearnerCoursesCoursesIndexRoute
+  '/learner/mentors/mentors/': typeof LearnerMentorsMentorsIndexRoute
+  '/mentor-learner/community/discussions/': typeof MentorLearnerCommunityDiscussionsIndexRoute
+  '/mentor-learner/community/events/': typeof MentorLearnerCommunityEventsIndexRoute
+  '/mentor-learner/courses/courses/': typeof MentorLearnerCoursesCoursesIndexRoute
+  '/mentor-learner/mentors/mentors/': typeof MentorLearnerMentorsMentorsIndexRoute
+  '/mentor/community/discussions/': typeof MentorCommunityDiscussionsIndexRoute
+  '/mentor/community/events/': typeof MentorCommunityEventsIndexRoute
+  '/learner/community/events/$eventId/edit': typeof LearnerCommunityEventsEventIdEditRoute
+  '/mentor-learner/community/events/$eventId/edit': typeof MentorLearnerCommunityEventsEventIdEditRoute
+  '/mentor/community/events/$eventId/edit': typeof MentorCommunityEventsEventIdEditRoute
+  '/mentor/courses/manage/reviews/$courseId': typeof MentorCoursesManageReviewsCourseIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/dashboard'
+    | '/apply-mentor'
     | '/login'
-    | '/profile'
+    | '/mentor-application-success'
     | '/register'
-    | '/community/discussions'
-    | '/courses/$courseId'
-    | '/mentors/$mentorId'
-    | '/community/'
-    | '/courses/'
-    | '/mentors/'
-    | '/community/events/$eventId'
+    | '/admin'
+    | '/admin/dashboard'
+    | '/learner'
+    | '/learner/checkout'
+    | '/learner/dashboard'
+    | '/learner/payment-success'
+    | '/mentor-learner'
+    | '/mentor-learner/checkout'
+    | '/mentor-learner/dashboard'
+    | '/mentor-learner/payment-success'
+    | '/mentor'
+    | '/mentor/dashboard'
+    | '/admin/payments/failed'
+    | '/learner/encyclopedia/$articleId'
+    | '/learner/learn/$courseId'
+    | '/learner/profile/edit'
+    | '/mentor-learner/encyclopedia/$articleId'
+    | '/mentor-learner/learn/$courseId'
+    | '/mentor-learner/profile/edit'
+    | '/mentor/analytics/completion'
+    | '/mentor/analytics/courses'
+    | '/mentor/analytics/engagement'
+    | '/mentor/courses/create'
+    | '/mentor/earnings/withdrawals'
+    | '/mentor/encyclopedia/$articleId'
+    | '/mentor/encyclopedia/create'
+    | '/mentor/profile/edit'
+    | '/mentor/students/$studentId'
+    | '/admin/courses/'
+    | '/admin/mentors/'
+    | '/admin/payments/'
+    | '/admin/profile/'
+    | '/admin/reviews/'
+    | '/admin/settings/'
+    | '/admin/users/'
+    | '/learner/certificates/'
+    | '/learner/community/'
+    | '/learner/encyclopedia/'
+    | '/learner/notifications/'
+    | '/learner/profile/'
+    | '/learner/saved/'
+    | '/learner/settings/'
+    | '/mentor-learner/certificates/'
+    | '/mentor-learner/community/'
+    | '/mentor-learner/encyclopedia/'
+    | '/mentor-learner/notifications/'
+    | '/mentor-learner/profile/'
+    | '/mentor-learner/saved/'
+    | '/mentor-learner/settings/'
+    | '/mentor/analytics/'
+    | '/mentor/community/'
+    | '/mentor/courses/'
+    | '/mentor/earnings/'
+    | '/mentor/encyclopedia/'
+    | '/mentor/notifications/'
+    | '/mentor/profile/'
+    | '/mentor/reviews/'
+    | '/mentor/settings/'
+    | '/mentor/students/'
+    | '/learner/community/discussions/$discussionId'
+    | '/learner/community/discussions/new'
+    | '/learner/community/events/$eventId'
+    | '/learner/community/events/create'
+    | '/learner/courses/courses/$courseId'
+    | '/learner/mentors/mentors/$mentorId'
+    | '/mentor-learner/community/discussions/$discussionId'
+    | '/mentor-learner/community/discussions/new'
+    | '/mentor-learner/community/events/$eventId'
+    | '/mentor-learner/community/events/create'
+    | '/mentor-learner/courses/courses/$courseId'
+    | '/mentor-learner/mentors/mentors/$mentorId'
+    | '/mentor/community/discussions/$discussionId'
+    | '/mentor/community/discussions/new'
+    | '/mentor/community/events/$eventId'
+    | '/mentor/community/events/create'
+    | '/mentor/courses/edit/$courseId'
+    | '/mentor/courses/manage/$courseId'
+    | '/mentor/courses/manage/certificates'
+    | '/mentor/encyclopedia/$articleId/edit'
+    | '/learner/community/discussions/'
+    | '/learner/community/events/'
+    | '/learner/courses/courses/'
+    | '/learner/mentors/mentors/'
+    | '/mentor-learner/community/discussions/'
+    | '/mentor-learner/community/events/'
+    | '/mentor-learner/courses/courses/'
+    | '/mentor-learner/mentors/mentors/'
+    | '/mentor/community/discussions/'
+    | '/mentor/community/events/'
+    | '/learner/community/events/$eventId/edit'
+    | '/mentor-learner/community/events/$eventId/edit'
+    | '/mentor/community/events/$eventId/edit'
+    | '/mentor/courses/manage/reviews/$courseId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/dashboard'
+    | '/apply-mentor'
     | '/login'
-    | '/profile'
+    | '/mentor-application-success'
     | '/register'
-    | '/community/discussions'
-    | '/courses/$courseId'
-    | '/mentors/$mentorId'
-    | '/community'
-    | '/courses'
-    | '/mentors'
-    | '/community/events/$eventId'
+    | '/admin'
+    | '/admin/dashboard'
+    | '/learner'
+    | '/learner/checkout'
+    | '/learner/dashboard'
+    | '/learner/payment-success'
+    | '/mentor-learner'
+    | '/mentor-learner/checkout'
+    | '/mentor-learner/dashboard'
+    | '/mentor-learner/payment-success'
+    | '/mentor'
+    | '/mentor/dashboard'
+    | '/admin/payments/failed'
+    | '/learner/encyclopedia/$articleId'
+    | '/learner/learn/$courseId'
+    | '/learner/profile/edit'
+    | '/mentor-learner/encyclopedia/$articleId'
+    | '/mentor-learner/learn/$courseId'
+    | '/mentor-learner/profile/edit'
+    | '/mentor/analytics/completion'
+    | '/mentor/analytics/courses'
+    | '/mentor/analytics/engagement'
+    | '/mentor/courses/create'
+    | '/mentor/earnings/withdrawals'
+    | '/mentor/encyclopedia/$articleId'
+    | '/mentor/encyclopedia/create'
+    | '/mentor/profile/edit'
+    | '/mentor/students/$studentId'
+    | '/admin/courses'
+    | '/admin/mentors'
+    | '/admin/payments'
+    | '/admin/profile'
+    | '/admin/reviews'
+    | '/admin/settings'
+    | '/admin/users'
+    | '/learner/certificates'
+    | '/learner/community'
+    | '/learner/encyclopedia'
+    | '/learner/notifications'
+    | '/learner/profile'
+    | '/learner/saved'
+    | '/learner/settings'
+    | '/mentor-learner/certificates'
+    | '/mentor-learner/community'
+    | '/mentor-learner/encyclopedia'
+    | '/mentor-learner/notifications'
+    | '/mentor-learner/profile'
+    | '/mentor-learner/saved'
+    | '/mentor-learner/settings'
+    | '/mentor/analytics'
+    | '/mentor/community'
+    | '/mentor/courses'
+    | '/mentor/earnings'
+    | '/mentor/encyclopedia'
+    | '/mentor/notifications'
+    | '/mentor/profile'
+    | '/mentor/reviews'
+    | '/mentor/settings'
+    | '/mentor/students'
+    | '/learner/community/discussions/$discussionId'
+    | '/learner/community/discussions/new'
+    | '/learner/community/events/$eventId'
+    | '/learner/community/events/create'
+    | '/learner/courses/courses/$courseId'
+    | '/learner/mentors/mentors/$mentorId'
+    | '/mentor-learner/community/discussions/$discussionId'
+    | '/mentor-learner/community/discussions/new'
+    | '/mentor-learner/community/events/$eventId'
+    | '/mentor-learner/community/events/create'
+    | '/mentor-learner/courses/courses/$courseId'
+    | '/mentor-learner/mentors/mentors/$mentorId'
+    | '/mentor/community/discussions/$discussionId'
+    | '/mentor/community/discussions/new'
+    | '/mentor/community/events/$eventId'
+    | '/mentor/community/events/create'
+    | '/mentor/courses/edit/$courseId'
+    | '/mentor/courses/manage/$courseId'
+    | '/mentor/courses/manage/certificates'
+    | '/mentor/encyclopedia/$articleId/edit'
+    | '/learner/community/discussions'
+    | '/learner/community/events'
+    | '/learner/courses/courses'
+    | '/learner/mentors/mentors'
+    | '/mentor-learner/community/discussions'
+    | '/mentor-learner/community/events'
+    | '/mentor-learner/courses/courses'
+    | '/mentor-learner/mentors/mentors'
+    | '/mentor/community/discussions'
+    | '/mentor/community/events'
+    | '/learner/community/events/$eventId/edit'
+    | '/mentor-learner/community/events/$eventId/edit'
+    | '/mentor/community/events/$eventId/edit'
+    | '/mentor/courses/manage/reviews/$courseId'
   id:
     | '__root__'
     | '/'
-    | '/dashboard'
+    | '/apply-mentor'
     | '/login'
-    | '/profile'
+    | '/mentor-application-success'
     | '/register'
-    | '/community/discussions'
-    | '/courses/$courseId'
-    | '/mentors/$mentorId'
-    | '/community/'
-    | '/courses/'
-    | '/mentors/'
-    | '/community/events/$eventId'
+    | '/admin/_layout'
+    | '/admin/dashboard'
+    | '/learner/_layout'
+    | '/learner/checkout'
+    | '/learner/dashboard'
+    | '/learner/payment-success'
+    | '/mentor-learner/_layout'
+    | '/mentor-learner/checkout'
+    | '/mentor-learner/dashboard'
+    | '/mentor-learner/payment-success'
+    | '/mentor/_layout'
+    | '/mentor/dashboard'
+    | '/admin/payments/failed'
+    | '/learner/encyclopedia/$articleId'
+    | '/learner/learn/$courseId'
+    | '/learner/profile/edit'
+    | '/mentor-learner/encyclopedia/$articleId'
+    | '/mentor-learner/learn/$courseId'
+    | '/mentor-learner/profile/edit'
+    | '/mentor/analytics/completion'
+    | '/mentor/analytics/courses'
+    | '/mentor/analytics/engagement'
+    | '/mentor/courses/create'
+    | '/mentor/earnings/withdrawals'
+    | '/mentor/encyclopedia/$articleId'
+    | '/mentor/encyclopedia/create'
+    | '/mentor/profile/edit'
+    | '/mentor/students/$studentId'
+    | '/admin/courses/'
+    | '/admin/mentors/'
+    | '/admin/payments/'
+    | '/admin/profile/'
+    | '/admin/reviews/'
+    | '/admin/settings/'
+    | '/admin/users/'
+    | '/learner/certificates/'
+    | '/learner/community/'
+    | '/learner/encyclopedia/'
+    | '/learner/notifications/'
+    | '/learner/profile/'
+    | '/learner/saved/'
+    | '/learner/settings/'
+    | '/mentor-learner/certificates/'
+    | '/mentor-learner/community/'
+    | '/mentor-learner/encyclopedia/'
+    | '/mentor-learner/notifications/'
+    | '/mentor-learner/profile/'
+    | '/mentor-learner/saved/'
+    | '/mentor-learner/settings/'
+    | '/mentor/analytics/'
+    | '/mentor/community/'
+    | '/mentor/courses/'
+    | '/mentor/earnings/'
+    | '/mentor/encyclopedia/'
+    | '/mentor/notifications/'
+    | '/mentor/profile/'
+    | '/mentor/reviews/'
+    | '/mentor/settings/'
+    | '/mentor/students/'
+    | '/learner/community/discussions/$discussionId'
+    | '/learner/community/discussions/new'
+    | '/learner/community/events/$eventId'
+    | '/learner/community/events/create'
+    | '/learner/courses/courses/$courseId'
+    | '/learner/mentors/mentors/$mentorId'
+    | '/mentor-learner/community/discussions/$discussionId'
+    | '/mentor-learner/community/discussions/new'
+    | '/mentor-learner/community/events/$eventId'
+    | '/mentor-learner/community/events/create'
+    | '/mentor-learner/courses/courses/$courseId'
+    | '/mentor-learner/mentors/mentors/$mentorId'
+    | '/mentor/community/discussions/$discussionId'
+    | '/mentor/community/discussions/new'
+    | '/mentor/community/events/$eventId'
+    | '/mentor/community/events/create'
+    | '/mentor/courses/edit/$courseId'
+    | '/mentor/courses/manage/$courseId'
+    | '/mentor/courses/manage/certificates'
+    | '/mentor/encyclopedia/$articleId/edit'
+    | '/learner/community/discussions/'
+    | '/learner/community/events/'
+    | '/learner/courses/courses/'
+    | '/learner/mentors/mentors/'
+    | '/mentor-learner/community/discussions/'
+    | '/mentor-learner/community/events/'
+    | '/mentor-learner/courses/courses/'
+    | '/mentor-learner/mentors/mentors/'
+    | '/mentor/community/discussions/'
+    | '/mentor/community/events/'
+    | '/learner/community/events/$eventId/edit'
+    | '/mentor-learner/community/events/$eventId/edit'
+    | '/mentor/community/events/$eventId/edit'
+    | '/mentor/courses/manage/reviews/$courseId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DashboardRoute: typeof DashboardRoute
+  ApplyMentorRoute: typeof ApplyMentorRoute
   LoginRoute: typeof LoginRoute
-  ProfileRoute: typeof ProfileRoute
+  MentorApplicationSuccessRoute: typeof MentorApplicationSuccessRoute
   RegisterRoute: typeof RegisterRoute
-  CommunityDiscussionsRoute: typeof CommunityDiscussionsRoute
-  CoursesCourseIdRoute: typeof CoursesCourseIdRoute
-  MentorsMentorIdRoute: typeof MentorsMentorIdRoute
-  CommunityIndexRoute: typeof CommunityIndexRoute
-  CoursesIndexRoute: typeof CoursesIndexRoute
-  MentorsIndexRoute: typeof MentorsIndexRoute
-  CommunityEventsEventIdRoute: typeof CommunityEventsEventIdRoute
+  AdminLayoutRoute: typeof AdminLayoutRoute
+  AdminDashboardRoute: typeof AdminDashboardRoute
+  LearnerLayoutRoute: typeof LearnerLayoutRoute
+  LearnerCheckoutRoute: typeof LearnerCheckoutRoute
+  LearnerDashboardRoute: typeof LearnerDashboardRoute
+  LearnerPaymentSuccessRoute: typeof LearnerPaymentSuccessRoute
+  MentorLearnerLayoutRoute: typeof MentorLearnerLayoutRoute
+  MentorLearnerCheckoutRoute: typeof MentorLearnerCheckoutRoute
+  MentorLearnerDashboardRoute: typeof MentorLearnerDashboardRoute
+  MentorLearnerPaymentSuccessRoute: typeof MentorLearnerPaymentSuccessRoute
+  MentorLayoutRoute: typeof MentorLayoutRoute
+  MentorDashboardRoute: typeof MentorDashboardRoute
+  AdminPaymentsFailedRoute: typeof AdminPaymentsFailedRoute
+  LearnerEncyclopediaArticleIdRoute: typeof LearnerEncyclopediaArticleIdRoute
+  LearnerLearnCourseIdRoute: typeof LearnerLearnCourseIdRoute
+  LearnerProfileEditRoute: typeof LearnerProfileEditRoute
+  MentorLearnerEncyclopediaArticleIdRoute: typeof MentorLearnerEncyclopediaArticleIdRoute
+  MentorLearnerLearnCourseIdRoute: typeof MentorLearnerLearnCourseIdRoute
+  MentorLearnerProfileEditRoute: typeof MentorLearnerProfileEditRoute
+  MentorAnalyticsCompletionRoute: typeof MentorAnalyticsCompletionRoute
+  MentorAnalyticsCoursesRoute: typeof MentorAnalyticsCoursesRoute
+  MentorAnalyticsEngagementRoute: typeof MentorAnalyticsEngagementRoute
+  MentorCoursesCreateRoute: typeof MentorCoursesCreateRoute
+  MentorEarningsWithdrawalsRoute: typeof MentorEarningsWithdrawalsRoute
+  MentorEncyclopediaArticleIdRoute: typeof MentorEncyclopediaArticleIdRouteWithChildren
+  MentorEncyclopediaCreateRoute: typeof MentorEncyclopediaCreateRoute
+  MentorProfileEditRoute: typeof MentorProfileEditRoute
+  MentorStudentsStudentIdRoute: typeof MentorStudentsStudentIdRoute
+  AdminCoursesIndexRoute: typeof AdminCoursesIndexRoute
+  AdminMentorsIndexRoute: typeof AdminMentorsIndexRoute
+  AdminPaymentsIndexRoute: typeof AdminPaymentsIndexRoute
+  AdminProfileIndexRoute: typeof AdminProfileIndexRoute
+  AdminReviewsIndexRoute: typeof AdminReviewsIndexRoute
+  AdminSettingsIndexRoute: typeof AdminSettingsIndexRoute
+  AdminUsersIndexRoute: typeof AdminUsersIndexRoute
+  LearnerCertificatesIndexRoute: typeof LearnerCertificatesIndexRoute
+  LearnerCommunityIndexRoute: typeof LearnerCommunityIndexRoute
+  LearnerEncyclopediaIndexRoute: typeof LearnerEncyclopediaIndexRoute
+  LearnerNotificationsIndexRoute: typeof LearnerNotificationsIndexRoute
+  LearnerProfileIndexRoute: typeof LearnerProfileIndexRoute
+  LearnerSavedIndexRoute: typeof LearnerSavedIndexRoute
+  LearnerSettingsIndexRoute: typeof LearnerSettingsIndexRoute
+  MentorLearnerCertificatesIndexRoute: typeof MentorLearnerCertificatesIndexRoute
+  MentorLearnerCommunityIndexRoute: typeof MentorLearnerCommunityIndexRoute
+  MentorLearnerEncyclopediaIndexRoute: typeof MentorLearnerEncyclopediaIndexRoute
+  MentorLearnerNotificationsIndexRoute: typeof MentorLearnerNotificationsIndexRoute
+  MentorLearnerProfileIndexRoute: typeof MentorLearnerProfileIndexRoute
+  MentorLearnerSavedIndexRoute: typeof MentorLearnerSavedIndexRoute
+  MentorLearnerSettingsIndexRoute: typeof MentorLearnerSettingsIndexRoute
+  MentorAnalyticsIndexRoute: typeof MentorAnalyticsIndexRoute
+  MentorCommunityIndexRoute: typeof MentorCommunityIndexRoute
+  MentorCoursesIndexRoute: typeof MentorCoursesIndexRoute
+  MentorEarningsIndexRoute: typeof MentorEarningsIndexRoute
+  MentorEncyclopediaIndexRoute: typeof MentorEncyclopediaIndexRoute
+  MentorNotificationsIndexRoute: typeof MentorNotificationsIndexRoute
+  MentorProfileIndexRoute: typeof MentorProfileIndexRoute
+  MentorReviewsIndexRoute: typeof MentorReviewsIndexRoute
+  MentorSettingsIndexRoute: typeof MentorSettingsIndexRoute
+  MentorStudentsIndexRoute: typeof MentorStudentsIndexRoute
+  LearnerCommunityDiscussionsDiscussionIdRoute: typeof LearnerCommunityDiscussionsDiscussionIdRoute
+  LearnerCommunityDiscussionsNewRoute: typeof LearnerCommunityDiscussionsNewRoute
+  LearnerCommunityEventsEventIdRoute: typeof LearnerCommunityEventsEventIdRouteWithChildren
+  LearnerCommunityEventsCreateRoute: typeof LearnerCommunityEventsCreateRoute
+  LearnerCoursesCoursesCourseIdRoute: typeof LearnerCoursesCoursesCourseIdRoute
+  LearnerMentorsMentorsMentorIdRoute: typeof LearnerMentorsMentorsMentorIdRoute
+  MentorLearnerCommunityDiscussionsDiscussionIdRoute: typeof MentorLearnerCommunityDiscussionsDiscussionIdRoute
+  MentorLearnerCommunityDiscussionsNewRoute: typeof MentorLearnerCommunityDiscussionsNewRoute
+  MentorLearnerCommunityEventsEventIdRoute: typeof MentorLearnerCommunityEventsEventIdRouteWithChildren
+  MentorLearnerCommunityEventsCreateRoute: typeof MentorLearnerCommunityEventsCreateRoute
+  MentorLearnerCoursesCoursesCourseIdRoute: typeof MentorLearnerCoursesCoursesCourseIdRoute
+  MentorLearnerMentorsMentorsMentorIdRoute: typeof MentorLearnerMentorsMentorsMentorIdRoute
+  MentorCommunityDiscussionsDiscussionIdRoute: typeof MentorCommunityDiscussionsDiscussionIdRoute
+  MentorCommunityDiscussionsNewRoute: typeof MentorCommunityDiscussionsNewRoute
+  MentorCommunityEventsEventIdRoute: typeof MentorCommunityEventsEventIdRouteWithChildren
+  MentorCommunityEventsCreateRoute: typeof MentorCommunityEventsCreateRoute
+  MentorCoursesEditCourseIdRoute: typeof MentorCoursesEditCourseIdRoute
+  MentorCoursesManageCourseIdRoute: typeof MentorCoursesManageCourseIdRoute
+  MentorCoursesManageCertificatesRoute: typeof MentorCoursesManageCertificatesRoute
+  LearnerCommunityDiscussionsIndexRoute: typeof LearnerCommunityDiscussionsIndexRoute
+  LearnerCommunityEventsIndexRoute: typeof LearnerCommunityEventsIndexRoute
+  LearnerCoursesCoursesIndexRoute: typeof LearnerCoursesCoursesIndexRoute
+  LearnerMentorsMentorsIndexRoute: typeof LearnerMentorsMentorsIndexRoute
+  MentorLearnerCommunityDiscussionsIndexRoute: typeof MentorLearnerCommunityDiscussionsIndexRoute
+  MentorLearnerCommunityEventsIndexRoute: typeof MentorLearnerCommunityEventsIndexRoute
+  MentorLearnerCoursesCoursesIndexRoute: typeof MentorLearnerCoursesCoursesIndexRoute
+  MentorLearnerMentorsMentorsIndexRoute: typeof MentorLearnerMentorsMentorsIndexRoute
+  MentorCommunityDiscussionsIndexRoute: typeof MentorCommunityDiscussionsIndexRoute
+  MentorCommunityEventsIndexRoute: typeof MentorCommunityEventsIndexRoute
+  MentorCoursesManageReviewsCourseIdRoute: typeof MentorCoursesManageReviewsCourseIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -195,11 +1364,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RegisterRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/profile': {
-      id: '/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof ProfileRouteImport
+    '/mentor-application-success': {
+      id: '/mentor-application-success'
+      path: '/mentor-application-success'
+      fullPath: '/mentor-application-success'
+      preLoaderRoute: typeof MentorApplicationSuccessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -209,11 +1378,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
+    '/apply-mentor': {
+      id: '/apply-mentor'
+      path: '/apply-mentor'
+      fullPath: '/apply-mentor'
+      preLoaderRoute: typeof ApplyMentorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -223,71 +1392,829 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/mentors/': {
-      id: '/mentors/'
-      path: '/mentors'
-      fullPath: '/mentors/'
-      preLoaderRoute: typeof MentorsIndexRouteImport
+    '/mentor/dashboard': {
+      id: '/mentor/dashboard'
+      path: '/mentor/dashboard'
+      fullPath: '/mentor/dashboard'
+      preLoaderRoute: typeof MentorDashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/courses/': {
-      id: '/courses/'
-      path: '/courses'
-      fullPath: '/courses/'
-      preLoaderRoute: typeof CoursesIndexRouteImport
+    '/mentor/_layout': {
+      id: '/mentor/_layout'
+      path: '/mentor'
+      fullPath: '/mentor'
+      preLoaderRoute: typeof MentorLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/community/': {
-      id: '/community/'
-      path: '/community'
-      fullPath: '/community/'
-      preLoaderRoute: typeof CommunityIndexRouteImport
+    '/mentor-learner/payment-success': {
+      id: '/mentor-learner/payment-success'
+      path: '/mentor-learner/payment-success'
+      fullPath: '/mentor-learner/payment-success'
+      preLoaderRoute: typeof MentorLearnerPaymentSuccessRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/mentors/$mentorId': {
-      id: '/mentors/$mentorId'
-      path: '/mentors/$mentorId'
-      fullPath: '/mentors/$mentorId'
-      preLoaderRoute: typeof MentorsMentorIdRouteImport
+    '/mentor-learner/dashboard': {
+      id: '/mentor-learner/dashboard'
+      path: '/mentor-learner/dashboard'
+      fullPath: '/mentor-learner/dashboard'
+      preLoaderRoute: typeof MentorLearnerDashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/courses/$courseId': {
-      id: '/courses/$courseId'
-      path: '/courses/$courseId'
-      fullPath: '/courses/$courseId'
-      preLoaderRoute: typeof CoursesCourseIdRouteImport
+    '/mentor-learner/checkout': {
+      id: '/mentor-learner/checkout'
+      path: '/mentor-learner/checkout'
+      fullPath: '/mentor-learner/checkout'
+      preLoaderRoute: typeof MentorLearnerCheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/community/discussions': {
-      id: '/community/discussions'
-      path: '/community/discussions'
-      fullPath: '/community/discussions'
-      preLoaderRoute: typeof CommunityDiscussionsRouteImport
+    '/mentor-learner/_layout': {
+      id: '/mentor-learner/_layout'
+      path: '/mentor-learner'
+      fullPath: '/mentor-learner'
+      preLoaderRoute: typeof MentorLearnerLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/community/events/$eventId': {
-      id: '/community/events/$eventId'
-      path: '/community/events/$eventId'
-      fullPath: '/community/events/$eventId'
-      preLoaderRoute: typeof CommunityEventsEventIdRouteImport
+    '/learner/payment-success': {
+      id: '/learner/payment-success'
+      path: '/learner/payment-success'
+      fullPath: '/learner/payment-success'
+      preLoaderRoute: typeof LearnerPaymentSuccessRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/learner/dashboard': {
+      id: '/learner/dashboard'
+      path: '/learner/dashboard'
+      fullPath: '/learner/dashboard'
+      preLoaderRoute: typeof LearnerDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/checkout': {
+      id: '/learner/checkout'
+      path: '/learner/checkout'
+      fullPath: '/learner/checkout'
+      preLoaderRoute: typeof LearnerCheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/_layout': {
+      id: '/learner/_layout'
+      path: '/learner'
+      fullPath: '/learner'
+      preLoaderRoute: typeof LearnerLayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/dashboard': {
+      id: '/admin/dashboard'
+      path: '/admin/dashboard'
+      fullPath: '/admin/dashboard'
+      preLoaderRoute: typeof AdminDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/_layout': {
+      id: '/admin/_layout'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminLayoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/students/': {
+      id: '/mentor/students/'
+      path: '/mentor/students'
+      fullPath: '/mentor/students/'
+      preLoaderRoute: typeof MentorStudentsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/settings/': {
+      id: '/mentor/settings/'
+      path: '/mentor/settings'
+      fullPath: '/mentor/settings/'
+      preLoaderRoute: typeof MentorSettingsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/reviews/': {
+      id: '/mentor/reviews/'
+      path: '/mentor/reviews'
+      fullPath: '/mentor/reviews/'
+      preLoaderRoute: typeof MentorReviewsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/profile/': {
+      id: '/mentor/profile/'
+      path: '/mentor/profile'
+      fullPath: '/mentor/profile/'
+      preLoaderRoute: typeof MentorProfileIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/notifications/': {
+      id: '/mentor/notifications/'
+      path: '/mentor/notifications'
+      fullPath: '/mentor/notifications/'
+      preLoaderRoute: typeof MentorNotificationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/encyclopedia/': {
+      id: '/mentor/encyclopedia/'
+      path: '/mentor/encyclopedia'
+      fullPath: '/mentor/encyclopedia/'
+      preLoaderRoute: typeof MentorEncyclopediaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/earnings/': {
+      id: '/mentor/earnings/'
+      path: '/mentor/earnings'
+      fullPath: '/mentor/earnings/'
+      preLoaderRoute: typeof MentorEarningsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/courses/': {
+      id: '/mentor/courses/'
+      path: '/mentor/courses'
+      fullPath: '/mentor/courses/'
+      preLoaderRoute: typeof MentorCoursesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/community/': {
+      id: '/mentor/community/'
+      path: '/mentor/community'
+      fullPath: '/mentor/community/'
+      preLoaderRoute: typeof MentorCommunityIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/analytics/': {
+      id: '/mentor/analytics/'
+      path: '/mentor/analytics'
+      fullPath: '/mentor/analytics/'
+      preLoaderRoute: typeof MentorAnalyticsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/settings/': {
+      id: '/mentor-learner/settings/'
+      path: '/mentor-learner/settings'
+      fullPath: '/mentor-learner/settings/'
+      preLoaderRoute: typeof MentorLearnerSettingsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/saved/': {
+      id: '/mentor-learner/saved/'
+      path: '/mentor-learner/saved'
+      fullPath: '/mentor-learner/saved/'
+      preLoaderRoute: typeof MentorLearnerSavedIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/profile/': {
+      id: '/mentor-learner/profile/'
+      path: '/mentor-learner/profile'
+      fullPath: '/mentor-learner/profile/'
+      preLoaderRoute: typeof MentorLearnerProfileIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/notifications/': {
+      id: '/mentor-learner/notifications/'
+      path: '/mentor-learner/notifications'
+      fullPath: '/mentor-learner/notifications/'
+      preLoaderRoute: typeof MentorLearnerNotificationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/encyclopedia/': {
+      id: '/mentor-learner/encyclopedia/'
+      path: '/mentor-learner/encyclopedia'
+      fullPath: '/mentor-learner/encyclopedia/'
+      preLoaderRoute: typeof MentorLearnerEncyclopediaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/community/': {
+      id: '/mentor-learner/community/'
+      path: '/mentor-learner/community'
+      fullPath: '/mentor-learner/community/'
+      preLoaderRoute: typeof MentorLearnerCommunityIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/certificates/': {
+      id: '/mentor-learner/certificates/'
+      path: '/mentor-learner/certificates'
+      fullPath: '/mentor-learner/certificates/'
+      preLoaderRoute: typeof MentorLearnerCertificatesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/settings/': {
+      id: '/learner/settings/'
+      path: '/learner/settings'
+      fullPath: '/learner/settings/'
+      preLoaderRoute: typeof LearnerSettingsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/saved/': {
+      id: '/learner/saved/'
+      path: '/learner/saved'
+      fullPath: '/learner/saved/'
+      preLoaderRoute: typeof LearnerSavedIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/profile/': {
+      id: '/learner/profile/'
+      path: '/learner/profile'
+      fullPath: '/learner/profile/'
+      preLoaderRoute: typeof LearnerProfileIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/notifications/': {
+      id: '/learner/notifications/'
+      path: '/learner/notifications'
+      fullPath: '/learner/notifications/'
+      preLoaderRoute: typeof LearnerNotificationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/encyclopedia/': {
+      id: '/learner/encyclopedia/'
+      path: '/learner/encyclopedia'
+      fullPath: '/learner/encyclopedia/'
+      preLoaderRoute: typeof LearnerEncyclopediaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/community/': {
+      id: '/learner/community/'
+      path: '/learner/community'
+      fullPath: '/learner/community/'
+      preLoaderRoute: typeof LearnerCommunityIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/certificates/': {
+      id: '/learner/certificates/'
+      path: '/learner/certificates'
+      fullPath: '/learner/certificates/'
+      preLoaderRoute: typeof LearnerCertificatesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/users/': {
+      id: '/admin/users/'
+      path: '/admin/users'
+      fullPath: '/admin/users/'
+      preLoaderRoute: typeof AdminUsersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/settings/': {
+      id: '/admin/settings/'
+      path: '/admin/settings'
+      fullPath: '/admin/settings/'
+      preLoaderRoute: typeof AdminSettingsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/reviews/': {
+      id: '/admin/reviews/'
+      path: '/admin/reviews'
+      fullPath: '/admin/reviews/'
+      preLoaderRoute: typeof AdminReviewsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/profile/': {
+      id: '/admin/profile/'
+      path: '/admin/profile'
+      fullPath: '/admin/profile/'
+      preLoaderRoute: typeof AdminProfileIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/payments/': {
+      id: '/admin/payments/'
+      path: '/admin/payments'
+      fullPath: '/admin/payments/'
+      preLoaderRoute: typeof AdminPaymentsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/mentors/': {
+      id: '/admin/mentors/'
+      path: '/admin/mentors'
+      fullPath: '/admin/mentors/'
+      preLoaderRoute: typeof AdminMentorsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/courses/': {
+      id: '/admin/courses/'
+      path: '/admin/courses'
+      fullPath: '/admin/courses/'
+      preLoaderRoute: typeof AdminCoursesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/students/$studentId': {
+      id: '/mentor/students/$studentId'
+      path: '/mentor/students/$studentId'
+      fullPath: '/mentor/students/$studentId'
+      preLoaderRoute: typeof MentorStudentsStudentIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/profile/edit': {
+      id: '/mentor/profile/edit'
+      path: '/mentor/profile/edit'
+      fullPath: '/mentor/profile/edit'
+      preLoaderRoute: typeof MentorProfileEditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/encyclopedia/create': {
+      id: '/mentor/encyclopedia/create'
+      path: '/mentor/encyclopedia/create'
+      fullPath: '/mentor/encyclopedia/create'
+      preLoaderRoute: typeof MentorEncyclopediaCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/encyclopedia/$articleId': {
+      id: '/mentor/encyclopedia/$articleId'
+      path: '/mentor/encyclopedia/$articleId'
+      fullPath: '/mentor/encyclopedia/$articleId'
+      preLoaderRoute: typeof MentorEncyclopediaArticleIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/earnings/withdrawals': {
+      id: '/mentor/earnings/withdrawals'
+      path: '/mentor/earnings/withdrawals'
+      fullPath: '/mentor/earnings/withdrawals'
+      preLoaderRoute: typeof MentorEarningsWithdrawalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/courses/create': {
+      id: '/mentor/courses/create'
+      path: '/mentor/courses/create'
+      fullPath: '/mentor/courses/create'
+      preLoaderRoute: typeof MentorCoursesCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/analytics/engagement': {
+      id: '/mentor/analytics/engagement'
+      path: '/mentor/analytics/engagement'
+      fullPath: '/mentor/analytics/engagement'
+      preLoaderRoute: typeof MentorAnalyticsEngagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/analytics/courses': {
+      id: '/mentor/analytics/courses'
+      path: '/mentor/analytics/courses'
+      fullPath: '/mentor/analytics/courses'
+      preLoaderRoute: typeof MentorAnalyticsCoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/analytics/completion': {
+      id: '/mentor/analytics/completion'
+      path: '/mentor/analytics/completion'
+      fullPath: '/mentor/analytics/completion'
+      preLoaderRoute: typeof MentorAnalyticsCompletionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/profile/edit': {
+      id: '/mentor-learner/profile/edit'
+      path: '/mentor-learner/profile/edit'
+      fullPath: '/mentor-learner/profile/edit'
+      preLoaderRoute: typeof MentorLearnerProfileEditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/learn/$courseId': {
+      id: '/mentor-learner/learn/$courseId'
+      path: '/mentor-learner/learn/$courseId'
+      fullPath: '/mentor-learner/learn/$courseId'
+      preLoaderRoute: typeof MentorLearnerLearnCourseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/encyclopedia/$articleId': {
+      id: '/mentor-learner/encyclopedia/$articleId'
+      path: '/mentor-learner/encyclopedia/$articleId'
+      fullPath: '/mentor-learner/encyclopedia/$articleId'
+      preLoaderRoute: typeof MentorLearnerEncyclopediaArticleIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/profile/edit': {
+      id: '/learner/profile/edit'
+      path: '/learner/profile/edit'
+      fullPath: '/learner/profile/edit'
+      preLoaderRoute: typeof LearnerProfileEditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/learn/$courseId': {
+      id: '/learner/learn/$courseId'
+      path: '/learner/learn/$courseId'
+      fullPath: '/learner/learn/$courseId'
+      preLoaderRoute: typeof LearnerLearnCourseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/encyclopedia/$articleId': {
+      id: '/learner/encyclopedia/$articleId'
+      path: '/learner/encyclopedia/$articleId'
+      fullPath: '/learner/encyclopedia/$articleId'
+      preLoaderRoute: typeof LearnerEncyclopediaArticleIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/payments/failed': {
+      id: '/admin/payments/failed'
+      path: '/admin/payments/failed'
+      fullPath: '/admin/payments/failed'
+      preLoaderRoute: typeof AdminPaymentsFailedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/community/events/': {
+      id: '/mentor/community/events/'
+      path: '/mentor/community/events'
+      fullPath: '/mentor/community/events/'
+      preLoaderRoute: typeof MentorCommunityEventsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/community/discussions/': {
+      id: '/mentor/community/discussions/'
+      path: '/mentor/community/discussions'
+      fullPath: '/mentor/community/discussions/'
+      preLoaderRoute: typeof MentorCommunityDiscussionsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/mentors/mentors/': {
+      id: '/mentor-learner/mentors/mentors/'
+      path: '/mentor-learner/mentors/mentors'
+      fullPath: '/mentor-learner/mentors/mentors/'
+      preLoaderRoute: typeof MentorLearnerMentorsMentorsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/courses/courses/': {
+      id: '/mentor-learner/courses/courses/'
+      path: '/mentor-learner/courses/courses'
+      fullPath: '/mentor-learner/courses/courses/'
+      preLoaderRoute: typeof MentorLearnerCoursesCoursesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/community/events/': {
+      id: '/mentor-learner/community/events/'
+      path: '/mentor-learner/community/events'
+      fullPath: '/mentor-learner/community/events/'
+      preLoaderRoute: typeof MentorLearnerCommunityEventsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/community/discussions/': {
+      id: '/mentor-learner/community/discussions/'
+      path: '/mentor-learner/community/discussions'
+      fullPath: '/mentor-learner/community/discussions/'
+      preLoaderRoute: typeof MentorLearnerCommunityDiscussionsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/mentors/mentors/': {
+      id: '/learner/mentors/mentors/'
+      path: '/learner/mentors/mentors'
+      fullPath: '/learner/mentors/mentors/'
+      preLoaderRoute: typeof LearnerMentorsMentorsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/courses/courses/': {
+      id: '/learner/courses/courses/'
+      path: '/learner/courses/courses'
+      fullPath: '/learner/courses/courses/'
+      preLoaderRoute: typeof LearnerCoursesCoursesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/community/events/': {
+      id: '/learner/community/events/'
+      path: '/learner/community/events'
+      fullPath: '/learner/community/events/'
+      preLoaderRoute: typeof LearnerCommunityEventsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/community/discussions/': {
+      id: '/learner/community/discussions/'
+      path: '/learner/community/discussions'
+      fullPath: '/learner/community/discussions/'
+      preLoaderRoute: typeof LearnerCommunityDiscussionsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/encyclopedia/$articleId/edit': {
+      id: '/mentor/encyclopedia/$articleId/edit'
+      path: '/edit'
+      fullPath: '/mentor/encyclopedia/$articleId/edit'
+      preLoaderRoute: typeof MentorEncyclopediaArticleIdEditRouteImport
+      parentRoute: typeof MentorEncyclopediaArticleIdRoute
+    }
+    '/mentor/courses/manage/certificates': {
+      id: '/mentor/courses/manage/certificates'
+      path: '/mentor/courses/manage/certificates'
+      fullPath: '/mentor/courses/manage/certificates'
+      preLoaderRoute: typeof MentorCoursesManageCertificatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/courses/manage/$courseId': {
+      id: '/mentor/courses/manage/$courseId'
+      path: '/mentor/courses/manage/$courseId'
+      fullPath: '/mentor/courses/manage/$courseId'
+      preLoaderRoute: typeof MentorCoursesManageCourseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/courses/edit/$courseId': {
+      id: '/mentor/courses/edit/$courseId'
+      path: '/mentor/courses/edit/$courseId'
+      fullPath: '/mentor/courses/edit/$courseId'
+      preLoaderRoute: typeof MentorCoursesEditCourseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/community/events/create': {
+      id: '/mentor/community/events/create'
+      path: '/mentor/community/events/create'
+      fullPath: '/mentor/community/events/create'
+      preLoaderRoute: typeof MentorCommunityEventsCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/community/events/$eventId': {
+      id: '/mentor/community/events/$eventId'
+      path: '/mentor/community/events/$eventId'
+      fullPath: '/mentor/community/events/$eventId'
+      preLoaderRoute: typeof MentorCommunityEventsEventIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/community/discussions/new': {
+      id: '/mentor/community/discussions/new'
+      path: '/mentor/community/discussions/new'
+      fullPath: '/mentor/community/discussions/new'
+      preLoaderRoute: typeof MentorCommunityDiscussionsNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/community/discussions/$discussionId': {
+      id: '/mentor/community/discussions/$discussionId'
+      path: '/mentor/community/discussions/$discussionId'
+      fullPath: '/mentor/community/discussions/$discussionId'
+      preLoaderRoute: typeof MentorCommunityDiscussionsDiscussionIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/mentors/mentors/$mentorId': {
+      id: '/mentor-learner/mentors/mentors/$mentorId'
+      path: '/mentor-learner/mentors/mentors/$mentorId'
+      fullPath: '/mentor-learner/mentors/mentors/$mentorId'
+      preLoaderRoute: typeof MentorLearnerMentorsMentorsMentorIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/courses/courses/$courseId': {
+      id: '/mentor-learner/courses/courses/$courseId'
+      path: '/mentor-learner/courses/courses/$courseId'
+      fullPath: '/mentor-learner/courses/courses/$courseId'
+      preLoaderRoute: typeof MentorLearnerCoursesCoursesCourseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/community/events/create': {
+      id: '/mentor-learner/community/events/create'
+      path: '/mentor-learner/community/events/create'
+      fullPath: '/mentor-learner/community/events/create'
+      preLoaderRoute: typeof MentorLearnerCommunityEventsCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/community/events/$eventId': {
+      id: '/mentor-learner/community/events/$eventId'
+      path: '/mentor-learner/community/events/$eventId'
+      fullPath: '/mentor-learner/community/events/$eventId'
+      preLoaderRoute: typeof MentorLearnerCommunityEventsEventIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/community/discussions/new': {
+      id: '/mentor-learner/community/discussions/new'
+      path: '/mentor-learner/community/discussions/new'
+      fullPath: '/mentor-learner/community/discussions/new'
+      preLoaderRoute: typeof MentorLearnerCommunityDiscussionsNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor-learner/community/discussions/$discussionId': {
+      id: '/mentor-learner/community/discussions/$discussionId'
+      path: '/mentor-learner/community/discussions/$discussionId'
+      fullPath: '/mentor-learner/community/discussions/$discussionId'
+      preLoaderRoute: typeof MentorLearnerCommunityDiscussionsDiscussionIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/mentors/mentors/$mentorId': {
+      id: '/learner/mentors/mentors/$mentorId'
+      path: '/learner/mentors/mentors/$mentorId'
+      fullPath: '/learner/mentors/mentors/$mentorId'
+      preLoaderRoute: typeof LearnerMentorsMentorsMentorIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/courses/courses/$courseId': {
+      id: '/learner/courses/courses/$courseId'
+      path: '/learner/courses/courses/$courseId'
+      fullPath: '/learner/courses/courses/$courseId'
+      preLoaderRoute: typeof LearnerCoursesCoursesCourseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/community/events/create': {
+      id: '/learner/community/events/create'
+      path: '/learner/community/events/create'
+      fullPath: '/learner/community/events/create'
+      preLoaderRoute: typeof LearnerCommunityEventsCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/community/events/$eventId': {
+      id: '/learner/community/events/$eventId'
+      path: '/learner/community/events/$eventId'
+      fullPath: '/learner/community/events/$eventId'
+      preLoaderRoute: typeof LearnerCommunityEventsEventIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/community/discussions/new': {
+      id: '/learner/community/discussions/new'
+      path: '/learner/community/discussions/new'
+      fullPath: '/learner/community/discussions/new'
+      preLoaderRoute: typeof LearnerCommunityDiscussionsNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learner/community/discussions/$discussionId': {
+      id: '/learner/community/discussions/$discussionId'
+      path: '/learner/community/discussions/$discussionId'
+      fullPath: '/learner/community/discussions/$discussionId'
+      preLoaderRoute: typeof LearnerCommunityDiscussionsDiscussionIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/courses/manage/reviews/$courseId': {
+      id: '/mentor/courses/manage/reviews/$courseId'
+      path: '/mentor/courses/manage/reviews/$courseId'
+      fullPath: '/mentor/courses/manage/reviews/$courseId'
+      preLoaderRoute: typeof MentorCoursesManageReviewsCourseIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentor/community/events/$eventId/edit': {
+      id: '/mentor/community/events/$eventId/edit'
+      path: '/edit'
+      fullPath: '/mentor/community/events/$eventId/edit'
+      preLoaderRoute: typeof MentorCommunityEventsEventIdEditRouteImport
+      parentRoute: typeof MentorCommunityEventsEventIdRoute
+    }
+    '/mentor-learner/community/events/$eventId/edit': {
+      id: '/mentor-learner/community/events/$eventId/edit'
+      path: '/edit'
+      fullPath: '/mentor-learner/community/events/$eventId/edit'
+      preLoaderRoute: typeof MentorLearnerCommunityEventsEventIdEditRouteImport
+      parentRoute: typeof MentorLearnerCommunityEventsEventIdRoute
+    }
+    '/learner/community/events/$eventId/edit': {
+      id: '/learner/community/events/$eventId/edit'
+      path: '/edit'
+      fullPath: '/learner/community/events/$eventId/edit'
+      preLoaderRoute: typeof LearnerCommunityEventsEventIdEditRouteImport
+      parentRoute: typeof LearnerCommunityEventsEventIdRoute
     }
   }
 }
 
+interface MentorEncyclopediaArticleIdRouteChildren {
+  MentorEncyclopediaArticleIdEditRoute: typeof MentorEncyclopediaArticleIdEditRoute
+}
+
+const MentorEncyclopediaArticleIdRouteChildren: MentorEncyclopediaArticleIdRouteChildren =
+  {
+    MentorEncyclopediaArticleIdEditRoute: MentorEncyclopediaArticleIdEditRoute,
+  }
+
+const MentorEncyclopediaArticleIdRouteWithChildren =
+  MentorEncyclopediaArticleIdRoute._addFileChildren(
+    MentorEncyclopediaArticleIdRouteChildren,
+  )
+
+interface LearnerCommunityEventsEventIdRouteChildren {
+  LearnerCommunityEventsEventIdEditRoute: typeof LearnerCommunityEventsEventIdEditRoute
+}
+
+const LearnerCommunityEventsEventIdRouteChildren: LearnerCommunityEventsEventIdRouteChildren =
+  {
+    LearnerCommunityEventsEventIdEditRoute:
+      LearnerCommunityEventsEventIdEditRoute,
+  }
+
+const LearnerCommunityEventsEventIdRouteWithChildren =
+  LearnerCommunityEventsEventIdRoute._addFileChildren(
+    LearnerCommunityEventsEventIdRouteChildren,
+  )
+
+interface MentorLearnerCommunityEventsEventIdRouteChildren {
+  MentorLearnerCommunityEventsEventIdEditRoute: typeof MentorLearnerCommunityEventsEventIdEditRoute
+}
+
+const MentorLearnerCommunityEventsEventIdRouteChildren: MentorLearnerCommunityEventsEventIdRouteChildren =
+  {
+    MentorLearnerCommunityEventsEventIdEditRoute:
+      MentorLearnerCommunityEventsEventIdEditRoute,
+  }
+
+const MentorLearnerCommunityEventsEventIdRouteWithChildren =
+  MentorLearnerCommunityEventsEventIdRoute._addFileChildren(
+    MentorLearnerCommunityEventsEventIdRouteChildren,
+  )
+
+interface MentorCommunityEventsEventIdRouteChildren {
+  MentorCommunityEventsEventIdEditRoute: typeof MentorCommunityEventsEventIdEditRoute
+}
+
+const MentorCommunityEventsEventIdRouteChildren: MentorCommunityEventsEventIdRouteChildren =
+  {
+    MentorCommunityEventsEventIdEditRoute:
+      MentorCommunityEventsEventIdEditRoute,
+  }
+
+const MentorCommunityEventsEventIdRouteWithChildren =
+  MentorCommunityEventsEventIdRoute._addFileChildren(
+    MentorCommunityEventsEventIdRouteChildren,
+  )
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DashboardRoute: DashboardRoute,
+  ApplyMentorRoute: ApplyMentorRoute,
   LoginRoute: LoginRoute,
-  ProfileRoute: ProfileRoute,
+  MentorApplicationSuccessRoute: MentorApplicationSuccessRoute,
   RegisterRoute: RegisterRoute,
-  CommunityDiscussionsRoute: CommunityDiscussionsRoute,
-  CoursesCourseIdRoute: CoursesCourseIdRoute,
-  MentorsMentorIdRoute: MentorsMentorIdRoute,
-  CommunityIndexRoute: CommunityIndexRoute,
-  CoursesIndexRoute: CoursesIndexRoute,
-  MentorsIndexRoute: MentorsIndexRoute,
-  CommunityEventsEventIdRoute: CommunityEventsEventIdRoute,
+  AdminLayoutRoute: AdminLayoutRoute,
+  AdminDashboardRoute: AdminDashboardRoute,
+  LearnerLayoutRoute: LearnerLayoutRoute,
+  LearnerCheckoutRoute: LearnerCheckoutRoute,
+  LearnerDashboardRoute: LearnerDashboardRoute,
+  LearnerPaymentSuccessRoute: LearnerPaymentSuccessRoute,
+  MentorLearnerLayoutRoute: MentorLearnerLayoutRoute,
+  MentorLearnerCheckoutRoute: MentorLearnerCheckoutRoute,
+  MentorLearnerDashboardRoute: MentorLearnerDashboardRoute,
+  MentorLearnerPaymentSuccessRoute: MentorLearnerPaymentSuccessRoute,
+  MentorLayoutRoute: MentorLayoutRoute,
+  MentorDashboardRoute: MentorDashboardRoute,
+  AdminPaymentsFailedRoute: AdminPaymentsFailedRoute,
+  LearnerEncyclopediaArticleIdRoute: LearnerEncyclopediaArticleIdRoute,
+  LearnerLearnCourseIdRoute: LearnerLearnCourseIdRoute,
+  LearnerProfileEditRoute: LearnerProfileEditRoute,
+  MentorLearnerEncyclopediaArticleIdRoute:
+    MentorLearnerEncyclopediaArticleIdRoute,
+  MentorLearnerLearnCourseIdRoute: MentorLearnerLearnCourseIdRoute,
+  MentorLearnerProfileEditRoute: MentorLearnerProfileEditRoute,
+  MentorAnalyticsCompletionRoute: MentorAnalyticsCompletionRoute,
+  MentorAnalyticsCoursesRoute: MentorAnalyticsCoursesRoute,
+  MentorAnalyticsEngagementRoute: MentorAnalyticsEngagementRoute,
+  MentorCoursesCreateRoute: MentorCoursesCreateRoute,
+  MentorEarningsWithdrawalsRoute: MentorEarningsWithdrawalsRoute,
+  MentorEncyclopediaArticleIdRoute:
+    MentorEncyclopediaArticleIdRouteWithChildren,
+  MentorEncyclopediaCreateRoute: MentorEncyclopediaCreateRoute,
+  MentorProfileEditRoute: MentorProfileEditRoute,
+  MentorStudentsStudentIdRoute: MentorStudentsStudentIdRoute,
+  AdminCoursesIndexRoute: AdminCoursesIndexRoute,
+  AdminMentorsIndexRoute: AdminMentorsIndexRoute,
+  AdminPaymentsIndexRoute: AdminPaymentsIndexRoute,
+  AdminProfileIndexRoute: AdminProfileIndexRoute,
+  AdminReviewsIndexRoute: AdminReviewsIndexRoute,
+  AdminSettingsIndexRoute: AdminSettingsIndexRoute,
+  AdminUsersIndexRoute: AdminUsersIndexRoute,
+  LearnerCertificatesIndexRoute: LearnerCertificatesIndexRoute,
+  LearnerCommunityIndexRoute: LearnerCommunityIndexRoute,
+  LearnerEncyclopediaIndexRoute: LearnerEncyclopediaIndexRoute,
+  LearnerNotificationsIndexRoute: LearnerNotificationsIndexRoute,
+  LearnerProfileIndexRoute: LearnerProfileIndexRoute,
+  LearnerSavedIndexRoute: LearnerSavedIndexRoute,
+  LearnerSettingsIndexRoute: LearnerSettingsIndexRoute,
+  MentorLearnerCertificatesIndexRoute: MentorLearnerCertificatesIndexRoute,
+  MentorLearnerCommunityIndexRoute: MentorLearnerCommunityIndexRoute,
+  MentorLearnerEncyclopediaIndexRoute: MentorLearnerEncyclopediaIndexRoute,
+  MentorLearnerNotificationsIndexRoute: MentorLearnerNotificationsIndexRoute,
+  MentorLearnerProfileIndexRoute: MentorLearnerProfileIndexRoute,
+  MentorLearnerSavedIndexRoute: MentorLearnerSavedIndexRoute,
+  MentorLearnerSettingsIndexRoute: MentorLearnerSettingsIndexRoute,
+  MentorAnalyticsIndexRoute: MentorAnalyticsIndexRoute,
+  MentorCommunityIndexRoute: MentorCommunityIndexRoute,
+  MentorCoursesIndexRoute: MentorCoursesIndexRoute,
+  MentorEarningsIndexRoute: MentorEarningsIndexRoute,
+  MentorEncyclopediaIndexRoute: MentorEncyclopediaIndexRoute,
+  MentorNotificationsIndexRoute: MentorNotificationsIndexRoute,
+  MentorProfileIndexRoute: MentorProfileIndexRoute,
+  MentorReviewsIndexRoute: MentorReviewsIndexRoute,
+  MentorSettingsIndexRoute: MentorSettingsIndexRoute,
+  MentorStudentsIndexRoute: MentorStudentsIndexRoute,
+  LearnerCommunityDiscussionsDiscussionIdRoute:
+    LearnerCommunityDiscussionsDiscussionIdRoute,
+  LearnerCommunityDiscussionsNewRoute: LearnerCommunityDiscussionsNewRoute,
+  LearnerCommunityEventsEventIdRoute:
+    LearnerCommunityEventsEventIdRouteWithChildren,
+  LearnerCommunityEventsCreateRoute: LearnerCommunityEventsCreateRoute,
+  LearnerCoursesCoursesCourseIdRoute: LearnerCoursesCoursesCourseIdRoute,
+  LearnerMentorsMentorsMentorIdRoute: LearnerMentorsMentorsMentorIdRoute,
+  MentorLearnerCommunityDiscussionsDiscussionIdRoute:
+    MentorLearnerCommunityDiscussionsDiscussionIdRoute,
+  MentorLearnerCommunityDiscussionsNewRoute:
+    MentorLearnerCommunityDiscussionsNewRoute,
+  MentorLearnerCommunityEventsEventIdRoute:
+    MentorLearnerCommunityEventsEventIdRouteWithChildren,
+  MentorLearnerCommunityEventsCreateRoute:
+    MentorLearnerCommunityEventsCreateRoute,
+  MentorLearnerCoursesCoursesCourseIdRoute:
+    MentorLearnerCoursesCoursesCourseIdRoute,
+  MentorLearnerMentorsMentorsMentorIdRoute:
+    MentorLearnerMentorsMentorsMentorIdRoute,
+  MentorCommunityDiscussionsDiscussionIdRoute:
+    MentorCommunityDiscussionsDiscussionIdRoute,
+  MentorCommunityDiscussionsNewRoute: MentorCommunityDiscussionsNewRoute,
+  MentorCommunityEventsEventIdRoute:
+    MentorCommunityEventsEventIdRouteWithChildren,
+  MentorCommunityEventsCreateRoute: MentorCommunityEventsCreateRoute,
+  MentorCoursesEditCourseIdRoute: MentorCoursesEditCourseIdRoute,
+  MentorCoursesManageCourseIdRoute: MentorCoursesManageCourseIdRoute,
+  MentorCoursesManageCertificatesRoute: MentorCoursesManageCertificatesRoute,
+  LearnerCommunityDiscussionsIndexRoute: LearnerCommunityDiscussionsIndexRoute,
+  LearnerCommunityEventsIndexRoute: LearnerCommunityEventsIndexRoute,
+  LearnerCoursesCoursesIndexRoute: LearnerCoursesCoursesIndexRoute,
+  LearnerMentorsMentorsIndexRoute: LearnerMentorsMentorsIndexRoute,
+  MentorLearnerCommunityDiscussionsIndexRoute:
+    MentorLearnerCommunityDiscussionsIndexRoute,
+  MentorLearnerCommunityEventsIndexRoute:
+    MentorLearnerCommunityEventsIndexRoute,
+  MentorLearnerCoursesCoursesIndexRoute: MentorLearnerCoursesCoursesIndexRoute,
+  MentorLearnerMentorsMentorsIndexRoute: MentorLearnerMentorsMentorsIndexRoute,
+  MentorCommunityDiscussionsIndexRoute: MentorCommunityDiscussionsIndexRoute,
+  MentorCommunityEventsIndexRoute: MentorCommunityEventsIndexRoute,
+  MentorCoursesManageReviewsCourseIdRoute:
+    MentorCoursesManageReviewsCourseIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

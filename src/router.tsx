@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { createRouter, useRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 

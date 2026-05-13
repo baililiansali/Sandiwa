@@ -9,22 +9,42 @@ import {
   Heart, 
   LogOut,
   Sun,
-  Moon
+  Moon,
+  Bell,
+  Bookmark,
+  ChevronDown,
+  ChevronRight,
+  MessageCircle,
+  Calendar
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 const sidebarLinks = [
-  { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },  
-  { icon: BookOpen, label: "Courses", href: "/courses" },
-  { icon: Users, label: "Mentors", href: "/mentors" },
-  { icon: Heart, label: "Community", href: "/community" },
+  { icon: LayoutDashboard, label: "Dashboard", href: "/learner/dashboard" },
+  { icon: BookOpen, label: "Courses", href: "/learner/courses/courses" },
+  { icon: Users, label: "Mentors", href: "/learner/mentors/mentors" },
+  { icon: BookOpen, label: "Encyclopedia", href: "/learner/encyclopedia" },
+  { 
+    icon: Heart, 
+    label: "Community", 
+    href: "/learner/community/",
+    hasDropdown: true,
+    dropdownItems: [
+      { icon: Heart, label: "Community", href: "/learner/community/" },
+      { icon: MessageCircle, label: "Discussion", href: "/learner/community/discussions/" },
+      { icon: Calendar, label: "Event", href: "/learner/community/events/" }
+    ]
+  },
+  { icon: Bell, label: "Notifications", href: "/learner/notifications" },
+  { icon: Bookmark, label: "Saved", href: "/learner/saved" },
 ];
 
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [userInitials, setUserInitials] = useState("JR");
+  const [openDropdowns, setOpenDropdowns] = useState<string[]>([]);
 
   useEffect(() => {
     const initials = localStorage.getItem("userInitials") || sessionStorage.getItem("userInitials");
@@ -47,6 +67,14 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
     window.location.href = "/";
   };
 
+  const toggleDropdown = (label: string) => {
+    setOpenDropdowns(prev => 
+      prev.includes(label) 
+        ? prev.filter(item => item !== label)
+        : [...prev, label]
+    );
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <div className="flex flex-1">
@@ -64,19 +92,56 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
               </Link>
             </div>
 
-            <nav className="flex-1 space-y-1 px-2 py-4">
+            <nav className="flex-1 space-y-1 px-2 py-4 overflow-y-auto">
               {sidebarLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-gold"
-                  activeProps={{
-                    className: "bg-gold/10 text-gold font-semibold",
-                  }}
-                >
-                  <link.icon className="h-5 w-5" />
-                  {link.label}
-                </Link>
+                <div key={link.label}>
+                  {link.hasDropdown ? (
+                    <div>
+                      <button
+                        onClick={() => toggleDropdown(link.label)}
+                        className="flex w-full items-center justify-between rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-gold"
+                      >
+                        <div className="flex items-center gap-3">
+                          <link.icon className="h-5 w-5" />
+                          {link.label}
+                        </div>
+                        {openDropdowns.includes(link.label) ? (
+                          <ChevronDown className="h-4 w-4" />
+                        ) : (
+                          <ChevronRight className="h-4 w-4" />
+                        )}
+                      </button>
+                      {openDropdowns.includes(link.label) && (
+                        <div className="ml-6 mt-1 space-y-1">
+                          {link.dropdownItems?.map((item) => (
+                            <Link
+                              key={item.href}
+                              to={item.href}
+                              className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-foreground/70 transition-colors hover:bg-accent hover:text-gold"
+                              activeProps={{
+                                className: "bg-gold/10 text-gold font-semibold",
+                              }}
+                            >
+                              <item.icon className="h-4 w-4" />
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-gold"
+                      activeProps={{
+                        className: "bg-gold/10 text-gold font-semibold",
+                      }}
+                    >
+                      <link.icon className="h-5 w-5" />
+                      {link.label}
+                    </Link>
+                  )}
+                </div>
               ))}
             </nav>
 
@@ -100,6 +165,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
                 Log Out
               </button>
             </div>
+
           </div>
         </aside>
 
@@ -138,4 +204,3 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
-
