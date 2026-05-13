@@ -18,7 +18,7 @@ export function DiscussionCard({ discussion }: DiscussionCardProps) {
 
   return (
     <Link
-      to="/community/discussions/$discussionId"
+      to="/learner/community/discussions/$discussionId"
       params={{ discussionId: discussion.id }}
       className="group block rounded-xl border border-border bg-card p-5 transition-all hover:shadow-md"
     >

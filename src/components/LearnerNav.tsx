@@ -1,6 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { Translator } from "./Translator"
-import { ShoppingCart, LogOut, User, Settings, Trash2, Briefcase, CheckSquare, Square, RefreshCw } from "lucide-react";
+import { ShoppingCart, LogOut, User, Settings, Trash2, Briefcase, CheckSquare, Square } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import {
   DropdownMenu,
@@ -17,7 +17,7 @@ import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { NotificationPopover } from "@/components/NotificationPopover";
 
-export function MentorLearnerNav() {
+export function Nav() {
   const location = useLocation();
   const items = useCart();
   const totalCount = cart.selectedCount();
@@ -27,9 +27,9 @@ export function MentorLearnerNav() {
   const [userInitials, setUserInitials] = useState("");
 
   useEffect(() => {
-    const name = localStorage.getItem("userName") || sessionStorage.getItem("userName") || "Jose Reyes";
-    const email = localStorage.getItem("userEmail") || sessionStorage.getItem("userEmail") || "jose.learner@gmail.com";
-    const initials = localStorage.getItem("userInitials") || sessionStorage.getItem("userInitials") || "JR";
+    const name = localStorage.getItem("userName") || sessionStorage.getItem("userName") || "Leah Mae";
+    const email = localStorage.getItem("userEmail") || sessionStorage.getItem("userEmail") || "learner@gmail.com";
+    const initials = localStorage.getItem("userInitials") || sessionStorage.getItem("userInitials") || "LM";
     
     setUserName(name);
     setUserEmail(email);
@@ -52,57 +52,19 @@ export function MentorLearnerNav() {
     localStorage.removeItem("userName");
     localStorage.removeItem("userInitials");
     localStorage.removeItem("userRole");
-    localStorage.removeItem("isMentor");
-    localStorage.removeItem("mentorEmail");
-    localStorage.removeItem("mentorName");
-    localStorage.removeItem("mentorInitials");
     sessionStorage.clear();
     toast.success("Logged out successfully");
     window.location.href = "/";
   };
 
-  const switchToMentorMode = () => {
-    // Get the saved mentor info
-    const mentorEmail = localStorage.getItem("mentorEmail") || "mentor.jose@gmail.com";
-    const mentorName = localStorage.getItem("mentorName") || "Jose Reyes";
-    const mentorInitials = localStorage.getItem("mentorInitials") || "JR";
-    
-    // Switch back to mentor mode
-    localStorage.setItem("userRole", "mentor");
-    sessionStorage.setItem("userRole", "mentor");
-    
-    localStorage.setItem("userEmail", mentorEmail);
-    localStorage.setItem("userName", mentorName);
-    localStorage.setItem("userInitials", mentorInitials);
-    sessionStorage.setItem("userEmail", mentorEmail);
-    sessionStorage.setItem("userName", mentorName);
-    sessionStorage.setItem("userInitials", mentorInitials);
-    
-    toast.success("Switched back to Mentor Mode");
-    
-    setTimeout(() => {
-      window.location.href = "/mentor/dashboard";
-    }, 500);
-  };
-
   const getRoute = (path: string) => {
-    return `/mentor-learner${path}`;
+    return `/learner${path}`;
   };
 
   const allSelected = items.length > 0 && items.every(i => i.selected);
 
   return (
     <div className="flex items-center gap-1 sm:gap-2">
-      {/* Switch Back to Mentor Button */}
-      <button 
-        onClick={switchToMentorMode}
-        className="flex h-9 items-center gap-2 rounded-md border border-gold/30 bg-background px-3 text-sm font-medium text-gold hover:bg-gold/10 transition-colors"
-        aria-label="Switch to Mentor"
-      >
-        <RefreshCw className="h-4 w-4" />
-        <span className="hidden sm:inline">Switch to Mentor</span>
-      </button>
-
       <Translator />
 
       <NotificationPopover seeAllLink={getRoute("/notifications")} />
@@ -129,7 +91,7 @@ export function MentorLearnerNav() {
               <p className="mt-3 font-medium">Your cart is empty</p>
               <p className="text-sm text-muted-foreground mt-1">Browse courses to start learning.</p>
               <Button asChild className="mt-5 bg-gold hover:bg-gold/90 text-white">
-                <Link to="/mentor-learner/courses/courses">Browse courses</Link>
+                <Link to="/learner/courses/courses">Browse courses</Link>
               </Button>
             </div>
           ) : (
@@ -203,7 +165,7 @@ export function MentorLearnerNav() {
                   {totalCount === 0 ? (
                     <span>Select items to checkout</span>
                   ) : (
-                    <Link to="/mentor-learner/checkout">Checkout ({totalCount})</Link>
+                    <Link to="/learner/checkout">Checkout ({totalCount})</Link>
                   )}
                 </Button>
                 
@@ -233,7 +195,7 @@ export function MentorLearnerNav() {
             <div>
               <p className="text-sm font-semibold">{userName}</p>
               <p className="text-xs text-muted-foreground font-normal">{userEmail}</p>
-              <p className="text-xs text-gold mt-1">Mentor-Learner</p>
+              <p className="text-xs text-gold mt-1">Learner</p>
             </div>
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
@@ -246,6 +208,11 @@ export function MentorLearnerNav() {
           <DropdownMenuItem asChild>
             <Link to={getRoute("/settings")} className="cursor-pointer">
               <Settings className="h-4 w-4 mr-2" /> Settings
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link to="/apply-mentor" className="cursor-pointer">
+              <Briefcase className="h-4 w-4 mr-2" /> Become a Mentor
             </Link>
           </DropdownMenuItem>
           

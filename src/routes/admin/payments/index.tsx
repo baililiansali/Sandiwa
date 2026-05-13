@@ -1,4 +1,3 @@
-// src/routes/admin/payments/index.tsx
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AdminDashboardLayout } from "@/components/AdminDashboardLayout";
 import { Button } from "@/components/ui/button";
@@ -17,7 +16,17 @@ import {
   CreditCard,
   Download,
   Filter,
-  Search
+  Search,
+  Flag,
+  Eye,
+  Ban,
+  Trash2,
+  MessageSquare,
+  BookOpen,
+  User,
+  LayoutDashboard,
+  Receipt,
+  Send
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { 
@@ -30,6 +39,22 @@ export const Route = createFileRoute("/admin/payments/")({
   component: PaymentManagement,
 });
 
+interface ReportedContentItem {
+  id: number;
+  type: "course" | "review" | "comment";
+  title: string;
+  content?: string;
+  reporter: string;
+  reporterId: string;
+  reportedUser: string;
+  reportedUserId: string;
+  reason: string;
+  description: string;
+  date: string;
+  status: "pending" | "reviewed" | "dismissed" | "action_taken";
+  priority: "high" | "medium" | "low";
+}
+
 function PaymentManagement() {
   const [payments, setPayments] = useState<PaymentHistory[]>([]);
   const [summary, setSummary] = useState({
@@ -41,7 +66,7 @@ function PaymentManagement() {
     completedTransactions: 0,
     successRate: 0,
   });
-  const [selectedTab, setSelectedTab] = useState<'overview' | 'transactions' | 'payouts'>('overview');
+  const [selectedQuickAction, setSelectedQuickAction] = useState<string | null>(null);
   const [filterStatus, setFilterStatus] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedMonth, setSelectedMonth] = useState<string>('all');
@@ -105,7 +130,7 @@ function PaymentManagement() {
     });
   };
 
-  // Mock payouts data (you can expand this later)
+  // Mock payouts data
   const mockPayouts = [
     { id: 1, mentorName: "Maria Garcia", amount: 1250, status: "pending", date: "2026-05", courseCount: 3 },
     { id: 2, mentorName: "John Santos", amount: 890, status: "completed", date: "2026-04", courseCount: 2 },
@@ -113,66 +138,99 @@ function PaymentManagement() {
     { id: 4, mentorName: "Roberto Tan", amount: 450, status: "pending", date: "2026-05", courseCount: 1 },
   ];
 
+  // Mock failed payments data
+  const failedPayments = MOCK_PAYMENT_HISTORY.filter(p => p.status === 'refunded');
+
+  const getBreadcrumbTitle = () => {
+    switch(selectedQuickAction) {
+      case 'transactions':
+        return 'Transaction History';
+      case 'failed-payments':
+        return 'Failed Payments';
+      case 'payouts':
+        return 'Mentor Payouts';
+      default:
+        return 'Payment Management';
+    }
+  };
+
   return (
     <AdminDashboardLayout>
       <div className="p-6">
-        {/* Header */}
-        <div className="mb-6 flex justify-between items-center">
-          <div>
-            <h1 className="font-serif text-3xl font-bold text-navy">Payment Management</h1>
-            <p className="text-muted-foreground mt-1">Track payments, manage payouts, and monitor financial health</p>
-          </div>
-          <div className="flex gap-2">
-            <Link to="/admin/payments/failed">
-              <Button variant="outline" className="border-red-500 text-red-600 hover:bg-red-50">
-                <AlertCircle className="h-4 w-4 mr-2" />
-                View Failed Payments
-              </Button>
+        {/* Breadcrumbs */}
+        <div className="mb-6">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+            <Link to="/admin/dashboard" className="hover:text-red-600 transition-colors">
+              Dashboard
             </Link>
+            <span>/</span>
+            {selectedQuickAction ? (
+              <>
+                <Link to="/admin/payments" className="hover:text-red-600 transition-colors">
+                  Payment Management
+                </Link>
+                <span>/</span>
+                <span className="text-foreground font-medium">{getBreadcrumbTitle()}</span>
+              </>
+            ) : (
+              <span className="text-foreground font-medium">Payment Management</span>
+            )}
+          </div>
+          
+          {!selectedQuickAction && (
+            <div className="flex justify-between items-center">
+              <div>
+                <h1 className="font-serif text-3xl font-bold text-navy">Payment Management</h1>
+                <p className="text-muted-foreground mt-1">Track payments, manage payouts, and monitor financial health</p>
+              </div>
+            </div>
+          )}
+
+          {selectedQuickAction && (
+            <div className="flex justify-between items-center">
+              <div>
+                <h1 className="font-serif text-3xl font-bold text-navy">{getBreadcrumbTitle()}</h1>
+                <p className="text-muted-foreground mt-1">
+                  {selectedQuickAction === 'transactions' && 'View all payment transactions and history'}
+                  {selectedQuickAction === 'failed-payments' && 'Review and manage failed payment transactions'}
+                  {selectedQuickAction === 'payouts' && 'Track and manage mentor earnings and payouts'}
+                </p>
+              </div>
+              <Button variant="outline" onClick={() => setSelectedQuickAction(null)}>
+                Back to Overview
+              </Button>
+            </div>
+          )}
+        </div>
+
+        {/* Quick Actions Bar - Only show when not in a quick action view */}
+        {!selectedQuickAction && (
+          <div className="mb-6 flex flex-wrap gap-3">
+            <Button 
+              variant="outline" 
+              className="border-blue-500 text-blue-600 hover:bg-blue-50"
+              onClick={() => setSelectedQuickAction('transactions')}
+            >
+              <Receipt className="h-4 w-4 mr-2" />
+              Transaction History
+            </Button>
+            <Button 
+              variant="outline" 
+              className="border-purple-500 text-purple-600 hover:bg-purple-50"
+              onClick={() => setSelectedQuickAction('payouts')}
+            >
+              <Send className="h-4 w-4 mr-2" />
+              Mentor Payouts
+            </Button>
             <Button className="bg-green-600 hover:bg-green-700">
               <Download className="h-4 w-4 mr-2" />
               Export Report
             </Button>
           </div>
-        </div>
+        )}
 
-        {/* Tab Navigation */}
-        <div className="border-b border-border mb-6">
-          <nav className="flex gap-6">
-            <button
-              onClick={() => setSelectedTab('overview')}
-              className={`pb-3 px-1 text-sm font-medium transition-colors relative ${
-                selectedTab === 'overview' 
-                  ? 'text-red-600 border-b-2 border-red-600' 
-                  : 'text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              Overview
-            </button>
-            <button
-              onClick={() => setSelectedTab('transactions')}
-              className={`pb-3 px-1 text-sm font-medium transition-colors relative ${
-                selectedTab === 'transactions' 
-                  ? 'text-red-600 border-b-2 border-red-600' 
-                  : 'text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              Transactions
-            </button>
-            <button
-              onClick={() => setSelectedTab('payouts')}
-              className={`pb-3 px-1 text-sm font-medium transition-colors relative ${
-                selectedTab === 'payouts' 
-                  ? 'text-red-600 border-b-2 border-red-600' 
-                  : 'text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              Payouts to Mentors
-            </button>
-          </nav>
-        </div>
-
-        {selectedTab === 'overview' && (
+        {/* Overview Content - Only show when no quick action is selected */}
+        {!selectedQuickAction && (
           <>
             {/* Financial Metrics Grid */}
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
@@ -262,42 +320,31 @@ function PaymentManagement() {
               </div>
 
               <div className="rounded-xl border border-border bg-card p-6">
-                <h3 className="font-semibold text-navy mb-4">Quick Actions</h3>
-                <div className="space-y-3">
-                  <Link to="/admin/payments/failed">
-                    <Button variant="outline" className="w-full justify-between">
-                      <span className="flex items-center gap-2">
-                        <AlertCircle className="h-4 w-4 text-red-500" />
-                        Review Failed Payments
-                      </span>
-                      <ArrowUpRight className="h-4 w-4" />
-                    </Button>
-                  </Link>
-                  <Button variant="outline" className="w-full justify-between">
-                    <span className="flex items-center gap-2">
-                      <Wallet className="h-4 w-4 text-blue-500" />
-                      Process Pending Payouts
-                    </span>
-                    <ArrowUpRight className="h-4 w-4" />
-                  </Button>
-                  <Button variant="outline" className="w-full justify-between">
-                    <span className="flex items-center gap-2">
-                      <Download className="h-4 w-4 text-green-500" />
-                      Generate Financial Report
-                    </span>
-                    <ArrowUpRight className="h-4 w-4" />
-                  </Button>
+                <h3 className="font-semibold text-navy mb-4">Revenue Overview</h3>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Platform Commission (30%)</span>
+                    <span className="font-semibold">{formatCurrency(summary.totalRevenue * 0.3)}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Mentor Payouts (70%)</span>
+                    <span className="font-semibold">{formatCurrency(summary.totalRevenue * 0.7)}</span>
+                  </div>
+                  <div className="pt-2 border-t border-border">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm font-medium">Total Platform Revenue</span>
+                      <span className="text-xl font-bold text-red-600">{formatCurrency(summary.totalRevenue * 0.3)}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Recent Transactions */}
             <div className="rounded-xl border border-border bg-card overflow-hidden">
-              <div className="px-6 py-4 border-b border-border bg-muted/30 flex justify-between items-center">
+              <div className="px-6 py-4 border-b border-border bg-muted/30">
                 <h2 className="font-serif text-xl font-bold text-navy">Recent Transactions</h2>
-                <Button variant="ghost" onClick={() => setSelectedTab('transactions')}>
-                  View All
-                </Button>
+                <p className="text-sm text-muted-foreground mt-1">Latest 5 transactions</p>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full">
@@ -332,9 +379,9 @@ function PaymentManagement() {
           </>
         )}
 
-        {selectedTab === 'transactions' && (
+        {/* Transaction History View */}
+        {selectedQuickAction === 'transactions' && (
           <div className="rounded-xl border border-border bg-card overflow-hidden">
-            {/* Filters */}
             <div className="px-6 py-4 border-b border-border bg-muted/30">
               <div className="flex flex-wrap gap-4">
                 <div className="flex-1 min-w-[200px]">
@@ -369,14 +416,16 @@ function PaymentManagement() {
                   <option value="2">February 2024</option>
                   <option value="3">March 2024</option>
                 </select>
-                <Button variant="outline">
-                  <Filter className="h-4 w-4 mr-2" />
-                  More Filters
+                <Button variant="outline" onClick={() => {
+                  setFilterStatus('all');
+                  setSearchTerm('');
+                  setSelectedMonth('all');
+                }}>
+                  Clear Filters
                 </Button>
               </div>
             </div>
 
-            {/* Transactions Table */}
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-muted/20">
@@ -388,7 +437,6 @@ function PaymentManagement() {
                     <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground">Amount</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground">Method</th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground">Status</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border">
@@ -401,36 +449,32 @@ function PaymentManagement() {
                       <td className="px-6 py-4 text-sm font-semibold">{formatCurrency(payment.amount)}</td>
                       <td className="px-6 py-4">
                         <span className="text-lg">{getPaymentMethodIcon(payment.paymentMethod)}</span>
-                      </td>
+                       </td>
                       <td className="px-6 py-4">
                         <span className={`text-xs px-2 py-1 rounded-full flex items-center gap-1 w-fit ${getStatusColor(payment.status)}`}>
                           {getStatusIcon(payment.status)}
                           <span className="capitalize">{payment.status}</span>
                         </span>
-                      </td>
-                      <td className="px-6 py-4">
-                        <Button size="sm" variant="ghost">View</Button>
-                      </td>
-                    </tr>
+                       </td>
+                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            {/* Pagination */}
             <div className="px-6 py-4 border-t border-border flex justify-between items-center">
               <p className="text-sm text-muted-foreground">
                 Showing {filteredPayments.length} of {payments.length} transactions
               </p>
-              <div className="flex gap-2">
-                <Button variant="outline" size="sm" disabled>Previous</Button>
-                <Button variant="outline" size="sm">Next</Button>
-              </div>
+              <p className="text-sm font-semibold">
+                Total: {formatCurrency(filteredPayments.reduce((sum, p) => sum + p.amount, 0))}
+              </p>
             </div>
           </div>
         )}
 
-        {selectedTab === 'payouts' && (
+        {/* Mentor Payouts View */}
+        {selectedQuickAction === 'payouts' && (
           <div className="rounded-xl border border-border bg-card overflow-hidden">
             <div className="px-6 py-4 border-b border-border bg-muted/30">
               <h2 className="font-serif text-xl font-bold text-navy">Mentor Payouts</h2>

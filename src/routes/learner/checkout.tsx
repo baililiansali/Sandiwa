@@ -60,7 +60,7 @@ function CheckoutPage() {
         }
     }, [directCourseId, cartItems]);
 
-    const subtotal = items.reduce((s, i) => s + i.qty * i.price, 0);
+    const subtotal = items.reduce((s, i) => s + i.price, 0); 
     const tax = Math.round(subtotal * 0.12);
     const total = subtotal + tax;
     
@@ -68,12 +68,23 @@ function CheckoutPage() {
     const userEmail = localStorage.getItem("userEmail") || sessionStorage.getItem("userEmail") || "";
     const userName = localStorage.getItem("userName") || sessionStorage.getItem("userName") || "";
 
-    // Auto-fill user info
     useEffect(() => {
-        if (userName) {
-            setFormData(prev => ({ ...prev, fullName: userName, email: userEmail }));
+        if (directCourseId && cartItems.length === 0) {
+            const course = courses.find(c => c.id === directCourseId);
+            if (course) {
+                setItems([{
+                    id: course.id,
+                    title: course.title,
+                    mentor: course.mentor,
+                    image: course.image,
+                    price: course.price,
+                    qty: 1,
+                }]);
+            }
+        } else {
+            setItems(cartItems);
         }
-    }, [userName, userEmail]);
+    }, [directCourseId, cartItems]);
 
     if (items.length === 0) {
         navigate({ to: "/learner/courses/courses" });
@@ -430,3 +441,34 @@ function CheckoutPage() {
         </AuthGuard>
     );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

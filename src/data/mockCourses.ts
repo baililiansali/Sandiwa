@@ -1,4 +1,3 @@
-
 import courseFilipino from "@/assets/course-filipino.jpg";
 import courseHistory from "@/assets/course-history.jpg";
 import courseArts from "@/assets/course-arts.jpg";
@@ -18,7 +17,7 @@ export type Course = {
   mentor: string;
   mentorEmail?: string; 
   image: string;
-  badge?: "Bestseller" | "Popular" | "New";
+  badge?: "Bestseller" | "Popular" | "New" | "Pending Review";
   rating: number;
   reviewCount?: number;  
   enrolled: number;
@@ -412,5 +411,123 @@ export const courses: Course[] = [
     createdAt: "2026-03-01T00:00:00Z",  
     updatedAt: "2026-03-01T00:00:00Z",
     tags: ["cuisine", "regional", "luzon", "visayas", "mindanao", "filipino", "traditional", "recipes"],
+  },
+
+  // ===== PENDING COURSES (These can be previewed before approval) =====
+  {
+    id: "pending_course_1",
+    title: "Introduction to Philippine Folk Dance",
+    description: "Learn the basics of traditional Filipino folk dances including Tinikling, Pandanggo sa Ilaw, and Cariñosa. Perfect for beginners interested in Philippine culture and dance.",
+    mentor: "Ramon Villanueva",
+    mentorId: "ramon-villanueva",
+    mentorEmail: "mentor.villanueva@gmail.com",
+    image: courseFolk, // Using existing image
+    price: 49.99,
+    hours: 15,
+    rating: 0,
+    reviewCount: 0,
+    lessons: [
+      { title: "Introduction to Philippine Folk Dance", minutes: 15 },
+      { title: "Tinikling: The Bamboo Dance", minutes: 30 },
+      { title: "Pandanggo sa Ilaw: Dance of Lights", minutes: 45 },
+      { title: "Cariñosa: The Loving Dance", minutes: 40 },
+      { title: "Costumes and Traditional Attire", minutes: 25 },
+      { title: "Music and Rhythm Patterns", minutes: 35 },
+      { title: "Basic Footwork and Movements", minutes: 30 },
+      { title: "Cultural Significance", minutes: 20 },
+    ],
+    outcomes: [
+      "Master basic folk dance steps and movements",
+      "Understand the cultural significance of each dance",
+      "Perform basic Tinikling patterns correctly",
+      "Identify traditional dance costumes and accessories",
+      "Recognize accompanying music and instruments",
+      "Teach basic steps to others",
+      "Appreciate the role of dance in Filipino culture"
+    ],
+    enrolled: 0,
+    category: "Music & Dance",
+    badge: "Pending Review",
+    createdAt: "2024-03-20T00:00:00Z",
+    updatedAt: "2024-03-20T00:00:00Z",
+    tags: ["dance", "folk", "tinikling", "carinosa", "pandanggo", "traditional", "filipino", "pending"],
+  },
+  {
+    id: "pending_course_2",
+    title: "Advanced Filipino Poetry Analysis",
+    description: "Deep dive into Filipino poetry from the Spanish colonial period to contemporary works. Analyze works by Balagtas, Rizal, and modern Filipino poets.",
+    mentor: "Maria Santos",
+    mentorId: "maria-santos",
+    mentorEmail: "mentor.santos@gmail.com",
+    image: coursePhilippinesNow, // Using existing image
+    price: 59.99,
+    hours: 20,
+    rating: 0,
+    reviewCount: 0,
+    lessons: [
+      { title: "Introduction to Filipino Poetry", minutes: 20 },
+      { title: "Spanish Colonial Period Poetry", minutes: 45 },
+      { title: "Balagtasan: The Art of Debate in Verse", minutes: 40 },
+      { title: "Rizal's Literary Works", minutes: 50 },
+      { title: "American Period Poetry", minutes: 35 },
+      { title: "Post-War Filipino Poets", minutes: 40 },
+      { title: "Contemporary Poetry Analysis", minutes: 45 },
+      { title: "Writing Critical Analysis", minutes: 30 },
+    ],
+    outcomes: [
+      "Analyze classic Filipino poems from different periods",
+      "Understand the historical context of Filipino poetry",
+      "Identify different poetic forms and literary devices",
+      "Write critical analysis of poems",
+      "Compare poetry across different literary periods",
+      "Appreciate the evolution of Filipino poetry",
+      "Present poetry analysis effectively"
+    ],
+    enrolled: 0,
+    category: "Filipino Language",
+    badge: "Pending Review",
+    createdAt: "2024-03-19T00:00:00Z",
+    updatedAt: "2024-03-19T00:00:00Z",
+    tags: ["poetry", "literature", "filipino", "analysis", "balagtas", "rizal", "pending"],
+  },
+  {
+    id: "pending_course_3",
+    title: "Traditional Filipino Instrument Making",
+    description: "Learn to create traditional Filipino instruments like the kulintang, banduria, and kubing. Hands-on course covering materials, techniques, and cultural significance.",
+    mentor: "Ana Cruz",
+    mentorId: "ana-cruz",
+    mentorEmail: "mentor.cruz@gmail.com",
+    image: courseKulintang, // Using existing image
+    price: 89.99,
+    hours: 25,
+    rating: 0,
+    reviewCount: 0,
+    lessons: [
+      { title: "Introduction to Filipino Instruments", minutes: 30 },
+      { title: "Materials and Sourcing", minutes: 35 },
+      { title: "Kulintang Assembly and Tuning", minutes: 60 },
+      { title: "Banduria Construction", minutes: 55 },
+      { title: "Kubing: The Bamboo Jaw Harp", minutes: 45 },
+      { title: "Wood Preparation and Carving", minutes: 50 },
+      { title: "String Installation and Tuning", minutes: 40 },
+      { title: "Instrument Maintenance", minutes: 35 },
+      { title: "Playing Basic Melodies", minutes: 45 },
+    ],
+    outcomes: [
+      "Identify traditional Filipino instruments by name and type",
+      "Source appropriate materials for instrument making",
+      "Build a simple kubing instrument from bamboo",
+      "Understand basic instrument construction techniques",
+      "Learn proper tuning methods for each instrument",
+      "Perform basic maintenance and care",
+      "Appreciate the cultural significance of each instrument",
+      "Play simple melodies on created instruments"
+    ],
+    enrolled: 0,
+    category: "Music & Dance",
+    badge: "Pending Review",
+    createdAt: "2024-03-18T00:00:00Z",
+    updatedAt: "2024-03-18T00:00:00Z",
+    tags: ["instruments", "kulintang", "banduria", "kubing", "music", "traditional", "filipino", "pending"],
   },
 ];

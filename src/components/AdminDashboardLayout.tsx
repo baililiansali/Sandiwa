@@ -8,14 +8,21 @@ import {
   Users, 
   BookOpen, 
   Star, 
-  Settings, 
+  Heart, 
   LogOut,
   Sun,
   Moon,
   UserCheck,
   MessageSquare,
   ChevronDown,
-  ChevronRight
+  ChevronRight,
+  DollarSign,
+  Receipt,
+  Send,
+  Flag,
+  MessageCircle,
+  Calendar,
+  BarChart3
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
@@ -28,13 +35,25 @@ const sidebarLinks = [
     href: "/admin/users",
     hasDropdown: true,
     dropdownItems: [
-      { icon: Users, label: "Users", href: "/admin/users" },
-      { icon: UserCheck, label: "Mentor Applications", href: "/admin/mentors" }
+      { icon: Users, label: "Learner", href: "/admin/users" },
+      { icon: UserCheck, label: "Mentor", href: "/admin/users/mentors" }
     ]
   },
   { icon: BookOpen, label: "Course Management", href: "/admin/courses" },
-  { icon: BookOpen, label: "Payment Management", href: "/admin/payments" },
-  { icon: Star, label: "Reviews", href: "/admin/reviews" },
+  { icon: Calendar, label: "Event Management", href: "/admin/events/" },
+  { icon: Flag, label: "Reports & Moderation", href: "/admin/reports" },
+  { 
+    icon: DollarSign, 
+    label: "Payment Management", 
+    href: "/admin/payments",
+    hasDropdown: true,
+    dropdownItems: [
+      { icon: DollarSign, label: "Payment Management", href: "/admin/payments" },
+      { icon: Receipt, label: "Transactions", href: "/admin/payments/transactions" },
+      { icon: Send, label: "Mentor Payouts", href: "/admin/payments/payouts" },
+    ]
+  },
+  { icon: BarChart3, label: "Analytics", href: "/admin/analytics" }
 ];
 
 export function AdminDashboardLayout({ children }: { children: React.ReactNode }) {

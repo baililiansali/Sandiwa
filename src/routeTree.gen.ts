@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SupportRouteImport } from './routes/support'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as MentorApplicationSuccessRouteImport } from './routes/mentor-application-success'
 import { Route as LoginRouteImport } from './routes/login'
@@ -16,10 +17,6 @@ import { Route as ApplyMentorRouteImport } from './routes/apply-mentor'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MentorDashboardRouteImport } from './routes/mentor/dashboard'
 import { Route as MentorLayoutRouteImport } from './routes/mentor/_layout'
-import { Route as MentorLearnerPaymentSuccessRouteImport } from './routes/mentor-learner/payment-success'
-import { Route as MentorLearnerDashboardRouteImport } from './routes/mentor-learner/dashboard'
-import { Route as MentorLearnerCheckoutRouteImport } from './routes/mentor-learner/checkout'
-import { Route as MentorLearnerLayoutRouteImport } from './routes/mentor-learner/_layout'
 import { Route as LearnerPaymentSuccessRouteImport } from './routes/learner/payment-success'
 import { Route as LearnerDashboardRouteImport } from './routes/learner/dashboard'
 import { Route as LearnerCheckoutRouteImport } from './routes/learner/checkout'
@@ -36,13 +33,6 @@ import { Route as MentorEarningsIndexRouteImport } from './routes/mentor/earning
 import { Route as MentorCoursesIndexRouteImport } from './routes/mentor/courses/index'
 import { Route as MentorCommunityIndexRouteImport } from './routes/mentor/community/index'
 import { Route as MentorAnalyticsIndexRouteImport } from './routes/mentor/analytics/index'
-import { Route as MentorLearnerSettingsIndexRouteImport } from './routes/mentor-learner/settings/index'
-import { Route as MentorLearnerSavedIndexRouteImport } from './routes/mentor-learner/saved/index'
-import { Route as MentorLearnerProfileIndexRouteImport } from './routes/mentor-learner/profile/index'
-import { Route as MentorLearnerNotificationsIndexRouteImport } from './routes/mentor-learner/notifications/index'
-import { Route as MentorLearnerEncyclopediaIndexRouteImport } from './routes/mentor-learner/encyclopedia/index'
-import { Route as MentorLearnerCommunityIndexRouteImport } from './routes/mentor-learner/community/index'
-import { Route as MentorLearnerCertificatesIndexRouteImport } from './routes/mentor-learner/certificates/index'
 import { Route as LearnerSettingsIndexRouteImport } from './routes/learner/settings/index'
 import { Route as LearnerSavedIndexRouteImport } from './routes/learner/saved/index'
 import { Route as LearnerProfileIndexRouteImport } from './routes/learner/profile/index'
@@ -52,11 +42,12 @@ import { Route as LearnerCommunityIndexRouteImport } from './routes/learner/comm
 import { Route as LearnerCertificatesIndexRouteImport } from './routes/learner/certificates/index'
 import { Route as AdminUsersIndexRouteImport } from './routes/admin/users/index'
 import { Route as AdminSettingsIndexRouteImport } from './routes/admin/settings/index'
-import { Route as AdminReviewsIndexRouteImport } from './routes/admin/reviews/index'
+import { Route as AdminReportsIndexRouteImport } from './routes/admin/reports/index'
 import { Route as AdminProfileIndexRouteImport } from './routes/admin/profile/index'
 import { Route as AdminPaymentsIndexRouteImport } from './routes/admin/payments/index'
-import { Route as AdminMentorsIndexRouteImport } from './routes/admin/mentors/index'
+import { Route as AdminEventsIndexRouteImport } from './routes/admin/events/index'
 import { Route as AdminCoursesIndexRouteImport } from './routes/admin/courses/index'
+import { Route as AdminAnalyticsIndexRouteImport } from './routes/admin/analytics/index'
 import { Route as MentorStudentsStudentIdRouteImport } from './routes/mentor/students/$studentId'
 import { Route as MentorProfileEditRouteImport } from './routes/mentor/profile/edit'
 import { Route as MentorEncyclopediaCreateRouteImport } from './routes/mentor/encyclopedia/create'
@@ -66,23 +57,22 @@ import { Route as MentorCoursesCreateRouteImport } from './routes/mentor/courses
 import { Route as MentorAnalyticsEngagementRouteImport } from './routes/mentor/analytics/engagement'
 import { Route as MentorAnalyticsCoursesRouteImport } from './routes/mentor/analytics/courses'
 import { Route as MentorAnalyticsCompletionRouteImport } from './routes/mentor/analytics/completion'
-import { Route as MentorLearnerProfileEditRouteImport } from './routes/mentor-learner/profile/edit'
-import { Route as MentorLearnerLearnCourseIdRouteImport } from './routes/mentor-learner/learn/$courseId'
-import { Route as MentorLearnerEncyclopediaArticleIdRouteImport } from './routes/mentor-learner/encyclopedia/$articleId'
 import { Route as LearnerProfileEditRouteImport } from './routes/learner/profile/edit'
 import { Route as LearnerLearnCourseIdRouteImport } from './routes/learner/learn/$courseId'
 import { Route as LearnerEncyclopediaArticleIdRouteImport } from './routes/learner/encyclopedia/$articleId'
-import { Route as AdminPaymentsFailedRouteImport } from './routes/admin/payments/failed'
+import { Route as AdminUsersAuditLogsRouteImport } from './routes/admin/users/audit-logs'
+import { Route as AdminPaymentsTransactionsRouteImport } from './routes/admin/payments/transactions'
+import { Route as AdminPaymentsReportedContentRouteImport } from './routes/admin/payments/reported-content'
+import { Route as AdminPaymentsPayoutsRouteImport } from './routes/admin/payments/payouts'
+import { Route as AdminCoursesEditRouteImport } from './routes/admin/courses/edit'
+import { Route as AdminCoursesCourseIdRouteImport } from './routes/admin/courses/$courseId'
 import { Route as MentorCommunityEventsIndexRouteImport } from './routes/mentor/community/events/index'
 import { Route as MentorCommunityDiscussionsIndexRouteImport } from './routes/mentor/community/discussions/index'
-import { Route as MentorLearnerMentorsMentorsIndexRouteImport } from './routes/mentor-learner/mentors/mentors.index'
-import { Route as MentorLearnerCoursesCoursesIndexRouteImport } from './routes/mentor-learner/courses/courses.index'
-import { Route as MentorLearnerCommunityEventsIndexRouteImport } from './routes/mentor-learner/community/events/index'
-import { Route as MentorLearnerCommunityDiscussionsIndexRouteImport } from './routes/mentor-learner/community/discussions/index'
 import { Route as LearnerMentorsMentorsIndexRouteImport } from './routes/learner/mentors/mentors.index'
 import { Route as LearnerCoursesCoursesIndexRouteImport } from './routes/learner/courses/courses.index'
 import { Route as LearnerCommunityEventsIndexRouteImport } from './routes/learner/community/events/index'
 import { Route as LearnerCommunityDiscussionsIndexRouteImport } from './routes/learner/community/discussions/index'
+import { Route as AdminUsersMentorsIndexRouteImport } from './routes/admin/users/mentors/index'
 import { Route as MentorEncyclopediaArticleIdEditRouteImport } from './routes/mentor/encyclopedia/$articleId/edit'
 import { Route as MentorCoursesManageCertificatesRouteImport } from './routes/mentor/courses/manage/certificates'
 import { Route as MentorCoursesManageCourseIdRouteImport } from './routes/mentor/courses/manage.$courseId'
@@ -91,12 +81,6 @@ import { Route as MentorCommunityEventsCreateRouteImport } from './routes/mentor
 import { Route as MentorCommunityEventsEventIdRouteImport } from './routes/mentor/community/events/$eventId'
 import { Route as MentorCommunityDiscussionsNewRouteImport } from './routes/mentor/community/discussions/new'
 import { Route as MentorCommunityDiscussionsDiscussionIdRouteImport } from './routes/mentor/community/discussions/$discussionId'
-import { Route as MentorLearnerMentorsMentorsMentorIdRouteImport } from './routes/mentor-learner/mentors/mentors.$mentorId'
-import { Route as MentorLearnerCoursesCoursesCourseIdRouteImport } from './routes/mentor-learner/courses/courses.$courseId'
-import { Route as MentorLearnerCommunityEventsCreateRouteImport } from './routes/mentor-learner/community/events/create'
-import { Route as MentorLearnerCommunityEventsEventIdRouteImport } from './routes/mentor-learner/community/events/$eventId'
-import { Route as MentorLearnerCommunityDiscussionsNewRouteImport } from './routes/mentor-learner/community/discussions/new'
-import { Route as MentorLearnerCommunityDiscussionsDiscussionIdRouteImport } from './routes/mentor-learner/community/discussions/$discussionId'
 import { Route as LearnerMentorsMentorsMentorIdRouteImport } from './routes/learner/mentors/mentors.$mentorId'
 import { Route as LearnerCoursesCoursesCourseIdRouteImport } from './routes/learner/courses/courses.$courseId'
 import { Route as LearnerCommunityEventsCreateRouteImport } from './routes/learner/community/events/create'
@@ -105,9 +89,13 @@ import { Route as LearnerCommunityDiscussionsNewRouteImport } from './routes/lea
 import { Route as LearnerCommunityDiscussionsDiscussionIdRouteImport } from './routes/learner/community/discussions/$discussionId'
 import { Route as MentorCoursesManageReviewsCourseIdRouteImport } from './routes/mentor/courses/manage/reviews.$courseId'
 import { Route as MentorCommunityEventsEventIdEditRouteImport } from './routes/mentor/community/events/$eventId.edit'
-import { Route as MentorLearnerCommunityEventsEventIdEditRouteImport } from './routes/mentor-learner/community/events/$eventId.edit'
 import { Route as LearnerCommunityEventsEventIdEditRouteImport } from './routes/learner/community/events/$eventId.edit'
 
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
   path: '/register',
@@ -142,27 +130,6 @@ const MentorDashboardRoute = MentorDashboardRouteImport.update({
 const MentorLayoutRoute = MentorLayoutRouteImport.update({
   id: '/mentor/_layout',
   path: '/mentor',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MentorLearnerPaymentSuccessRoute =
-  MentorLearnerPaymentSuccessRouteImport.update({
-    id: '/mentor-learner/payment-success',
-    path: '/mentor-learner/payment-success',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerDashboardRoute = MentorLearnerDashboardRouteImport.update({
-  id: '/mentor-learner/dashboard',
-  path: '/mentor-learner/dashboard',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MentorLearnerCheckoutRoute = MentorLearnerCheckoutRouteImport.update({
-  id: '/mentor-learner/checkout',
-  path: '/mentor-learner/checkout',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MentorLearnerLayoutRoute = MentorLearnerLayoutRouteImport.update({
-  id: '/mentor-learner/_layout',
-  path: '/mentor-learner',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LearnerPaymentSuccessRoute = LearnerPaymentSuccessRouteImport.update({
@@ -246,47 +213,6 @@ const MentorAnalyticsIndexRoute = MentorAnalyticsIndexRouteImport.update({
   path: '/mentor/analytics/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MentorLearnerSettingsIndexRoute =
-  MentorLearnerSettingsIndexRouteImport.update({
-    id: '/mentor-learner/settings/',
-    path: '/mentor-learner/settings/',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerSavedIndexRoute = MentorLearnerSavedIndexRouteImport.update({
-  id: '/mentor-learner/saved/',
-  path: '/mentor-learner/saved/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MentorLearnerProfileIndexRoute =
-  MentorLearnerProfileIndexRouteImport.update({
-    id: '/mentor-learner/profile/',
-    path: '/mentor-learner/profile/',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerNotificationsIndexRoute =
-  MentorLearnerNotificationsIndexRouteImport.update({
-    id: '/mentor-learner/notifications/',
-    path: '/mentor-learner/notifications/',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerEncyclopediaIndexRoute =
-  MentorLearnerEncyclopediaIndexRouteImport.update({
-    id: '/mentor-learner/encyclopedia/',
-    path: '/mentor-learner/encyclopedia/',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerCommunityIndexRoute =
-  MentorLearnerCommunityIndexRouteImport.update({
-    id: '/mentor-learner/community/',
-    path: '/mentor-learner/community/',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerCertificatesIndexRoute =
-  MentorLearnerCertificatesIndexRouteImport.update({
-    id: '/mentor-learner/certificates/',
-    path: '/mentor-learner/certificates/',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const LearnerSettingsIndexRoute = LearnerSettingsIndexRouteImport.update({
   id: '/learner/settings/',
   path: '/learner/settings/',
@@ -335,9 +261,9 @@ const AdminSettingsIndexRoute = AdminSettingsIndexRouteImport.update({
   path: '/admin/settings/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminReviewsIndexRoute = AdminReviewsIndexRouteImport.update({
-  id: '/admin/reviews/',
-  path: '/admin/reviews/',
+const AdminReportsIndexRoute = AdminReportsIndexRouteImport.update({
+  id: '/admin/reports/',
+  path: '/admin/reports/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminProfileIndexRoute = AdminProfileIndexRouteImport.update({
@@ -350,14 +276,19 @@ const AdminPaymentsIndexRoute = AdminPaymentsIndexRouteImport.update({
   path: '/admin/payments/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminMentorsIndexRoute = AdminMentorsIndexRouteImport.update({
-  id: '/admin/mentors/',
-  path: '/admin/mentors/',
+const AdminEventsIndexRoute = AdminEventsIndexRouteImport.update({
+  id: '/admin/events/',
+  path: '/admin/events/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminCoursesIndexRoute = AdminCoursesIndexRouteImport.update({
   id: '/admin/courses/',
   path: '/admin/courses/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAnalyticsIndexRoute = AdminAnalyticsIndexRouteImport.update({
+  id: '/admin/analytics/',
+  path: '/admin/analytics/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MentorStudentsStudentIdRoute = MentorStudentsStudentIdRouteImport.update({
@@ -410,24 +341,6 @@ const MentorAnalyticsCompletionRoute =
     path: '/mentor/analytics/completion',
     getParentRoute: () => rootRouteImport,
   } as any)
-const MentorLearnerProfileEditRoute =
-  MentorLearnerProfileEditRouteImport.update({
-    id: '/mentor-learner/profile/edit',
-    path: '/mentor-learner/profile/edit',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerLearnCourseIdRoute =
-  MentorLearnerLearnCourseIdRouteImport.update({
-    id: '/mentor-learner/learn/$courseId',
-    path: '/mentor-learner/learn/$courseId',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerEncyclopediaArticleIdRoute =
-  MentorLearnerEncyclopediaArticleIdRouteImport.update({
-    id: '/mentor-learner/encyclopedia/$articleId',
-    path: '/mentor-learner/encyclopedia/$articleId',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const LearnerProfileEditRoute = LearnerProfileEditRouteImport.update({
   id: '/learner/profile/edit',
   path: '/learner/profile/edit',
@@ -444,9 +357,36 @@ const LearnerEncyclopediaArticleIdRoute =
     path: '/learner/encyclopedia/$articleId',
     getParentRoute: () => rootRouteImport,
   } as any)
-const AdminPaymentsFailedRoute = AdminPaymentsFailedRouteImport.update({
-  id: '/admin/payments/failed',
-  path: '/admin/payments/failed',
+const AdminUsersAuditLogsRoute = AdminUsersAuditLogsRouteImport.update({
+  id: '/admin/users/audit-logs',
+  path: '/admin/users/audit-logs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPaymentsTransactionsRoute =
+  AdminPaymentsTransactionsRouteImport.update({
+    id: '/admin/payments/transactions',
+    path: '/admin/payments/transactions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminPaymentsReportedContentRoute =
+  AdminPaymentsReportedContentRouteImport.update({
+    id: '/admin/payments/reported-content',
+    path: '/admin/payments/reported-content',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AdminPaymentsPayoutsRoute = AdminPaymentsPayoutsRouteImport.update({
+  id: '/admin/payments/payouts',
+  path: '/admin/payments/payouts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminCoursesEditRoute = AdminCoursesEditRouteImport.update({
+  id: '/admin/courses/edit',
+  path: '/admin/courses/edit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminCoursesCourseIdRoute = AdminCoursesCourseIdRouteImport.update({
+  id: '/admin/courses/$courseId',
+  path: '/admin/courses/$courseId',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MentorCommunityEventsIndexRoute =
@@ -459,30 +399,6 @@ const MentorCommunityDiscussionsIndexRoute =
   MentorCommunityDiscussionsIndexRouteImport.update({
     id: '/mentor/community/discussions/',
     path: '/mentor/community/discussions/',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerMentorsMentorsIndexRoute =
-  MentorLearnerMentorsMentorsIndexRouteImport.update({
-    id: '/mentor-learner/mentors/mentors/',
-    path: '/mentor-learner/mentors/mentors/',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerCoursesCoursesIndexRoute =
-  MentorLearnerCoursesCoursesIndexRouteImport.update({
-    id: '/mentor-learner/courses/courses/',
-    path: '/mentor-learner/courses/courses/',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerCommunityEventsIndexRoute =
-  MentorLearnerCommunityEventsIndexRouteImport.update({
-    id: '/mentor-learner/community/events/',
-    path: '/mentor-learner/community/events/',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerCommunityDiscussionsIndexRoute =
-  MentorLearnerCommunityDiscussionsIndexRouteImport.update({
-    id: '/mentor-learner/community/discussions/',
-    path: '/mentor-learner/community/discussions/',
     getParentRoute: () => rootRouteImport,
   } as any)
 const LearnerMentorsMentorsIndexRoute =
@@ -509,6 +425,11 @@ const LearnerCommunityDiscussionsIndexRoute =
     path: '/learner/community/discussions/',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AdminUsersMentorsIndexRoute = AdminUsersMentorsIndexRouteImport.update({
+  id: '/admin/users/mentors/',
+  path: '/admin/users/mentors/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MentorEncyclopediaArticleIdEditRoute =
   MentorEncyclopediaArticleIdEditRouteImport.update({
     id: '/edit',
@@ -555,42 +476,6 @@ const MentorCommunityDiscussionsDiscussionIdRoute =
   MentorCommunityDiscussionsDiscussionIdRouteImport.update({
     id: '/mentor/community/discussions/$discussionId',
     path: '/mentor/community/discussions/$discussionId',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerMentorsMentorsMentorIdRoute =
-  MentorLearnerMentorsMentorsMentorIdRouteImport.update({
-    id: '/mentor-learner/mentors/mentors/$mentorId',
-    path: '/mentor-learner/mentors/mentors/$mentorId',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerCoursesCoursesCourseIdRoute =
-  MentorLearnerCoursesCoursesCourseIdRouteImport.update({
-    id: '/mentor-learner/courses/courses/$courseId',
-    path: '/mentor-learner/courses/courses/$courseId',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerCommunityEventsCreateRoute =
-  MentorLearnerCommunityEventsCreateRouteImport.update({
-    id: '/mentor-learner/community/events/create',
-    path: '/mentor-learner/community/events/create',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerCommunityEventsEventIdRoute =
-  MentorLearnerCommunityEventsEventIdRouteImport.update({
-    id: '/mentor-learner/community/events/$eventId',
-    path: '/mentor-learner/community/events/$eventId',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerCommunityDiscussionsNewRoute =
-  MentorLearnerCommunityDiscussionsNewRouteImport.update({
-    id: '/mentor-learner/community/discussions/new',
-    path: '/mentor-learner/community/discussions/new',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MentorLearnerCommunityDiscussionsDiscussionIdRoute =
-  MentorLearnerCommunityDiscussionsDiscussionIdRouteImport.update({
-    id: '/mentor-learner/community/discussions/$discussionId',
-    path: '/mentor-learner/community/discussions/$discussionId',
     getParentRoute: () => rootRouteImport,
   } as any)
 const LearnerMentorsMentorsMentorIdRoute =
@@ -641,12 +526,6 @@ const MentorCommunityEventsEventIdEditRoute =
     path: '/edit',
     getParentRoute: () => MentorCommunityEventsEventIdRoute,
   } as any)
-const MentorLearnerCommunityEventsEventIdEditRoute =
-  MentorLearnerCommunityEventsEventIdEditRouteImport.update({
-    id: '/edit',
-    path: '/edit',
-    getParentRoute: () => MentorLearnerCommunityEventsEventIdRoute,
-  } as any)
 const LearnerCommunityEventsEventIdEditRoute =
   LearnerCommunityEventsEventIdEditRouteImport.update({
     id: '/edit',
@@ -660,25 +539,24 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/mentor-application-success': typeof MentorApplicationSuccessRoute
   '/register': typeof RegisterRoute
+  '/support': typeof SupportRoute
   '/admin': typeof AdminLayoutRoute
   '/admin/dashboard': typeof AdminDashboardRoute
   '/learner': typeof LearnerLayoutRoute
   '/learner/checkout': typeof LearnerCheckoutRoute
   '/learner/dashboard': typeof LearnerDashboardRoute
   '/learner/payment-success': typeof LearnerPaymentSuccessRoute
-  '/mentor-learner': typeof MentorLearnerLayoutRoute
-  '/mentor-learner/checkout': typeof MentorLearnerCheckoutRoute
-  '/mentor-learner/dashboard': typeof MentorLearnerDashboardRoute
-  '/mentor-learner/payment-success': typeof MentorLearnerPaymentSuccessRoute
   '/mentor': typeof MentorLayoutRoute
   '/mentor/dashboard': typeof MentorDashboardRoute
-  '/admin/payments/failed': typeof AdminPaymentsFailedRoute
+  '/admin/courses/$courseId': typeof AdminCoursesCourseIdRoute
+  '/admin/courses/edit': typeof AdminCoursesEditRoute
+  '/admin/payments/payouts': typeof AdminPaymentsPayoutsRoute
+  '/admin/payments/reported-content': typeof AdminPaymentsReportedContentRoute
+  '/admin/payments/transactions': typeof AdminPaymentsTransactionsRoute
+  '/admin/users/audit-logs': typeof AdminUsersAuditLogsRoute
   '/learner/encyclopedia/$articleId': typeof LearnerEncyclopediaArticleIdRoute
   '/learner/learn/$courseId': typeof LearnerLearnCourseIdRoute
   '/learner/profile/edit': typeof LearnerProfileEditRoute
-  '/mentor-learner/encyclopedia/$articleId': typeof MentorLearnerEncyclopediaArticleIdRoute
-  '/mentor-learner/learn/$courseId': typeof MentorLearnerLearnCourseIdRoute
-  '/mentor-learner/profile/edit': typeof MentorLearnerProfileEditRoute
   '/mentor/analytics/completion': typeof MentorAnalyticsCompletionRoute
   '/mentor/analytics/courses': typeof MentorAnalyticsCoursesRoute
   '/mentor/analytics/engagement': typeof MentorAnalyticsEngagementRoute
@@ -688,11 +566,12 @@ export interface FileRoutesByFullPath {
   '/mentor/encyclopedia/create': typeof MentorEncyclopediaCreateRoute
   '/mentor/profile/edit': typeof MentorProfileEditRoute
   '/mentor/students/$studentId': typeof MentorStudentsStudentIdRoute
+  '/admin/analytics/': typeof AdminAnalyticsIndexRoute
   '/admin/courses/': typeof AdminCoursesIndexRoute
-  '/admin/mentors/': typeof AdminMentorsIndexRoute
+  '/admin/events/': typeof AdminEventsIndexRoute
   '/admin/payments/': typeof AdminPaymentsIndexRoute
   '/admin/profile/': typeof AdminProfileIndexRoute
-  '/admin/reviews/': typeof AdminReviewsIndexRoute
+  '/admin/reports/': typeof AdminReportsIndexRoute
   '/admin/settings/': typeof AdminSettingsIndexRoute
   '/admin/users/': typeof AdminUsersIndexRoute
   '/learner/certificates/': typeof LearnerCertificatesIndexRoute
@@ -702,13 +581,6 @@ export interface FileRoutesByFullPath {
   '/learner/profile/': typeof LearnerProfileIndexRoute
   '/learner/saved/': typeof LearnerSavedIndexRoute
   '/learner/settings/': typeof LearnerSettingsIndexRoute
-  '/mentor-learner/certificates/': typeof MentorLearnerCertificatesIndexRoute
-  '/mentor-learner/community/': typeof MentorLearnerCommunityIndexRoute
-  '/mentor-learner/encyclopedia/': typeof MentorLearnerEncyclopediaIndexRoute
-  '/mentor-learner/notifications/': typeof MentorLearnerNotificationsIndexRoute
-  '/mentor-learner/profile/': typeof MentorLearnerProfileIndexRoute
-  '/mentor-learner/saved/': typeof MentorLearnerSavedIndexRoute
-  '/mentor-learner/settings/': typeof MentorLearnerSettingsIndexRoute
   '/mentor/analytics/': typeof MentorAnalyticsIndexRoute
   '/mentor/community/': typeof MentorCommunityIndexRoute
   '/mentor/courses/': typeof MentorCoursesIndexRoute
@@ -725,12 +597,6 @@ export interface FileRoutesByFullPath {
   '/learner/community/events/create': typeof LearnerCommunityEventsCreateRoute
   '/learner/courses/courses/$courseId': typeof LearnerCoursesCoursesCourseIdRoute
   '/learner/mentors/mentors/$mentorId': typeof LearnerMentorsMentorsMentorIdRoute
-  '/mentor-learner/community/discussions/$discussionId': typeof MentorLearnerCommunityDiscussionsDiscussionIdRoute
-  '/mentor-learner/community/discussions/new': typeof MentorLearnerCommunityDiscussionsNewRoute
-  '/mentor-learner/community/events/$eventId': typeof MentorLearnerCommunityEventsEventIdRouteWithChildren
-  '/mentor-learner/community/events/create': typeof MentorLearnerCommunityEventsCreateRoute
-  '/mentor-learner/courses/courses/$courseId': typeof MentorLearnerCoursesCoursesCourseIdRoute
-  '/mentor-learner/mentors/mentors/$mentorId': typeof MentorLearnerMentorsMentorsMentorIdRoute
   '/mentor/community/discussions/$discussionId': typeof MentorCommunityDiscussionsDiscussionIdRoute
   '/mentor/community/discussions/new': typeof MentorCommunityDiscussionsNewRoute
   '/mentor/community/events/$eventId': typeof MentorCommunityEventsEventIdRouteWithChildren
@@ -739,18 +605,14 @@ export interface FileRoutesByFullPath {
   '/mentor/courses/manage/$courseId': typeof MentorCoursesManageCourseIdRoute
   '/mentor/courses/manage/certificates': typeof MentorCoursesManageCertificatesRoute
   '/mentor/encyclopedia/$articleId/edit': typeof MentorEncyclopediaArticleIdEditRoute
+  '/admin/users/mentors/': typeof AdminUsersMentorsIndexRoute
   '/learner/community/discussions/': typeof LearnerCommunityDiscussionsIndexRoute
   '/learner/community/events/': typeof LearnerCommunityEventsIndexRoute
   '/learner/courses/courses/': typeof LearnerCoursesCoursesIndexRoute
   '/learner/mentors/mentors/': typeof LearnerMentorsMentorsIndexRoute
-  '/mentor-learner/community/discussions/': typeof MentorLearnerCommunityDiscussionsIndexRoute
-  '/mentor-learner/community/events/': typeof MentorLearnerCommunityEventsIndexRoute
-  '/mentor-learner/courses/courses/': typeof MentorLearnerCoursesCoursesIndexRoute
-  '/mentor-learner/mentors/mentors/': typeof MentorLearnerMentorsMentorsIndexRoute
   '/mentor/community/discussions/': typeof MentorCommunityDiscussionsIndexRoute
   '/mentor/community/events/': typeof MentorCommunityEventsIndexRoute
   '/learner/community/events/$eventId/edit': typeof LearnerCommunityEventsEventIdEditRoute
-  '/mentor-learner/community/events/$eventId/edit': typeof MentorLearnerCommunityEventsEventIdEditRoute
   '/mentor/community/events/$eventId/edit': typeof MentorCommunityEventsEventIdEditRoute
   '/mentor/courses/manage/reviews/$courseId': typeof MentorCoursesManageReviewsCourseIdRoute
 }
@@ -760,25 +622,24 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/mentor-application-success': typeof MentorApplicationSuccessRoute
   '/register': typeof RegisterRoute
+  '/support': typeof SupportRoute
   '/admin': typeof AdminLayoutRoute
   '/admin/dashboard': typeof AdminDashboardRoute
   '/learner': typeof LearnerLayoutRoute
   '/learner/checkout': typeof LearnerCheckoutRoute
   '/learner/dashboard': typeof LearnerDashboardRoute
   '/learner/payment-success': typeof LearnerPaymentSuccessRoute
-  '/mentor-learner': typeof MentorLearnerLayoutRoute
-  '/mentor-learner/checkout': typeof MentorLearnerCheckoutRoute
-  '/mentor-learner/dashboard': typeof MentorLearnerDashboardRoute
-  '/mentor-learner/payment-success': typeof MentorLearnerPaymentSuccessRoute
   '/mentor': typeof MentorLayoutRoute
   '/mentor/dashboard': typeof MentorDashboardRoute
-  '/admin/payments/failed': typeof AdminPaymentsFailedRoute
+  '/admin/courses/$courseId': typeof AdminCoursesCourseIdRoute
+  '/admin/courses/edit': typeof AdminCoursesEditRoute
+  '/admin/payments/payouts': typeof AdminPaymentsPayoutsRoute
+  '/admin/payments/reported-content': typeof AdminPaymentsReportedContentRoute
+  '/admin/payments/transactions': typeof AdminPaymentsTransactionsRoute
+  '/admin/users/audit-logs': typeof AdminUsersAuditLogsRoute
   '/learner/encyclopedia/$articleId': typeof LearnerEncyclopediaArticleIdRoute
   '/learner/learn/$courseId': typeof LearnerLearnCourseIdRoute
   '/learner/profile/edit': typeof LearnerProfileEditRoute
-  '/mentor-learner/encyclopedia/$articleId': typeof MentorLearnerEncyclopediaArticleIdRoute
-  '/mentor-learner/learn/$courseId': typeof MentorLearnerLearnCourseIdRoute
-  '/mentor-learner/profile/edit': typeof MentorLearnerProfileEditRoute
   '/mentor/analytics/completion': typeof MentorAnalyticsCompletionRoute
   '/mentor/analytics/courses': typeof MentorAnalyticsCoursesRoute
   '/mentor/analytics/engagement': typeof MentorAnalyticsEngagementRoute
@@ -788,11 +649,12 @@ export interface FileRoutesByTo {
   '/mentor/encyclopedia/create': typeof MentorEncyclopediaCreateRoute
   '/mentor/profile/edit': typeof MentorProfileEditRoute
   '/mentor/students/$studentId': typeof MentorStudentsStudentIdRoute
+  '/admin/analytics': typeof AdminAnalyticsIndexRoute
   '/admin/courses': typeof AdminCoursesIndexRoute
-  '/admin/mentors': typeof AdminMentorsIndexRoute
+  '/admin/events': typeof AdminEventsIndexRoute
   '/admin/payments': typeof AdminPaymentsIndexRoute
   '/admin/profile': typeof AdminProfileIndexRoute
-  '/admin/reviews': typeof AdminReviewsIndexRoute
+  '/admin/reports': typeof AdminReportsIndexRoute
   '/admin/settings': typeof AdminSettingsIndexRoute
   '/admin/users': typeof AdminUsersIndexRoute
   '/learner/certificates': typeof LearnerCertificatesIndexRoute
@@ -802,13 +664,6 @@ export interface FileRoutesByTo {
   '/learner/profile': typeof LearnerProfileIndexRoute
   '/learner/saved': typeof LearnerSavedIndexRoute
   '/learner/settings': typeof LearnerSettingsIndexRoute
-  '/mentor-learner/certificates': typeof MentorLearnerCertificatesIndexRoute
-  '/mentor-learner/community': typeof MentorLearnerCommunityIndexRoute
-  '/mentor-learner/encyclopedia': typeof MentorLearnerEncyclopediaIndexRoute
-  '/mentor-learner/notifications': typeof MentorLearnerNotificationsIndexRoute
-  '/mentor-learner/profile': typeof MentorLearnerProfileIndexRoute
-  '/mentor-learner/saved': typeof MentorLearnerSavedIndexRoute
-  '/mentor-learner/settings': typeof MentorLearnerSettingsIndexRoute
   '/mentor/analytics': typeof MentorAnalyticsIndexRoute
   '/mentor/community': typeof MentorCommunityIndexRoute
   '/mentor/courses': typeof MentorCoursesIndexRoute
@@ -825,12 +680,6 @@ export interface FileRoutesByTo {
   '/learner/community/events/create': typeof LearnerCommunityEventsCreateRoute
   '/learner/courses/courses/$courseId': typeof LearnerCoursesCoursesCourseIdRoute
   '/learner/mentors/mentors/$mentorId': typeof LearnerMentorsMentorsMentorIdRoute
-  '/mentor-learner/community/discussions/$discussionId': typeof MentorLearnerCommunityDiscussionsDiscussionIdRoute
-  '/mentor-learner/community/discussions/new': typeof MentorLearnerCommunityDiscussionsNewRoute
-  '/mentor-learner/community/events/$eventId': typeof MentorLearnerCommunityEventsEventIdRouteWithChildren
-  '/mentor-learner/community/events/create': typeof MentorLearnerCommunityEventsCreateRoute
-  '/mentor-learner/courses/courses/$courseId': typeof MentorLearnerCoursesCoursesCourseIdRoute
-  '/mentor-learner/mentors/mentors/$mentorId': typeof MentorLearnerMentorsMentorsMentorIdRoute
   '/mentor/community/discussions/$discussionId': typeof MentorCommunityDiscussionsDiscussionIdRoute
   '/mentor/community/discussions/new': typeof MentorCommunityDiscussionsNewRoute
   '/mentor/community/events/$eventId': typeof MentorCommunityEventsEventIdRouteWithChildren
@@ -839,18 +688,14 @@ export interface FileRoutesByTo {
   '/mentor/courses/manage/$courseId': typeof MentorCoursesManageCourseIdRoute
   '/mentor/courses/manage/certificates': typeof MentorCoursesManageCertificatesRoute
   '/mentor/encyclopedia/$articleId/edit': typeof MentorEncyclopediaArticleIdEditRoute
+  '/admin/users/mentors': typeof AdminUsersMentorsIndexRoute
   '/learner/community/discussions': typeof LearnerCommunityDiscussionsIndexRoute
   '/learner/community/events': typeof LearnerCommunityEventsIndexRoute
   '/learner/courses/courses': typeof LearnerCoursesCoursesIndexRoute
   '/learner/mentors/mentors': typeof LearnerMentorsMentorsIndexRoute
-  '/mentor-learner/community/discussions': typeof MentorLearnerCommunityDiscussionsIndexRoute
-  '/mentor-learner/community/events': typeof MentorLearnerCommunityEventsIndexRoute
-  '/mentor-learner/courses/courses': typeof MentorLearnerCoursesCoursesIndexRoute
-  '/mentor-learner/mentors/mentors': typeof MentorLearnerMentorsMentorsIndexRoute
   '/mentor/community/discussions': typeof MentorCommunityDiscussionsIndexRoute
   '/mentor/community/events': typeof MentorCommunityEventsIndexRoute
   '/learner/community/events/$eventId/edit': typeof LearnerCommunityEventsEventIdEditRoute
-  '/mentor-learner/community/events/$eventId/edit': typeof MentorLearnerCommunityEventsEventIdEditRoute
   '/mentor/community/events/$eventId/edit': typeof MentorCommunityEventsEventIdEditRoute
   '/mentor/courses/manage/reviews/$courseId': typeof MentorCoursesManageReviewsCourseIdRoute
 }
@@ -861,25 +706,24 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/mentor-application-success': typeof MentorApplicationSuccessRoute
   '/register': typeof RegisterRoute
+  '/support': typeof SupportRoute
   '/admin/_layout': typeof AdminLayoutRoute
   '/admin/dashboard': typeof AdminDashboardRoute
   '/learner/_layout': typeof LearnerLayoutRoute
   '/learner/checkout': typeof LearnerCheckoutRoute
   '/learner/dashboard': typeof LearnerDashboardRoute
   '/learner/payment-success': typeof LearnerPaymentSuccessRoute
-  '/mentor-learner/_layout': typeof MentorLearnerLayoutRoute
-  '/mentor-learner/checkout': typeof MentorLearnerCheckoutRoute
-  '/mentor-learner/dashboard': typeof MentorLearnerDashboardRoute
-  '/mentor-learner/payment-success': typeof MentorLearnerPaymentSuccessRoute
   '/mentor/_layout': typeof MentorLayoutRoute
   '/mentor/dashboard': typeof MentorDashboardRoute
-  '/admin/payments/failed': typeof AdminPaymentsFailedRoute
+  '/admin/courses/$courseId': typeof AdminCoursesCourseIdRoute
+  '/admin/courses/edit': typeof AdminCoursesEditRoute
+  '/admin/payments/payouts': typeof AdminPaymentsPayoutsRoute
+  '/admin/payments/reported-content': typeof AdminPaymentsReportedContentRoute
+  '/admin/payments/transactions': typeof AdminPaymentsTransactionsRoute
+  '/admin/users/audit-logs': typeof AdminUsersAuditLogsRoute
   '/learner/encyclopedia/$articleId': typeof LearnerEncyclopediaArticleIdRoute
   '/learner/learn/$courseId': typeof LearnerLearnCourseIdRoute
   '/learner/profile/edit': typeof LearnerProfileEditRoute
-  '/mentor-learner/encyclopedia/$articleId': typeof MentorLearnerEncyclopediaArticleIdRoute
-  '/mentor-learner/learn/$courseId': typeof MentorLearnerLearnCourseIdRoute
-  '/mentor-learner/profile/edit': typeof MentorLearnerProfileEditRoute
   '/mentor/analytics/completion': typeof MentorAnalyticsCompletionRoute
   '/mentor/analytics/courses': typeof MentorAnalyticsCoursesRoute
   '/mentor/analytics/engagement': typeof MentorAnalyticsEngagementRoute
@@ -889,11 +733,12 @@ export interface FileRoutesById {
   '/mentor/encyclopedia/create': typeof MentorEncyclopediaCreateRoute
   '/mentor/profile/edit': typeof MentorProfileEditRoute
   '/mentor/students/$studentId': typeof MentorStudentsStudentIdRoute
+  '/admin/analytics/': typeof AdminAnalyticsIndexRoute
   '/admin/courses/': typeof AdminCoursesIndexRoute
-  '/admin/mentors/': typeof AdminMentorsIndexRoute
+  '/admin/events/': typeof AdminEventsIndexRoute
   '/admin/payments/': typeof AdminPaymentsIndexRoute
   '/admin/profile/': typeof AdminProfileIndexRoute
-  '/admin/reviews/': typeof AdminReviewsIndexRoute
+  '/admin/reports/': typeof AdminReportsIndexRoute
   '/admin/settings/': typeof AdminSettingsIndexRoute
   '/admin/users/': typeof AdminUsersIndexRoute
   '/learner/certificates/': typeof LearnerCertificatesIndexRoute
@@ -903,13 +748,6 @@ export interface FileRoutesById {
   '/learner/profile/': typeof LearnerProfileIndexRoute
   '/learner/saved/': typeof LearnerSavedIndexRoute
   '/learner/settings/': typeof LearnerSettingsIndexRoute
-  '/mentor-learner/certificates/': typeof MentorLearnerCertificatesIndexRoute
-  '/mentor-learner/community/': typeof MentorLearnerCommunityIndexRoute
-  '/mentor-learner/encyclopedia/': typeof MentorLearnerEncyclopediaIndexRoute
-  '/mentor-learner/notifications/': typeof MentorLearnerNotificationsIndexRoute
-  '/mentor-learner/profile/': typeof MentorLearnerProfileIndexRoute
-  '/mentor-learner/saved/': typeof MentorLearnerSavedIndexRoute
-  '/mentor-learner/settings/': typeof MentorLearnerSettingsIndexRoute
   '/mentor/analytics/': typeof MentorAnalyticsIndexRoute
   '/mentor/community/': typeof MentorCommunityIndexRoute
   '/mentor/courses/': typeof MentorCoursesIndexRoute
@@ -926,12 +764,6 @@ export interface FileRoutesById {
   '/learner/community/events/create': typeof LearnerCommunityEventsCreateRoute
   '/learner/courses/courses/$courseId': typeof LearnerCoursesCoursesCourseIdRoute
   '/learner/mentors/mentors/$mentorId': typeof LearnerMentorsMentorsMentorIdRoute
-  '/mentor-learner/community/discussions/$discussionId': typeof MentorLearnerCommunityDiscussionsDiscussionIdRoute
-  '/mentor-learner/community/discussions/new': typeof MentorLearnerCommunityDiscussionsNewRoute
-  '/mentor-learner/community/events/$eventId': typeof MentorLearnerCommunityEventsEventIdRouteWithChildren
-  '/mentor-learner/community/events/create': typeof MentorLearnerCommunityEventsCreateRoute
-  '/mentor-learner/courses/courses/$courseId': typeof MentorLearnerCoursesCoursesCourseIdRoute
-  '/mentor-learner/mentors/mentors/$mentorId': typeof MentorLearnerMentorsMentorsMentorIdRoute
   '/mentor/community/discussions/$discussionId': typeof MentorCommunityDiscussionsDiscussionIdRoute
   '/mentor/community/discussions/new': typeof MentorCommunityDiscussionsNewRoute
   '/mentor/community/events/$eventId': typeof MentorCommunityEventsEventIdRouteWithChildren
@@ -940,18 +772,14 @@ export interface FileRoutesById {
   '/mentor/courses/manage/$courseId': typeof MentorCoursesManageCourseIdRoute
   '/mentor/courses/manage/certificates': typeof MentorCoursesManageCertificatesRoute
   '/mentor/encyclopedia/$articleId/edit': typeof MentorEncyclopediaArticleIdEditRoute
+  '/admin/users/mentors/': typeof AdminUsersMentorsIndexRoute
   '/learner/community/discussions/': typeof LearnerCommunityDiscussionsIndexRoute
   '/learner/community/events/': typeof LearnerCommunityEventsIndexRoute
   '/learner/courses/courses/': typeof LearnerCoursesCoursesIndexRoute
   '/learner/mentors/mentors/': typeof LearnerMentorsMentorsIndexRoute
-  '/mentor-learner/community/discussions/': typeof MentorLearnerCommunityDiscussionsIndexRoute
-  '/mentor-learner/community/events/': typeof MentorLearnerCommunityEventsIndexRoute
-  '/mentor-learner/courses/courses/': typeof MentorLearnerCoursesCoursesIndexRoute
-  '/mentor-learner/mentors/mentors/': typeof MentorLearnerMentorsMentorsIndexRoute
   '/mentor/community/discussions/': typeof MentorCommunityDiscussionsIndexRoute
   '/mentor/community/events/': typeof MentorCommunityEventsIndexRoute
   '/learner/community/events/$eventId/edit': typeof LearnerCommunityEventsEventIdEditRoute
-  '/mentor-learner/community/events/$eventId/edit': typeof MentorLearnerCommunityEventsEventIdEditRoute
   '/mentor/community/events/$eventId/edit': typeof MentorCommunityEventsEventIdEditRoute
   '/mentor/courses/manage/reviews/$courseId': typeof MentorCoursesManageReviewsCourseIdRoute
 }
@@ -963,25 +791,24 @@ export interface FileRouteTypes {
     | '/login'
     | '/mentor-application-success'
     | '/register'
+    | '/support'
     | '/admin'
     | '/admin/dashboard'
     | '/learner'
     | '/learner/checkout'
     | '/learner/dashboard'
     | '/learner/payment-success'
-    | '/mentor-learner'
-    | '/mentor-learner/checkout'
-    | '/mentor-learner/dashboard'
-    | '/mentor-learner/payment-success'
     | '/mentor'
     | '/mentor/dashboard'
-    | '/admin/payments/failed'
+    | '/admin/courses/$courseId'
+    | '/admin/courses/edit'
+    | '/admin/payments/payouts'
+    | '/admin/payments/reported-content'
+    | '/admin/payments/transactions'
+    | '/admin/users/audit-logs'
     | '/learner/encyclopedia/$articleId'
     | '/learner/learn/$courseId'
     | '/learner/profile/edit'
-    | '/mentor-learner/encyclopedia/$articleId'
-    | '/mentor-learner/learn/$courseId'
-    | '/mentor-learner/profile/edit'
     | '/mentor/analytics/completion'
     | '/mentor/analytics/courses'
     | '/mentor/analytics/engagement'
@@ -991,11 +818,12 @@ export interface FileRouteTypes {
     | '/mentor/encyclopedia/create'
     | '/mentor/profile/edit'
     | '/mentor/students/$studentId'
+    | '/admin/analytics/'
     | '/admin/courses/'
-    | '/admin/mentors/'
+    | '/admin/events/'
     | '/admin/payments/'
     | '/admin/profile/'
-    | '/admin/reviews/'
+    | '/admin/reports/'
     | '/admin/settings/'
     | '/admin/users/'
     | '/learner/certificates/'
@@ -1005,13 +833,6 @@ export interface FileRouteTypes {
     | '/learner/profile/'
     | '/learner/saved/'
     | '/learner/settings/'
-    | '/mentor-learner/certificates/'
-    | '/mentor-learner/community/'
-    | '/mentor-learner/encyclopedia/'
-    | '/mentor-learner/notifications/'
-    | '/mentor-learner/profile/'
-    | '/mentor-learner/saved/'
-    | '/mentor-learner/settings/'
     | '/mentor/analytics/'
     | '/mentor/community/'
     | '/mentor/courses/'
@@ -1028,12 +849,6 @@ export interface FileRouteTypes {
     | '/learner/community/events/create'
     | '/learner/courses/courses/$courseId'
     | '/learner/mentors/mentors/$mentorId'
-    | '/mentor-learner/community/discussions/$discussionId'
-    | '/mentor-learner/community/discussions/new'
-    | '/mentor-learner/community/events/$eventId'
-    | '/mentor-learner/community/events/create'
-    | '/mentor-learner/courses/courses/$courseId'
-    | '/mentor-learner/mentors/mentors/$mentorId'
     | '/mentor/community/discussions/$discussionId'
     | '/mentor/community/discussions/new'
     | '/mentor/community/events/$eventId'
@@ -1042,18 +857,14 @@ export interface FileRouteTypes {
     | '/mentor/courses/manage/$courseId'
     | '/mentor/courses/manage/certificates'
     | '/mentor/encyclopedia/$articleId/edit'
+    | '/admin/users/mentors/'
     | '/learner/community/discussions/'
     | '/learner/community/events/'
     | '/learner/courses/courses/'
     | '/learner/mentors/mentors/'
-    | '/mentor-learner/community/discussions/'
-    | '/mentor-learner/community/events/'
-    | '/mentor-learner/courses/courses/'
-    | '/mentor-learner/mentors/mentors/'
     | '/mentor/community/discussions/'
     | '/mentor/community/events/'
     | '/learner/community/events/$eventId/edit'
-    | '/mentor-learner/community/events/$eventId/edit'
     | '/mentor/community/events/$eventId/edit'
     | '/mentor/courses/manage/reviews/$courseId'
   fileRoutesByTo: FileRoutesByTo
@@ -1063,25 +874,24 @@ export interface FileRouteTypes {
     | '/login'
     | '/mentor-application-success'
     | '/register'
+    | '/support'
     | '/admin'
     | '/admin/dashboard'
     | '/learner'
     | '/learner/checkout'
     | '/learner/dashboard'
     | '/learner/payment-success'
-    | '/mentor-learner'
-    | '/mentor-learner/checkout'
-    | '/mentor-learner/dashboard'
-    | '/mentor-learner/payment-success'
     | '/mentor'
     | '/mentor/dashboard'
-    | '/admin/payments/failed'
+    | '/admin/courses/$courseId'
+    | '/admin/courses/edit'
+    | '/admin/payments/payouts'
+    | '/admin/payments/reported-content'
+    | '/admin/payments/transactions'
+    | '/admin/users/audit-logs'
     | '/learner/encyclopedia/$articleId'
     | '/learner/learn/$courseId'
     | '/learner/profile/edit'
-    | '/mentor-learner/encyclopedia/$articleId'
-    | '/mentor-learner/learn/$courseId'
-    | '/mentor-learner/profile/edit'
     | '/mentor/analytics/completion'
     | '/mentor/analytics/courses'
     | '/mentor/analytics/engagement'
@@ -1091,11 +901,12 @@ export interface FileRouteTypes {
     | '/mentor/encyclopedia/create'
     | '/mentor/profile/edit'
     | '/mentor/students/$studentId'
+    | '/admin/analytics'
     | '/admin/courses'
-    | '/admin/mentors'
+    | '/admin/events'
     | '/admin/payments'
     | '/admin/profile'
-    | '/admin/reviews'
+    | '/admin/reports'
     | '/admin/settings'
     | '/admin/users'
     | '/learner/certificates'
@@ -1105,13 +916,6 @@ export interface FileRouteTypes {
     | '/learner/profile'
     | '/learner/saved'
     | '/learner/settings'
-    | '/mentor-learner/certificates'
-    | '/mentor-learner/community'
-    | '/mentor-learner/encyclopedia'
-    | '/mentor-learner/notifications'
-    | '/mentor-learner/profile'
-    | '/mentor-learner/saved'
-    | '/mentor-learner/settings'
     | '/mentor/analytics'
     | '/mentor/community'
     | '/mentor/courses'
@@ -1128,12 +932,6 @@ export interface FileRouteTypes {
     | '/learner/community/events/create'
     | '/learner/courses/courses/$courseId'
     | '/learner/mentors/mentors/$mentorId'
-    | '/mentor-learner/community/discussions/$discussionId'
-    | '/mentor-learner/community/discussions/new'
-    | '/mentor-learner/community/events/$eventId'
-    | '/mentor-learner/community/events/create'
-    | '/mentor-learner/courses/courses/$courseId'
-    | '/mentor-learner/mentors/mentors/$mentorId'
     | '/mentor/community/discussions/$discussionId'
     | '/mentor/community/discussions/new'
     | '/mentor/community/events/$eventId'
@@ -1142,18 +940,14 @@ export interface FileRouteTypes {
     | '/mentor/courses/manage/$courseId'
     | '/mentor/courses/manage/certificates'
     | '/mentor/encyclopedia/$articleId/edit'
+    | '/admin/users/mentors'
     | '/learner/community/discussions'
     | '/learner/community/events'
     | '/learner/courses/courses'
     | '/learner/mentors/mentors'
-    | '/mentor-learner/community/discussions'
-    | '/mentor-learner/community/events'
-    | '/mentor-learner/courses/courses'
-    | '/mentor-learner/mentors/mentors'
     | '/mentor/community/discussions'
     | '/mentor/community/events'
     | '/learner/community/events/$eventId/edit'
-    | '/mentor-learner/community/events/$eventId/edit'
     | '/mentor/community/events/$eventId/edit'
     | '/mentor/courses/manage/reviews/$courseId'
   id:
@@ -1163,25 +957,24 @@ export interface FileRouteTypes {
     | '/login'
     | '/mentor-application-success'
     | '/register'
+    | '/support'
     | '/admin/_layout'
     | '/admin/dashboard'
     | '/learner/_layout'
     | '/learner/checkout'
     | '/learner/dashboard'
     | '/learner/payment-success'
-    | '/mentor-learner/_layout'
-    | '/mentor-learner/checkout'
-    | '/mentor-learner/dashboard'
-    | '/mentor-learner/payment-success'
     | '/mentor/_layout'
     | '/mentor/dashboard'
-    | '/admin/payments/failed'
+    | '/admin/courses/$courseId'
+    | '/admin/courses/edit'
+    | '/admin/payments/payouts'
+    | '/admin/payments/reported-content'
+    | '/admin/payments/transactions'
+    | '/admin/users/audit-logs'
     | '/learner/encyclopedia/$articleId'
     | '/learner/learn/$courseId'
     | '/learner/profile/edit'
-    | '/mentor-learner/encyclopedia/$articleId'
-    | '/mentor-learner/learn/$courseId'
-    | '/mentor-learner/profile/edit'
     | '/mentor/analytics/completion'
     | '/mentor/analytics/courses'
     | '/mentor/analytics/engagement'
@@ -1191,11 +984,12 @@ export interface FileRouteTypes {
     | '/mentor/encyclopedia/create'
     | '/mentor/profile/edit'
     | '/mentor/students/$studentId'
+    | '/admin/analytics/'
     | '/admin/courses/'
-    | '/admin/mentors/'
+    | '/admin/events/'
     | '/admin/payments/'
     | '/admin/profile/'
-    | '/admin/reviews/'
+    | '/admin/reports/'
     | '/admin/settings/'
     | '/admin/users/'
     | '/learner/certificates/'
@@ -1205,13 +999,6 @@ export interface FileRouteTypes {
     | '/learner/profile/'
     | '/learner/saved/'
     | '/learner/settings/'
-    | '/mentor-learner/certificates/'
-    | '/mentor-learner/community/'
-    | '/mentor-learner/encyclopedia/'
-    | '/mentor-learner/notifications/'
-    | '/mentor-learner/profile/'
-    | '/mentor-learner/saved/'
-    | '/mentor-learner/settings/'
     | '/mentor/analytics/'
     | '/mentor/community/'
     | '/mentor/courses/'
@@ -1228,12 +1015,6 @@ export interface FileRouteTypes {
     | '/learner/community/events/create'
     | '/learner/courses/courses/$courseId'
     | '/learner/mentors/mentors/$mentorId'
-    | '/mentor-learner/community/discussions/$discussionId'
-    | '/mentor-learner/community/discussions/new'
-    | '/mentor-learner/community/events/$eventId'
-    | '/mentor-learner/community/events/create'
-    | '/mentor-learner/courses/courses/$courseId'
-    | '/mentor-learner/mentors/mentors/$mentorId'
     | '/mentor/community/discussions/$discussionId'
     | '/mentor/community/discussions/new'
     | '/mentor/community/events/$eventId'
@@ -1242,18 +1023,14 @@ export interface FileRouteTypes {
     | '/mentor/courses/manage/$courseId'
     | '/mentor/courses/manage/certificates'
     | '/mentor/encyclopedia/$articleId/edit'
+    | '/admin/users/mentors/'
     | '/learner/community/discussions/'
     | '/learner/community/events/'
     | '/learner/courses/courses/'
     | '/learner/mentors/mentors/'
-    | '/mentor-learner/community/discussions/'
-    | '/mentor-learner/community/events/'
-    | '/mentor-learner/courses/courses/'
-    | '/mentor-learner/mentors/mentors/'
     | '/mentor/community/discussions/'
     | '/mentor/community/events/'
     | '/learner/community/events/$eventId/edit'
-    | '/mentor-learner/community/events/$eventId/edit'
     | '/mentor/community/events/$eventId/edit'
     | '/mentor/courses/manage/reviews/$courseId'
   fileRoutesById: FileRoutesById
@@ -1264,25 +1041,24 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   MentorApplicationSuccessRoute: typeof MentorApplicationSuccessRoute
   RegisterRoute: typeof RegisterRoute
+  SupportRoute: typeof SupportRoute
   AdminLayoutRoute: typeof AdminLayoutRoute
   AdminDashboardRoute: typeof AdminDashboardRoute
   LearnerLayoutRoute: typeof LearnerLayoutRoute
   LearnerCheckoutRoute: typeof LearnerCheckoutRoute
   LearnerDashboardRoute: typeof LearnerDashboardRoute
   LearnerPaymentSuccessRoute: typeof LearnerPaymentSuccessRoute
-  MentorLearnerLayoutRoute: typeof MentorLearnerLayoutRoute
-  MentorLearnerCheckoutRoute: typeof MentorLearnerCheckoutRoute
-  MentorLearnerDashboardRoute: typeof MentorLearnerDashboardRoute
-  MentorLearnerPaymentSuccessRoute: typeof MentorLearnerPaymentSuccessRoute
   MentorLayoutRoute: typeof MentorLayoutRoute
   MentorDashboardRoute: typeof MentorDashboardRoute
-  AdminPaymentsFailedRoute: typeof AdminPaymentsFailedRoute
+  AdminCoursesCourseIdRoute: typeof AdminCoursesCourseIdRoute
+  AdminCoursesEditRoute: typeof AdminCoursesEditRoute
+  AdminPaymentsPayoutsRoute: typeof AdminPaymentsPayoutsRoute
+  AdminPaymentsReportedContentRoute: typeof AdminPaymentsReportedContentRoute
+  AdminPaymentsTransactionsRoute: typeof AdminPaymentsTransactionsRoute
+  AdminUsersAuditLogsRoute: typeof AdminUsersAuditLogsRoute
   LearnerEncyclopediaArticleIdRoute: typeof LearnerEncyclopediaArticleIdRoute
   LearnerLearnCourseIdRoute: typeof LearnerLearnCourseIdRoute
   LearnerProfileEditRoute: typeof LearnerProfileEditRoute
-  MentorLearnerEncyclopediaArticleIdRoute: typeof MentorLearnerEncyclopediaArticleIdRoute
-  MentorLearnerLearnCourseIdRoute: typeof MentorLearnerLearnCourseIdRoute
-  MentorLearnerProfileEditRoute: typeof MentorLearnerProfileEditRoute
   MentorAnalyticsCompletionRoute: typeof MentorAnalyticsCompletionRoute
   MentorAnalyticsCoursesRoute: typeof MentorAnalyticsCoursesRoute
   MentorAnalyticsEngagementRoute: typeof MentorAnalyticsEngagementRoute
@@ -1292,11 +1068,12 @@ export interface RootRouteChildren {
   MentorEncyclopediaCreateRoute: typeof MentorEncyclopediaCreateRoute
   MentorProfileEditRoute: typeof MentorProfileEditRoute
   MentorStudentsStudentIdRoute: typeof MentorStudentsStudentIdRoute
+  AdminAnalyticsIndexRoute: typeof AdminAnalyticsIndexRoute
   AdminCoursesIndexRoute: typeof AdminCoursesIndexRoute
-  AdminMentorsIndexRoute: typeof AdminMentorsIndexRoute
+  AdminEventsIndexRoute: typeof AdminEventsIndexRoute
   AdminPaymentsIndexRoute: typeof AdminPaymentsIndexRoute
   AdminProfileIndexRoute: typeof AdminProfileIndexRoute
-  AdminReviewsIndexRoute: typeof AdminReviewsIndexRoute
+  AdminReportsIndexRoute: typeof AdminReportsIndexRoute
   AdminSettingsIndexRoute: typeof AdminSettingsIndexRoute
   AdminUsersIndexRoute: typeof AdminUsersIndexRoute
   LearnerCertificatesIndexRoute: typeof LearnerCertificatesIndexRoute
@@ -1306,13 +1083,6 @@ export interface RootRouteChildren {
   LearnerProfileIndexRoute: typeof LearnerProfileIndexRoute
   LearnerSavedIndexRoute: typeof LearnerSavedIndexRoute
   LearnerSettingsIndexRoute: typeof LearnerSettingsIndexRoute
-  MentorLearnerCertificatesIndexRoute: typeof MentorLearnerCertificatesIndexRoute
-  MentorLearnerCommunityIndexRoute: typeof MentorLearnerCommunityIndexRoute
-  MentorLearnerEncyclopediaIndexRoute: typeof MentorLearnerEncyclopediaIndexRoute
-  MentorLearnerNotificationsIndexRoute: typeof MentorLearnerNotificationsIndexRoute
-  MentorLearnerProfileIndexRoute: typeof MentorLearnerProfileIndexRoute
-  MentorLearnerSavedIndexRoute: typeof MentorLearnerSavedIndexRoute
-  MentorLearnerSettingsIndexRoute: typeof MentorLearnerSettingsIndexRoute
   MentorAnalyticsIndexRoute: typeof MentorAnalyticsIndexRoute
   MentorCommunityIndexRoute: typeof MentorCommunityIndexRoute
   MentorCoursesIndexRoute: typeof MentorCoursesIndexRoute
@@ -1329,12 +1099,6 @@ export interface RootRouteChildren {
   LearnerCommunityEventsCreateRoute: typeof LearnerCommunityEventsCreateRoute
   LearnerCoursesCoursesCourseIdRoute: typeof LearnerCoursesCoursesCourseIdRoute
   LearnerMentorsMentorsMentorIdRoute: typeof LearnerMentorsMentorsMentorIdRoute
-  MentorLearnerCommunityDiscussionsDiscussionIdRoute: typeof MentorLearnerCommunityDiscussionsDiscussionIdRoute
-  MentorLearnerCommunityDiscussionsNewRoute: typeof MentorLearnerCommunityDiscussionsNewRoute
-  MentorLearnerCommunityEventsEventIdRoute: typeof MentorLearnerCommunityEventsEventIdRouteWithChildren
-  MentorLearnerCommunityEventsCreateRoute: typeof MentorLearnerCommunityEventsCreateRoute
-  MentorLearnerCoursesCoursesCourseIdRoute: typeof MentorLearnerCoursesCoursesCourseIdRoute
-  MentorLearnerMentorsMentorsMentorIdRoute: typeof MentorLearnerMentorsMentorsMentorIdRoute
   MentorCommunityDiscussionsDiscussionIdRoute: typeof MentorCommunityDiscussionsDiscussionIdRoute
   MentorCommunityDiscussionsNewRoute: typeof MentorCommunityDiscussionsNewRoute
   MentorCommunityEventsEventIdRoute: typeof MentorCommunityEventsEventIdRouteWithChildren
@@ -1342,14 +1106,11 @@ export interface RootRouteChildren {
   MentorCoursesEditCourseIdRoute: typeof MentorCoursesEditCourseIdRoute
   MentorCoursesManageCourseIdRoute: typeof MentorCoursesManageCourseIdRoute
   MentorCoursesManageCertificatesRoute: typeof MentorCoursesManageCertificatesRoute
+  AdminUsersMentorsIndexRoute: typeof AdminUsersMentorsIndexRoute
   LearnerCommunityDiscussionsIndexRoute: typeof LearnerCommunityDiscussionsIndexRoute
   LearnerCommunityEventsIndexRoute: typeof LearnerCommunityEventsIndexRoute
   LearnerCoursesCoursesIndexRoute: typeof LearnerCoursesCoursesIndexRoute
   LearnerMentorsMentorsIndexRoute: typeof LearnerMentorsMentorsIndexRoute
-  MentorLearnerCommunityDiscussionsIndexRoute: typeof MentorLearnerCommunityDiscussionsIndexRoute
-  MentorLearnerCommunityEventsIndexRoute: typeof MentorLearnerCommunityEventsIndexRoute
-  MentorLearnerCoursesCoursesIndexRoute: typeof MentorLearnerCoursesCoursesIndexRoute
-  MentorLearnerMentorsMentorsIndexRoute: typeof MentorLearnerMentorsMentorsIndexRoute
   MentorCommunityDiscussionsIndexRoute: typeof MentorCommunityDiscussionsIndexRoute
   MentorCommunityEventsIndexRoute: typeof MentorCommunityEventsIndexRoute
   MentorCoursesManageReviewsCourseIdRoute: typeof MentorCoursesManageReviewsCourseIdRoute
@@ -1357,6 +1118,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/register': {
       id: '/register'
       path: '/register'
@@ -1404,34 +1172,6 @@ declare module '@tanstack/react-router' {
       path: '/mentor'
       fullPath: '/mentor'
       preLoaderRoute: typeof MentorLayoutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/payment-success': {
-      id: '/mentor-learner/payment-success'
-      path: '/mentor-learner/payment-success'
-      fullPath: '/mentor-learner/payment-success'
-      preLoaderRoute: typeof MentorLearnerPaymentSuccessRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/dashboard': {
-      id: '/mentor-learner/dashboard'
-      path: '/mentor-learner/dashboard'
-      fullPath: '/mentor-learner/dashboard'
-      preLoaderRoute: typeof MentorLearnerDashboardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/checkout': {
-      id: '/mentor-learner/checkout'
-      path: '/mentor-learner/checkout'
-      fullPath: '/mentor-learner/checkout'
-      preLoaderRoute: typeof MentorLearnerCheckoutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/_layout': {
-      id: '/mentor-learner/_layout'
-      path: '/mentor-learner'
-      fullPath: '/mentor-learner'
-      preLoaderRoute: typeof MentorLearnerLayoutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/learner/payment-success': {
@@ -1546,55 +1286,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MentorAnalyticsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/mentor-learner/settings/': {
-      id: '/mentor-learner/settings/'
-      path: '/mentor-learner/settings'
-      fullPath: '/mentor-learner/settings/'
-      preLoaderRoute: typeof MentorLearnerSettingsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/saved/': {
-      id: '/mentor-learner/saved/'
-      path: '/mentor-learner/saved'
-      fullPath: '/mentor-learner/saved/'
-      preLoaderRoute: typeof MentorLearnerSavedIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/profile/': {
-      id: '/mentor-learner/profile/'
-      path: '/mentor-learner/profile'
-      fullPath: '/mentor-learner/profile/'
-      preLoaderRoute: typeof MentorLearnerProfileIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/notifications/': {
-      id: '/mentor-learner/notifications/'
-      path: '/mentor-learner/notifications'
-      fullPath: '/mentor-learner/notifications/'
-      preLoaderRoute: typeof MentorLearnerNotificationsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/encyclopedia/': {
-      id: '/mentor-learner/encyclopedia/'
-      path: '/mentor-learner/encyclopedia'
-      fullPath: '/mentor-learner/encyclopedia/'
-      preLoaderRoute: typeof MentorLearnerEncyclopediaIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/community/': {
-      id: '/mentor-learner/community/'
-      path: '/mentor-learner/community'
-      fullPath: '/mentor-learner/community/'
-      preLoaderRoute: typeof MentorLearnerCommunityIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/certificates/': {
-      id: '/mentor-learner/certificates/'
-      path: '/mentor-learner/certificates'
-      fullPath: '/mentor-learner/certificates/'
-      preLoaderRoute: typeof MentorLearnerCertificatesIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/learner/settings/': {
       id: '/learner/settings/'
       path: '/learner/settings'
@@ -1658,11 +1349,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminSettingsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/reviews/': {
-      id: '/admin/reviews/'
-      path: '/admin/reviews'
-      fullPath: '/admin/reviews/'
-      preLoaderRoute: typeof AdminReviewsIndexRouteImport
+    '/admin/reports/': {
+      id: '/admin/reports/'
+      path: '/admin/reports'
+      fullPath: '/admin/reports/'
+      preLoaderRoute: typeof AdminReportsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/profile/': {
@@ -1679,11 +1370,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminPaymentsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/mentors/': {
-      id: '/admin/mentors/'
-      path: '/admin/mentors'
-      fullPath: '/admin/mentors/'
-      preLoaderRoute: typeof AdminMentorsIndexRouteImport
+    '/admin/events/': {
+      id: '/admin/events/'
+      path: '/admin/events'
+      fullPath: '/admin/events/'
+      preLoaderRoute: typeof AdminEventsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/courses/': {
@@ -1691,6 +1382,13 @@ declare module '@tanstack/react-router' {
       path: '/admin/courses'
       fullPath: '/admin/courses/'
       preLoaderRoute: typeof AdminCoursesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/analytics/': {
+      id: '/admin/analytics/'
+      path: '/admin/analytics'
+      fullPath: '/admin/analytics/'
+      preLoaderRoute: typeof AdminAnalyticsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mentor/students/$studentId': {
@@ -1756,27 +1454,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MentorAnalyticsCompletionRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/mentor-learner/profile/edit': {
-      id: '/mentor-learner/profile/edit'
-      path: '/mentor-learner/profile/edit'
-      fullPath: '/mentor-learner/profile/edit'
-      preLoaderRoute: typeof MentorLearnerProfileEditRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/learn/$courseId': {
-      id: '/mentor-learner/learn/$courseId'
-      path: '/mentor-learner/learn/$courseId'
-      fullPath: '/mentor-learner/learn/$courseId'
-      preLoaderRoute: typeof MentorLearnerLearnCourseIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/encyclopedia/$articleId': {
-      id: '/mentor-learner/encyclopedia/$articleId'
-      path: '/mentor-learner/encyclopedia/$articleId'
-      fullPath: '/mentor-learner/encyclopedia/$articleId'
-      preLoaderRoute: typeof MentorLearnerEncyclopediaArticleIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/learner/profile/edit': {
       id: '/learner/profile/edit'
       path: '/learner/profile/edit'
@@ -1798,11 +1475,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LearnerEncyclopediaArticleIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/payments/failed': {
-      id: '/admin/payments/failed'
-      path: '/admin/payments/failed'
-      fullPath: '/admin/payments/failed'
-      preLoaderRoute: typeof AdminPaymentsFailedRouteImport
+    '/admin/users/audit-logs': {
+      id: '/admin/users/audit-logs'
+      path: '/admin/users/audit-logs'
+      fullPath: '/admin/users/audit-logs'
+      preLoaderRoute: typeof AdminUsersAuditLogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/payments/transactions': {
+      id: '/admin/payments/transactions'
+      path: '/admin/payments/transactions'
+      fullPath: '/admin/payments/transactions'
+      preLoaderRoute: typeof AdminPaymentsTransactionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/payments/reported-content': {
+      id: '/admin/payments/reported-content'
+      path: '/admin/payments/reported-content'
+      fullPath: '/admin/payments/reported-content'
+      preLoaderRoute: typeof AdminPaymentsReportedContentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/payments/payouts': {
+      id: '/admin/payments/payouts'
+      path: '/admin/payments/payouts'
+      fullPath: '/admin/payments/payouts'
+      preLoaderRoute: typeof AdminPaymentsPayoutsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/courses/edit': {
+      id: '/admin/courses/edit'
+      path: '/admin/courses/edit'
+      fullPath: '/admin/courses/edit'
+      preLoaderRoute: typeof AdminCoursesEditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/courses/$courseId': {
+      id: '/admin/courses/$courseId'
+      path: '/admin/courses/$courseId'
+      fullPath: '/admin/courses/$courseId'
+      preLoaderRoute: typeof AdminCoursesCourseIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mentor/community/events/': {
@@ -1817,34 +1529,6 @@ declare module '@tanstack/react-router' {
       path: '/mentor/community/discussions'
       fullPath: '/mentor/community/discussions/'
       preLoaderRoute: typeof MentorCommunityDiscussionsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/mentors/mentors/': {
-      id: '/mentor-learner/mentors/mentors/'
-      path: '/mentor-learner/mentors/mentors'
-      fullPath: '/mentor-learner/mentors/mentors/'
-      preLoaderRoute: typeof MentorLearnerMentorsMentorsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/courses/courses/': {
-      id: '/mentor-learner/courses/courses/'
-      path: '/mentor-learner/courses/courses'
-      fullPath: '/mentor-learner/courses/courses/'
-      preLoaderRoute: typeof MentorLearnerCoursesCoursesIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/community/events/': {
-      id: '/mentor-learner/community/events/'
-      path: '/mentor-learner/community/events'
-      fullPath: '/mentor-learner/community/events/'
-      preLoaderRoute: typeof MentorLearnerCommunityEventsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/community/discussions/': {
-      id: '/mentor-learner/community/discussions/'
-      path: '/mentor-learner/community/discussions'
-      fullPath: '/mentor-learner/community/discussions/'
-      preLoaderRoute: typeof MentorLearnerCommunityDiscussionsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/learner/mentors/mentors/': {
@@ -1873,6 +1557,13 @@ declare module '@tanstack/react-router' {
       path: '/learner/community/discussions'
       fullPath: '/learner/community/discussions/'
       preLoaderRoute: typeof LearnerCommunityDiscussionsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/users/mentors/': {
+      id: '/admin/users/mentors/'
+      path: '/admin/users/mentors'
+      fullPath: '/admin/users/mentors/'
+      preLoaderRoute: typeof AdminUsersMentorsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mentor/encyclopedia/$articleId/edit': {
@@ -1931,48 +1622,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MentorCommunityDiscussionsDiscussionIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/mentor-learner/mentors/mentors/$mentorId': {
-      id: '/mentor-learner/mentors/mentors/$mentorId'
-      path: '/mentor-learner/mentors/mentors/$mentorId'
-      fullPath: '/mentor-learner/mentors/mentors/$mentorId'
-      preLoaderRoute: typeof MentorLearnerMentorsMentorsMentorIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/courses/courses/$courseId': {
-      id: '/mentor-learner/courses/courses/$courseId'
-      path: '/mentor-learner/courses/courses/$courseId'
-      fullPath: '/mentor-learner/courses/courses/$courseId'
-      preLoaderRoute: typeof MentorLearnerCoursesCoursesCourseIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/community/events/create': {
-      id: '/mentor-learner/community/events/create'
-      path: '/mentor-learner/community/events/create'
-      fullPath: '/mentor-learner/community/events/create'
-      preLoaderRoute: typeof MentorLearnerCommunityEventsCreateRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/community/events/$eventId': {
-      id: '/mentor-learner/community/events/$eventId'
-      path: '/mentor-learner/community/events/$eventId'
-      fullPath: '/mentor-learner/community/events/$eventId'
-      preLoaderRoute: typeof MentorLearnerCommunityEventsEventIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/community/discussions/new': {
-      id: '/mentor-learner/community/discussions/new'
-      path: '/mentor-learner/community/discussions/new'
-      fullPath: '/mentor-learner/community/discussions/new'
-      preLoaderRoute: typeof MentorLearnerCommunityDiscussionsNewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/mentor-learner/community/discussions/$discussionId': {
-      id: '/mentor-learner/community/discussions/$discussionId'
-      path: '/mentor-learner/community/discussions/$discussionId'
-      fullPath: '/mentor-learner/community/discussions/$discussionId'
-      preLoaderRoute: typeof MentorLearnerCommunityDiscussionsDiscussionIdRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/learner/mentors/mentors/$mentorId': {
       id: '/learner/mentors/mentors/$mentorId'
       path: '/learner/mentors/mentors/$mentorId'
@@ -2029,13 +1678,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MentorCommunityEventsEventIdEditRouteImport
       parentRoute: typeof MentorCommunityEventsEventIdRoute
     }
-    '/mentor-learner/community/events/$eventId/edit': {
-      id: '/mentor-learner/community/events/$eventId/edit'
-      path: '/edit'
-      fullPath: '/mentor-learner/community/events/$eventId/edit'
-      preLoaderRoute: typeof MentorLearnerCommunityEventsEventIdEditRouteImport
-      parentRoute: typeof MentorLearnerCommunityEventsEventIdRoute
-    }
     '/learner/community/events/$eventId/edit': {
       id: '/learner/community/events/$eventId/edit'
       path: '/edit'
@@ -2075,21 +1717,6 @@ const LearnerCommunityEventsEventIdRouteWithChildren =
     LearnerCommunityEventsEventIdRouteChildren,
   )
 
-interface MentorLearnerCommunityEventsEventIdRouteChildren {
-  MentorLearnerCommunityEventsEventIdEditRoute: typeof MentorLearnerCommunityEventsEventIdEditRoute
-}
-
-const MentorLearnerCommunityEventsEventIdRouteChildren: MentorLearnerCommunityEventsEventIdRouteChildren =
-  {
-    MentorLearnerCommunityEventsEventIdEditRoute:
-      MentorLearnerCommunityEventsEventIdEditRoute,
-  }
-
-const MentorLearnerCommunityEventsEventIdRouteWithChildren =
-  MentorLearnerCommunityEventsEventIdRoute._addFileChildren(
-    MentorLearnerCommunityEventsEventIdRouteChildren,
-  )
-
 interface MentorCommunityEventsEventIdRouteChildren {
   MentorCommunityEventsEventIdEditRoute: typeof MentorCommunityEventsEventIdEditRoute
 }
@@ -2111,26 +1738,24 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   MentorApplicationSuccessRoute: MentorApplicationSuccessRoute,
   RegisterRoute: RegisterRoute,
+  SupportRoute: SupportRoute,
   AdminLayoutRoute: AdminLayoutRoute,
   AdminDashboardRoute: AdminDashboardRoute,
   LearnerLayoutRoute: LearnerLayoutRoute,
   LearnerCheckoutRoute: LearnerCheckoutRoute,
   LearnerDashboardRoute: LearnerDashboardRoute,
   LearnerPaymentSuccessRoute: LearnerPaymentSuccessRoute,
-  MentorLearnerLayoutRoute: MentorLearnerLayoutRoute,
-  MentorLearnerCheckoutRoute: MentorLearnerCheckoutRoute,
-  MentorLearnerDashboardRoute: MentorLearnerDashboardRoute,
-  MentorLearnerPaymentSuccessRoute: MentorLearnerPaymentSuccessRoute,
   MentorLayoutRoute: MentorLayoutRoute,
   MentorDashboardRoute: MentorDashboardRoute,
-  AdminPaymentsFailedRoute: AdminPaymentsFailedRoute,
+  AdminCoursesCourseIdRoute: AdminCoursesCourseIdRoute,
+  AdminCoursesEditRoute: AdminCoursesEditRoute,
+  AdminPaymentsPayoutsRoute: AdminPaymentsPayoutsRoute,
+  AdminPaymentsReportedContentRoute: AdminPaymentsReportedContentRoute,
+  AdminPaymentsTransactionsRoute: AdminPaymentsTransactionsRoute,
+  AdminUsersAuditLogsRoute: AdminUsersAuditLogsRoute,
   LearnerEncyclopediaArticleIdRoute: LearnerEncyclopediaArticleIdRoute,
   LearnerLearnCourseIdRoute: LearnerLearnCourseIdRoute,
   LearnerProfileEditRoute: LearnerProfileEditRoute,
-  MentorLearnerEncyclopediaArticleIdRoute:
-    MentorLearnerEncyclopediaArticleIdRoute,
-  MentorLearnerLearnCourseIdRoute: MentorLearnerLearnCourseIdRoute,
-  MentorLearnerProfileEditRoute: MentorLearnerProfileEditRoute,
   MentorAnalyticsCompletionRoute: MentorAnalyticsCompletionRoute,
   MentorAnalyticsCoursesRoute: MentorAnalyticsCoursesRoute,
   MentorAnalyticsEngagementRoute: MentorAnalyticsEngagementRoute,
@@ -2141,11 +1766,12 @@ const rootRouteChildren: RootRouteChildren = {
   MentorEncyclopediaCreateRoute: MentorEncyclopediaCreateRoute,
   MentorProfileEditRoute: MentorProfileEditRoute,
   MentorStudentsStudentIdRoute: MentorStudentsStudentIdRoute,
+  AdminAnalyticsIndexRoute: AdminAnalyticsIndexRoute,
   AdminCoursesIndexRoute: AdminCoursesIndexRoute,
-  AdminMentorsIndexRoute: AdminMentorsIndexRoute,
+  AdminEventsIndexRoute: AdminEventsIndexRoute,
   AdminPaymentsIndexRoute: AdminPaymentsIndexRoute,
   AdminProfileIndexRoute: AdminProfileIndexRoute,
-  AdminReviewsIndexRoute: AdminReviewsIndexRoute,
+  AdminReportsIndexRoute: AdminReportsIndexRoute,
   AdminSettingsIndexRoute: AdminSettingsIndexRoute,
   AdminUsersIndexRoute: AdminUsersIndexRoute,
   LearnerCertificatesIndexRoute: LearnerCertificatesIndexRoute,
@@ -2155,13 +1781,6 @@ const rootRouteChildren: RootRouteChildren = {
   LearnerProfileIndexRoute: LearnerProfileIndexRoute,
   LearnerSavedIndexRoute: LearnerSavedIndexRoute,
   LearnerSettingsIndexRoute: LearnerSettingsIndexRoute,
-  MentorLearnerCertificatesIndexRoute: MentorLearnerCertificatesIndexRoute,
-  MentorLearnerCommunityIndexRoute: MentorLearnerCommunityIndexRoute,
-  MentorLearnerEncyclopediaIndexRoute: MentorLearnerEncyclopediaIndexRoute,
-  MentorLearnerNotificationsIndexRoute: MentorLearnerNotificationsIndexRoute,
-  MentorLearnerProfileIndexRoute: MentorLearnerProfileIndexRoute,
-  MentorLearnerSavedIndexRoute: MentorLearnerSavedIndexRoute,
-  MentorLearnerSettingsIndexRoute: MentorLearnerSettingsIndexRoute,
   MentorAnalyticsIndexRoute: MentorAnalyticsIndexRoute,
   MentorCommunityIndexRoute: MentorCommunityIndexRoute,
   MentorCoursesIndexRoute: MentorCoursesIndexRoute,
@@ -2180,18 +1799,6 @@ const rootRouteChildren: RootRouteChildren = {
   LearnerCommunityEventsCreateRoute: LearnerCommunityEventsCreateRoute,
   LearnerCoursesCoursesCourseIdRoute: LearnerCoursesCoursesCourseIdRoute,
   LearnerMentorsMentorsMentorIdRoute: LearnerMentorsMentorsMentorIdRoute,
-  MentorLearnerCommunityDiscussionsDiscussionIdRoute:
-    MentorLearnerCommunityDiscussionsDiscussionIdRoute,
-  MentorLearnerCommunityDiscussionsNewRoute:
-    MentorLearnerCommunityDiscussionsNewRoute,
-  MentorLearnerCommunityEventsEventIdRoute:
-    MentorLearnerCommunityEventsEventIdRouteWithChildren,
-  MentorLearnerCommunityEventsCreateRoute:
-    MentorLearnerCommunityEventsCreateRoute,
-  MentorLearnerCoursesCoursesCourseIdRoute:
-    MentorLearnerCoursesCoursesCourseIdRoute,
-  MentorLearnerMentorsMentorsMentorIdRoute:
-    MentorLearnerMentorsMentorsMentorIdRoute,
   MentorCommunityDiscussionsDiscussionIdRoute:
     MentorCommunityDiscussionsDiscussionIdRoute,
   MentorCommunityDiscussionsNewRoute: MentorCommunityDiscussionsNewRoute,
@@ -2201,16 +1808,11 @@ const rootRouteChildren: RootRouteChildren = {
   MentorCoursesEditCourseIdRoute: MentorCoursesEditCourseIdRoute,
   MentorCoursesManageCourseIdRoute: MentorCoursesManageCourseIdRoute,
   MentorCoursesManageCertificatesRoute: MentorCoursesManageCertificatesRoute,
+  AdminUsersMentorsIndexRoute: AdminUsersMentorsIndexRoute,
   LearnerCommunityDiscussionsIndexRoute: LearnerCommunityDiscussionsIndexRoute,
   LearnerCommunityEventsIndexRoute: LearnerCommunityEventsIndexRoute,
   LearnerCoursesCoursesIndexRoute: LearnerCoursesCoursesIndexRoute,
   LearnerMentorsMentorsIndexRoute: LearnerMentorsMentorsIndexRoute,
-  MentorLearnerCommunityDiscussionsIndexRoute:
-    MentorLearnerCommunityDiscussionsIndexRoute,
-  MentorLearnerCommunityEventsIndexRoute:
-    MentorLearnerCommunityEventsIndexRoute,
-  MentorLearnerCoursesCoursesIndexRoute: MentorLearnerCoursesCoursesIndexRoute,
-  MentorLearnerMentorsMentorsIndexRoute: MentorLearnerMentorsMentorsIndexRoute,
   MentorCommunityDiscussionsIndexRoute: MentorCommunityDiscussionsIndexRoute,
   MentorCommunityEventsIndexRoute: MentorCommunityEventsIndexRoute,
   MentorCoursesManageReviewsCourseIdRoute:

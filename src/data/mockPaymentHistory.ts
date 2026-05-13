@@ -30,7 +30,7 @@ export const MOCK_PAYMENT_HISTORY: PaymentHistory[] = [
     courseTitle: "Philippine History and Heritage Masterclass",
     studentName: "Jose Miguel Dela Cruz",
     amount: 880,
-    status: "completed",
+    status: "pending",
     transactionId: "TXN-20240314-002",
     paymentMethod: "paymaya",
   },
@@ -52,7 +52,7 @@ export const MOCK_PAYMENT_HISTORY: PaymentHistory[] = [
     courseTitle: "Traditional Filipino Arts and Crafts",
     studentName: "Carlos Alberto Mendoza",
     amount: 300,
-    status: "completed",
+    status: "pending",
     transactionId: "TXN-20240310-004",
     paymentMethod: "gcash",
   },
@@ -227,3 +227,40 @@ export const getPaymentSummary = () => {
     successRate: totalTransactions > 0 ? (completedTransactions / totalTransactions) * 100 : 0,
   };
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
