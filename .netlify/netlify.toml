@@ -1,6 +1,8 @@
-redirectsOrigin = "config"
 plugins = []
+functionsDirectory = "C:\\Sandiwa Project\\Sandiwa2\\netlify\\functions"
+functionsDirectoryOrigin = "config-v1"
 headers = []
+redirects = []
 
 [functions]
 
@@ -8,9 +10,10 @@ headers = []
 
 [build]
 publish = "C:\\Sandiwa Project\\Sandiwa2\\dist\\client"
-publishOrigin = "ui"
-commandOrigin = "ui"
+publishOrigin = "config"
+commandOrigin = "config"
 command = "npm run build"
+functions = "C:\\Sandiwa Project\\Sandiwa2\\netlify\\functions"
 
 [build.environment]
 
@@ -25,15 +28,3 @@ command = "npm run build"
 [build.processing.js]
 
 [build.services]
-
-[[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200.0
-force = false
-
-[redirects.query]
-
-[redirects.conditions]
-
-[redirects.headers]
