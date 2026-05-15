@@ -1,8 +1,8 @@
+redirectsOrigin = "config"
 plugins = []
-functionsDirectory = "C:\\Sandiwa Project\\Sandiwa2\\netlify\\functions"
-functionsDirectoryOrigin = "config-v1"
+functionsDirectory = "C:\\Sandiwa Project\\Sandiwa2\\.netlify\\v1\\functions"
+functionsDirectoryOrigin = "config"
 headers = []
-redirects = []
 
 [functions]
 
@@ -13,7 +13,7 @@ publish = "C:\\Sandiwa Project\\Sandiwa2\\dist\\client"
 publishOrigin = "config"
 commandOrigin = "config"
 command = "npm run build"
-functions = "C:\\Sandiwa Project\\Sandiwa2\\netlify\\functions"
+functions = "C:\\Sandiwa Project\\Sandiwa2\\.netlify\\v1\\functions"
 
 [build.environment]
 
@@ -28,3 +28,87 @@ functions = "C:\\Sandiwa Project\\Sandiwa2\\netlify\\functions"
 [build.processing.js]
 
 [build.services]
+
+[[redirects]]
+from = "/*.jpg"
+to = "/:splat.jpg"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/*.png"
+to = "/:splat.png"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/*.ico"
+to = "/:splat.ico"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/*"
+to = "/.netlify/functions/server"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/assets/*"
+to = "/assets/:splat"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/*"
+to = "/:splat"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/*"
+to = "/.netlify/functions/server"
+status = 200.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]

@@ -350,3 +350,6 @@ export const getFeaturedArticles = (limit: number = 3): EncyclopediaArticle[] =>
     .sort((a, b) => (b.views || 0) - (a.views || 0))
     .slice(0, limit);
 };
+
+
+export const mockEncyclopedia = encyclopediaArticles;

@@ -1,13 +1,19 @@
 {
-  "functions": {
-    "server/server.js": {
-      "runtime": "@vercel/node@2"
-    }
-  },
-  "rewrites": [
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/server/server.js"
+      "src": "/_tanstack-start/(.*)",
+      "dest": "/dist/server/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/client/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/server/server.js"
     }
   ]
 }

@@ -1,1 +1,22 @@
-{}
+{
+	"dbConnectionString": "postgres://localhost:58852/postgres",
+	"geolocation": {
+		"data": {
+			"city": "Davao City",
+			"country": {
+				"code": "PH",
+				"name": "Philippines"
+			},
+			"subdivision": {
+				"code": "11",
+				"name": "Davao Region"
+			},
+			"timezone": "Asia/Manila",
+			"latitude": 7.0712,
+			"longitude": 125.6089,
+			"postalCode": "8000"
+		},
+		"timestamp": 1778876980173
+	},
+	"siteId": "96837351-8fca-4a57-9fac-44d6e6880726"
+}

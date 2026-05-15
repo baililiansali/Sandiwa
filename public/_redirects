@@ -1,0 +1,10 @@
+# Static assets - serve directly
+/assets/* /assets/:splat 200
+
+# Images
+/*.jpg /:splat.jpg 200
+/*.png /:splat.png 200
+/*.ico /:splat.ico 200
+
+# Everything else goes to the SSR function
+/* /.netlify/functions/server 200
